@@ -14,6 +14,12 @@ const urls = {
     "https://devchat.tv/ruby-rogues/rr-356-geospatial-programming-in-ruby-with-daniel-azuma-and-tee-perham",
 };
 
+const css = {
+  h1: "text-opacity-90 dark:text-yellow-400",
+  h2: "text-opacity-80 dark:text-blue-400",
+  h3: "text-blue-800 dark:text-yellow-200",
+};
+
 const Arrow = () => {
   return (
     <span
@@ -32,8 +38,9 @@ interface LinkProps {
 const Link = ({ href, children }: LinkProps) => {
   return (
     <a
+      className="underline text-blue-900 dark:text-blue-300 underline-offset-2 hover:decoration-2"
       href={href}
-      className="underline text-blue-700 dark:text-blue-300 underline-offset-2 hover:decoration-2"
+      target="_blank"
     >
       {children}
     </a>
@@ -45,14 +52,12 @@ export default function Home() {
     <main className="container flex min-h-screen flex-col items-center justify-between py-8">
       <div className="">
         <div className="mb-8 text-left">
-          <h1 className="text-opacity-90 dark:text-yellow-400">Tee Parham</h1>
-          <h2 className="text-opacity-70 dark:text-blue-400">
-            Idealist, code writer, technical leader.
-          </h2>
+          <h1 className={css.h1}>Tee Parham</h1>
+          <h2 className={css.h2}>Idealist, code writer, technical leader</h2>
         </div>
         <div className="text-left leading-relaxed">
           <section className="mb-8">
-            <h3 className="text-blue-400 dark:text-yellow-200">Work</h3>
+            <h3 className={css.h3}>Work</h3>
             <ul>
               <li className="mb-3">
                 I was the technical lead for the Public Agencies Pillar and the
@@ -99,15 +104,15 @@ export default function Home() {
             </ul>
           </section>
           <section className="mb-8">
-            <h3 className="text-blue-400 dark:text-yellow-200">Internet</h3>
-            <div className="text-4xl dark:text-yellow-400">
-              <a
-                className="icon-github mr-3"
-                href="https://github.com/teeparham/"
-              ></a>
+            <h3 className={css.h3}>Internet</h3>
+            <div className="text-4xl text-blue-800 dark:text-yellow-400">
               <a
                 className="icon-linkedin mr-3"
                 href="https://www.linkedin.com/in/teeparham"
+              ></a>
+              <a
+                className="icon-github mr-3"
+                href="https://github.com/teeparham/"
               ></a>
               <a
                 className="icon-twitter mr-3"
@@ -120,9 +125,7 @@ export default function Home() {
             </div>
           </section>
           <section className="mb-8">
-            <h3 className="text-blue-400 dark:text-yellow-200">
-              Open source projects in ruby
-            </h3>
+            <h3 className={css.h3}>Open source projects</h3>
             <ul>
               <li className="mb-3">
                 <Link href="https://github.com/teeparham/gemdiff">gemdiff</Link>{" "}
@@ -209,9 +212,7 @@ export default function Home() {
             </ul>
           </section>
           <section className="mb-8">
-            <h3 className="text-blue-400 dark:text-yellow-200">
-              Presentations
-            </h3>
+            <h3 className={css.h3}>Presentations</h3>
             <ul>
               <li className="mb-3">
                 I was a guest on Devchat.tv&apos;s{" "}
