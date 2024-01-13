@@ -67,17 +67,18 @@ export default function Home() {
                 empower residents to shape the development of their
                 neighborhoods. To do this, we helped improve the way civic
                 organizations collaborated with their communities. Over 3
-                million people participated on Neighborland, and our partners'
-                projects have yielded <Link href={urls.billions}>billions</Link>{" "}
-                of dollars in social and economic impact. Neighborland was{" "}
+                million people participated on Neighborland, and our
+                partners&apos; projects have yielded{" "}
+                <Link href={urls.billions}>billions</Link> of dollars in social
+                and economic impact. Neighborland was{" "}
                 <Link href={urls.acquired}>acquired</Link> by Nextdoor in 2019.
               </li>
               <li className="mb-3">
                 I helped{" "}
                 <Link href="https://designerfund.com/">Designer Fund</Link>{" "}
-                attract and connect the world's best designers with top
-                technology companies by rebuilding the front end of their events
-                app.
+                attract and connect the world&apos;s best designers with top
+                technology companies by upgrading the back end and rebuilding
+                the front end of their events app.
               </li>
               <li className="mb-3">
                 I helped{" "}
@@ -89,9 +90,9 @@ export default function Home() {
                 <Link href="https://www.nesterhosiery.com/">
                   Nester Hosiery
                 </Link>{" "}
-                so they could make the world's best wool socks more efficiently.
-                My team helped the company manage manufacturing of over 5000
-                items and grow 20% annually for over 8 years. You can{" "}
+                so they could make the world&apos;s best wool socks more
+                efficiently. My team helped the company manage manufacturing of
+                over 5000 items and grow 20% annually for over 8 years. You can{" "}
                 <Link href="https://www.farmtofeet.com/">buy some socks</Link>{" "}
                 from their Farm to Feet brand.
               </li>
@@ -119,7 +120,9 @@ export default function Home() {
             </div>
           </section>
           <section className="mb-8">
-            <h3 className="text-blue-400 dark:text-yellow-200">Open source projects in ruby</h3>
+            <h3 className="text-blue-400 dark:text-yellow-200">
+              Open source projects in ruby
+            </h3>
             <ul>
               <li className="mb-3">
                 <Link href="https://github.com/teeparham/gemdiff">gemdiff</Link>{" "}
@@ -145,11 +148,11 @@ export default function Home() {
               </li>
               <li className="mb-3">
                 <Link href="https://github.com/haml/haml">Haml</Link> is a
-                templating engine for HTML. It's designed to make it both easier
-                and more pleasant to write HTML documents, by eliminating
+                templating engine for HTML. It&apos;s designed to make it both
+                easier and more pleasant to write HTML documents, by eliminating
                 redundancy, reflecting the underlying structure that the
-                document represents, and providing an elegant syntax that's both
-                powerful and easy to understand.
+                document represents, and providing an elegant syntax that is
+                both powerful and easy to understand.
               </li>
               <li className="mb-3">
                 <Link href="https://github.com/neighborland/cache_rocket">
@@ -206,10 +209,12 @@ export default function Home() {
             </ul>
           </section>
           <section className="mb-8">
-            <h3 className="text-blue-400 dark:text-yellow-200">Presentations</h3>
+            <h3 className="text-blue-400 dark:text-yellow-200">
+              Presentations
+            </h3>
             <ul>
               <li className="mb-3">
-                I was a guest on Devchat.tv's{" "}
+                I was a guest on Devchat.tv&apos;s{" "}
                 <Link href={urls.rogues}>Ruby Rogues podcast</Link> along with
                 RGeo creator Daniel Azuma. We discussed geospatial programming
                 in ruby.
