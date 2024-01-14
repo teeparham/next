@@ -36,7 +36,7 @@ const Cue = ({ color }: CueProps) => {
   return (
     <div
       className={
-        "border-black border-2 mx-2 rounded-full px-3 inline-block bg-" + color
+        "border-black border-2 mx-1 md:mx-2 rounded-full px-1 md:px-2 inline-block bg-" + color
       }
     >
       &nbsp;
@@ -55,7 +55,7 @@ export const Guess = ({ guess, answer }: GuessProps) => {
 
   return (
     <div className="mb-3">
-      <div className="mh-3 ml-4 inline-block" />
+      <div className="mh-3 ml-1 md:ml-4 inline-block" />
       <Dot color={guess[0]} />
       <Dot color={guess[1]} />
       <Dot color={guess[2]} />
