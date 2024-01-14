@@ -1,31 +1,35 @@
-const colors = require('tailwindcss/colors')
+const colors = require("tailwindcss/colors");
 
-import type { Config } from 'tailwindcss'
+import type { Config } from "tailwindcss";
 
 const config: Config = {
   content: [
-    './pages/**/*.{js,ts,jsx,tsx,mdx}',
-    './components/**/*.{js,ts,jsx,tsx,mdx}',
-    './app/**/*.{js,ts,jsx,tsx,mdx}',
+    "./pages/**/*.{js,ts,jsx,tsx,mdx}",
+    "./components/**/*.{js,ts,jsx,tsx,mdx}",
+    "./app/**/*.{js,ts,jsx,tsx,mdx}",
+  ],
+  // Ensure dynamic colors are bundled
+  safelist: [
+    "bg-blue-500",
+    "bg-red-500",
+    "bg-green-500",
+    "bg-white",
+    "bg-black",
+    "bg-yellow-400",
+    "bg-purple-500",
   ],
   theme: {
     container: {
       center: true,
       padding: {
-        DEFAULT: '2rem',
-        md: '6rem',
-        lg: '8rem',
-        xl: '18rem',
+        DEFAULT: "2rem",
+        md: "6rem",
+        lg: "8rem",
+        xl: "18rem",
       },
-    },
-    extend: {
-      colors: {
-        black: colors.black,
-        blue: colors.blue,
-        yellow: colors.yellow,
-      },  
     },
   },
   plugins: [],
-}
-export default config
+};
+
+export default config;
