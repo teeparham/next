@@ -12,7 +12,7 @@ const urls = {
   acquired:
     "https://handbook.neighborland.com/nextdoor-acquires-neighborland-e12237b7e8fd",
   rogues:
-    "https://devchat.tv/ruby-rogues/rr-356-geospatial-programming-in-ruby-with-daniel-azuma-and-tee-perham",
+    "https://topenddevs.com/podcasts/ruby-rogues/episodes/rr-356-geospatial-programming-in-ruby-with-daniel-azuma-and-tee-parham",
 };
 
 const css = {
