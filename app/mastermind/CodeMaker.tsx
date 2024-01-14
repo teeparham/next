@@ -1,12 +1,13 @@
-export const check = (guess: Array<number>, answer: Array<number>) => {
-  const rightColors: Array<number> = [];
+export const check = (guess: number[], answer: number[]) => {
+  const rightColors: number[] = [];
+  const indexes = [0, 1, 2, 3];
 
   function exactMatch(i: number): number {
     return guess[i] === answer[i] ? 1 : 0;
   }
 
   function exactlyRight() {
-    return [0, 1, 2, 3].map((i) => exactMatch(i)).reduce((a, b) => a + b);
+    return indexes.map((i) => exactMatch(i)).reduce((a, b) => a + b);
   }
 
   function sameColor(guessIndex: number, answerIndex: number): number {
@@ -22,7 +23,7 @@ export const check = (guess: Array<number>, answer: Array<number>) => {
     if (exactMatch(index)) {
       return 0;
     }
-    const others = [0, 1, 2, 3].filter((i) => i !== index);
+    const others = indexes.filter((i) => i !== index);
     return (
       sameColor(index, others[0]) ||
       sameColor(index, others[1]) ||
@@ -32,7 +33,7 @@ export const check = (guess: Array<number>, answer: Array<number>) => {
   }
 
   function rightColor() {
-    return [0, 1, 2, 3].map((i) => colorMatch(i)).reduce((a, b) => a + b);
+    return indexes.map((i) => colorMatch(i)).reduce((a, b) => a + b);
   }
 
   return [exactlyRight(), rightColor()];

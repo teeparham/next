@@ -1,5 +1,6 @@
 interface CodePegProps {
   color: number;
+  enabled: boolean;
   index: number;
   onClick: (index: number) => void;
 }
@@ -13,7 +14,7 @@ export const COLOR = [
   "purple-500",
 ];
 
-export const CodePeg = ({ color, index, onClick }: CodePegProps) => {
+export const CodePeg = ({ color, enabled, index, onClick }: CodePegProps) => {
   const handleClick = () => {
     onClick(index);
   };
@@ -21,6 +22,7 @@ export const CodePeg = ({ color, index, onClick }: CodePegProps) => {
   return (
     <button
       className={`cursor-pointer border-4 border-black rounded-full p-6 mr-2 bg-${COLOR[color]}`}
+      disabled={!enabled}
       onClick={handleClick}
     ></button>
   );

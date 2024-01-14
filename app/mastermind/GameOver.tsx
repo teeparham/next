@@ -1,5 +1,6 @@
 import { SyntheticEvent } from "react";
-import {Guess} from './Guess';
+import { Guess } from "./Guess";
+import { MAX_GUESSES } from "./Game";
 
 interface GameOverProps {
   answer: number[];
@@ -22,11 +23,11 @@ interface LoserProps {
 
 const Winner = ({ count }: WinnerProps) => {
   const message = () => {
-    if (count < 3) return "Amazing!"
-    if (count < 5) return "Super!"
-    if (count < 9) return "Good Job!"
-    return "Whew!"
-  }
+    if (count < 3) return "Amazing!";
+    if (count < 5) return "Super!";
+    if (count < 9) return "Good Job!";
+    return "Whew!";
+  };
   return (
     <>
       <div className="my-8 rounded-2xl border-2 border-white p-8 bg-gray-900 font-bold text-xl md:text-2xl space-x-3 md:space-x-6 text-center">
@@ -41,22 +42,23 @@ const Winner = ({ count }: WinnerProps) => {
         <span className="text-white">!</span>
       </div>
       <div className="mb-6">
-        {message()}&nbsp;
-        You got it in {count} guesses!
+        {message()}&nbsp; You got it in {count} guesses!
       </div>
     </>
   );
 };
 
-const Loser = ({answer}: LoserProps) => {
-  return (<>
-  <div className="my-8 rounded-2xl border-2 p-8 bg-gray-800">
-    <div className="text-white fontsemi-bold mb-4">
-      Too bad! You did not guess the code. The correct answer was:
-    </div>
-    <Guess answer={[]} guess={answer} />
-  </div>
-</>)  
+const Loser = ({ answer }: LoserProps) => {
+  return (
+    <>
+      <div className="my-8 rounded-2xl border-2 p-8 bg-gray-800">
+        <div className="text-white fontsemi-bold mb-4">
+          Too bad! You did not guess the code. The correct answer was:
+        </div>
+        <Guess answer={[]} guess={answer} />
+      </div>
+    </>
+  );
 };
 
 const PlayAgain = ({ onClick }: PlayAgainProps) => {
@@ -70,7 +72,12 @@ const PlayAgain = ({ onClick }: PlayAgainProps) => {
   );
 };
 
-export const GameOver = ({ answer, count, onPlayAgain, won }: GameOverProps) => {
+export const GameOver = ({
+  answer,
+  count,
+  onPlayAgain,
+  won,
+}: GameOverProps) => {
   if (won) {
     return (
       <>
@@ -79,7 +86,7 @@ export const GameOver = ({ answer, count, onPlayAgain, won }: GameOverProps) => 
       </>
     );
   }
-  if (count == 10) {
+  if (count === MAX_GUESSES) {
     return (
       <>
         <Loser answer={answer} />
