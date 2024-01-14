@@ -5,6 +5,7 @@ import { Guess } from "./Guess";
 import { GameOver } from "./GameOver";
 
 export const MAX_GUESSES = 10;
+export const INDEXES = [0, 1, 2, 3];
 
 const buildAnswer = () => {
   return Array(4)
@@ -49,7 +50,6 @@ export const Game = () => {
     return;
   };
 
-  const indexes = [0, 1, 2, 3];
   const guessEnabled = !won && guesses.length < MAX_GUESSES;
 
   return (
@@ -67,8 +67,14 @@ export const Game = () => {
         </a>
       </div>
       <div className="flex">
-        {indexes.map((i) => (
-          <CodePeg key={i} index={i} color={guess[i]} onClick={onColorChange} enabled={guessEnabled} />
+        {INDEXES.map((i) => (
+          <CodePeg
+            key={i}
+            index={i}
+            color={guess[i]}
+            onClick={onColorChange}
+            enabled={guessEnabled}
+          />
         ))}
         <button
           className="rounded-3xl border-4 border-black px-3 py-2 ml-3 text-lg font-semibold text-green-900 bg-gray-200"
@@ -84,7 +90,12 @@ export const Game = () => {
             <Guess key={index} guess={guess} answer={answer}></Guess>
           ))}
         </div>
-        <GameOver won={won} count={guesses.length} answer={answer} onPlayAgain={reset} />
+        <GameOver
+          won={won}
+          count={guesses.length}
+          answer={answer}
+          onPlayAgain={reset}
+        />
       </div>
     </div>
   );
