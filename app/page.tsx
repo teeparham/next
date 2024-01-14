@@ -1,5 +1,6 @@
-import Image from "next/image";
+'use client'
 import { Inter } from "next/font/google";
+import { Game } from "./mastermind/Game";
 
 const interFont = Inter({ subsets: ["latin"] });
 
@@ -234,36 +235,16 @@ export default function Home() {
               </li>
             </ul>
           </section>
-          <section className="mb-8">
-            <h3>Be a winner</h3>
-            <ul>
-              <li>mastermind</li>
-            </ul>
-          </section>
-          <section className="mb-8">
-            <h3>See the possibilities</h3>
-            <ul>
-              <li>n-queens</li>
-            </ul>
+          <section className="">
+            <h3 className={`mb-3 ${css.h3}`}>
+              Mastermind&nbsp;
+              <Arrow />
+            </h3>
+            <div className="rounded-lg border-2 w-full p-8 bg-gray-500 min-h-96">
+              <Game />              
+            </div>
           </section>
         </div>
-      </div>
-
-      <div className="mb-32 grid text-center md:max-w-5xl md:w-full md:mb-0 md:grid-cols-4 md:text-left">
-        <a
-          href="#"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className="mb-3">
-            Link&nbsp;
-            <Arrow />
-          </h2>
-          <p className={`m-0 max-w-[30ch] text-sm text-opacity-70`}>
-            Desciption of link. Paragraph a b c d e ipsum ipsum ipsum.
-          </p>
-        </a>
       </div>
     </main>
   );
