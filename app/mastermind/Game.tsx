@@ -80,7 +80,7 @@ export const Game = () => {
             <Guess key={index} guess={guess} answer={answer}></Guess>
           ))}
         </div>
-        <GameOver won={won} count={guesses.length} onPlayAgain={reset} />
+        <GameOver won={won} count={guesses.length} answer={answer} onPlayAgain={reset} />
       </div>
     </div>
   );

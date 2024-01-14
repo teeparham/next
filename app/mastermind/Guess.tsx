@@ -49,7 +49,7 @@ const CueList = ({ color, count }: CueListProps) => {
 };
 
 export const Guess = ({ guess, answer }: GuessProps) => {
-  const result = check(guess, answer);
+  const result = answer.length ? check(guess, answer) : [0, 0];
   const right = result[0];
   const rightColor = result[1];
 
@@ -61,11 +61,15 @@ export const Guess = ({ guess, answer }: GuessProps) => {
       <Dot color={guess[2]} />
       <Dot color={guess[3]} />
       <div className="mr-8 inline-block" />
-      {right + rightColor == 0 ? (
-        <div className="inline-block"> none </div>
-      ) : null}
-      <CueList count={rightColor} color="white" />
-      <CueList count={right} color="black" />
+      {!!answer.length && (
+        <>
+          {right + rightColor == 0 && (
+            <div className="inline-block">None</div>
+          )}
+          <CueList count={rightColor} color="white" />
+          <CueList count={right} color="black" />
+        </>
+      )}
     </div>
   );
 };

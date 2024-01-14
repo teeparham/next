@@ -1,6 +1,8 @@
 import { SyntheticEvent } from "react";
+import {Guess} from './Guess';
 
 interface GameOverProps {
+  answer: number[];
   count: number;
   onPlayAgain: (event: SyntheticEvent) => void;
   won: boolean;
@@ -14,6 +16,10 @@ interface WinnerProps {
   count: number;
 }
 
+interface LoserProps {
+  answer: number[];
+}
+
 const Winner = ({ count }: WinnerProps) => {
   const message = () => {
     if (count < 3) return "Amazing!"
@@ -23,7 +29,7 @@ const Winner = ({ count }: WinnerProps) => {
   }
   return (
     <>
-      <div className="my-8 rounded-2xl border-2 p-8 bg-gray-900 font-bold text-xl md:text-2xl space-x-3 md:space-x-6 text-center">
+      <div className="my-8 rounded-2xl border-2 border-white p-8 bg-gray-900 font-bold text-xl md:text-2xl space-x-3 md:space-x-6 text-center">
         <span className="text-red-500">W</span>
         <span className="text-orange-500">I</span>
         <span className="text-yellow-400">N</span>
@@ -42,8 +48,15 @@ const Winner = ({ count }: WinnerProps) => {
   );
 };
 
-const Loser = () => {
-  return <div className="my-8">loser</div>;
+const Loser = ({answer}: LoserProps) => {
+  return (<>
+  <div className="my-8 rounded-2xl border-2 p-8 bg-gray-800">
+    <div className="text-white fontsemi-bold mb-4">
+      Too bad! You did not guess the code. The correct answer was:
+    </div>
+    <Guess answer={[]} guess={answer} />
+  </div>
+</>)  
 };
 
 const PlayAgain = ({ onClick }: PlayAgainProps) => {
@@ -57,7 +70,7 @@ const PlayAgain = ({ onClick }: PlayAgainProps) => {
   );
 };
 
-export const GameOver = ({ count, onPlayAgain, won }: GameOverProps) => {
+export const GameOver = ({ answer, count, onPlayAgain, won }: GameOverProps) => {
   if (won) {
     return (
       <>
@@ -69,7 +82,7 @@ export const GameOver = ({ count, onPlayAgain, won }: GameOverProps) => {
   if (count == 10) {
     return (
       <>
-        <Loser />
+        <Loser answer={answer} />
         <PlayAgain onClick={onPlayAgain} />
       </>
     );
