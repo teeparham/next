@@ -1,4 +1,4 @@
-'use client'
+"use client";
 import { Inter } from "next/font/google";
 import { Game } from "./mastermind/Game";
 
@@ -50,8 +50,8 @@ const Link = ({ href, children }: LinkProps) => {
 
 export default function Home() {
   return (
-    <main className="container flex min-h-screen flex-col items-center justify-between py-8">
-      <div className="">
+    <main className="container min-h-screen">
+      <div className="my-8 mx-8 lg:mx-16 xl:mx-36 2xl:mx-72">
         <div className="mb-8">
           <h1 className={css.h1}>Tee Parham</h1>
           <h2 className={css.h2}>Idealist, code writer, technical leader</h2>
@@ -241,7 +241,7 @@ export default function Home() {
               <Arrow />
             </h3>
             <div className="rounded-2xl border-2 p-8 bg-gray-300 dark:bg-gray-500 min-h-96">
-              <Game />              
+              <Game />
             </div>
           </section>
         </div>

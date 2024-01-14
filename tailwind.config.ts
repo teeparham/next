@@ -21,12 +21,6 @@ const config: Config = {
   theme: {
     container: {
       center: true,
-      padding: {
-        DEFAULT: "2rem",
-        md: "6rem",
-        lg: "8rem",
-        xl: "18rem",
-      },
     },
   },
   plugins: [],
