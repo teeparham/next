@@ -57,7 +57,7 @@ export const Game = () => {
         correct position, a black dot is shown. For each dot of the right color
         but in the wrong position, a white dot is shown.
         <a
-          className="mx-2 underline white"
+          className="mx-2 underline white underline-offset-2 hover:decoration-2"
           href="https://en.wikipedia.org/wiki/Mastermind_(board_game)"
         >
           Read more

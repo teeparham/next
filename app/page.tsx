@@ -52,11 +52,11 @@ export default function Home() {
   return (
     <main className="container flex min-h-screen flex-col items-center justify-between py-8">
       <div className="">
-        <div className="mb-8 text-left">
+        <div className="mb-8">
           <h1 className={css.h1}>Tee Parham</h1>
           <h2 className={css.h2}>Idealist, code writer, technical leader</h2>
         </div>
-        <div className="text-left leading-relaxed">
+        <div className="leading-relaxed">
           <section className="mb-8">
             <h3 className={css.h3}>Work</h3>
             <ul>
@@ -235,12 +235,12 @@ export default function Home() {
               </li>
             </ul>
           </section>
-          <section className="">
+          <section className="mb-16">
             <h3 className={`mb-3 ${css.h3}`}>
               Mastermind&nbsp;
               <Arrow />
             </h3>
-            <div className="rounded-lg border-2 w-full p-8 bg-gray-500 min-h-96">
+            <div className="rounded-2xl border-2 p-8 bg-gray-300 dark:bg-gray-500 min-h-96">
               <Game />              
             </div>
           </section>
