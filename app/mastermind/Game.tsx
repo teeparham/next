@@ -54,18 +54,6 @@ export const Game = () => {
 
   return (
     <div>
-      <div className="mb-6 text-sm">
-        Guess the pattern of four colored dots. Click the circles to change
-        colors, then click Guess. For each dot in the correct color and in the
-        correct position, a black dot is shown. For each dot of the right color
-        but in the wrong position, a white dot is shown.
-        <a
-          className="mx-2 underline white underline-offset-2 hover:decoration-2"
-          href="https://en.wikipedia.org/wiki/Mastermind_(board_game)"
-        >
-          Read more
-        </a>
-      </div>
       <div className="flex">
         {INDEXES.map((i) => (
           <CodePeg
