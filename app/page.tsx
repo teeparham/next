@@ -5,12 +5,14 @@ import { Game } from "./mastermind/Game";
 const interFont = Inter({ subsets: ["latin"] });
 
 const urls = {
-  billions:
-    "https://handbook.neighborland.com/measuring-what-matters-b635f20370b8",
-  faves:
-    "https://www.businesswire.com/news/home/20230718746480/en/Nextdoor-Announces-the-2023-Neighborhood-Faves-Winners-and-Unveils-Special-Bell-Ringing-Event-at-the-New-York-Stock-Exchange",
   acquired:
     "https://handbook.neighborland.com/nextdoor-acquires-neighborland-e12237b7e8fd",
+  billions:
+    "https://handbook.neighborland.com/measuring-what-matters-b635f20370b8",
+  cacheRocket:
+    "https://www.slideshare.net/teeparham/rails-html-fragment-caching-with-cache-rocket",
+  faves:
+    "https://www.businesswire.com/news/home/20230718746480/en/Nextdoor-Announces-the-2023-Neighborhood-Faves-Winners-and-Unveils-Special-Bell-Ringing-Event-at-the-New-York-Stock-Exchange",
   rogues:
     "https://topenddevs.com/podcasts/ruby-rogues/episodes/rr-356-geospatial-programming-in-ruby-with-daniel-azuma-and-tee-parham",
 };
@@ -31,12 +33,12 @@ const Arrow = () => {
   );
 };
 
-interface LinkProps {
+interface LinkToProps {
   href: string;
   children: React.ReactNode;
 }
 
-const Link = ({ href, children }: LinkProps) => {
+const LinkTo = ({ href, children }: LinkToProps) => {
   return (
     <a
       className="underline text-blue-900 dark:text-blue-300 underline-offset-2 hover:decoration-2"
@@ -63,43 +65,47 @@ export default function Home() {
               <li className="mb-3">
                 I was the technical lead for the Public Agencies Pillar and the
                 Organizations Admin team at{" "}
-                <Link href="https://nextdoor.com/">Nextdoor</Link> where I led
-                projects like <Link href={urls.faves}>Neighborhood Faves</Link>.
+                <LinkTo href="https://nextdoor.com/">Nextdoor</LinkTo> where I
+                led projects like{" "}
+                <LinkTo href={urls.faves}>Neighborhood Faves</LinkTo>.
               </li>
               <li className="mb-3">
-                <Link href="https://neighborland.com/">Neighborland</Link> was a
-                public engagement platform designed for government agencies,
-                place-makers, and civic organizations. Our mission was to
-                empower residents to shape the development of their
+                <LinkTo href="https://neighborland.com/">Neighborland</LinkTo>{" "}
+                was a public engagement platform designed for government
+                agencies, place-makers, and civic organizations. Our mission was
+                to empower residents to shape the development of their
                 neighborhoods. To do this, we helped improve the way civic
                 organizations collaborated with their communities. Over 3
                 million people participated on Neighborland, and our
                 partners&apos; projects have yielded{" "}
-                <Link href={urls.billions}>billions</Link> of dollars in social
-                and economic impact. Neighborland was{" "}
-                <Link href={urls.acquired}>acquired</Link> by Nextdoor in 2019.
+                <LinkTo href={urls.billions}>billions</LinkTo> of dollars in
+                social and economic impact. Neighborland was{" "}
+                <LinkTo href={urls.acquired}>acquired</LinkTo> by Nextdoor in
+                2019.
               </li>
               <li className="mb-3">
                 I helped{" "}
-                <Link href="https://designerfund.com/">Designer Fund</Link>{" "}
+                <LinkTo href="https://designerfund.com/">Designer Fund</LinkTo>{" "}
                 attract and connect the world&apos;s best designers with top
                 technology companies by upgrading the back end and rebuilding
                 the front end of their events app.
               </li>
               <li className="mb-3">
                 I helped{" "}
-                <Link href="https://brightfunds.org/">Bright Funds</Link> build
-                a platform for charitable giving and volunteering.
+                <LinkTo href="https://brightfunds.org/">Bright Funds</LinkTo>{" "}
+                build a platform for charitable giving and volunteering.
               </li>
               <li className="mb-3">
                 I led development of an ERP system for{" "}
-                <Link href="https://www.nesterhosiery.com/">
+                <LinkTo href="https://www.nesterhosiery.com/">
                   Nester Hosiery
-                </Link>{" "}
+                </LinkTo>{" "}
                 so they could make the world&apos;s best wool socks more
                 efficiently. My team helped the company manage manufacturing of
                 over 5000 items and grow 20% annually for over 8 years. You can{" "}
-                <Link href="https://www.farmtofeet.com/">buy some socks</Link>{" "}
+                <LinkTo href="https://www.farmtofeet.com/">
+                  buy some socks
+                </LinkTo>{" "}
                 from their Farm to Feet brand.
               </li>
             </ul>
@@ -108,8 +114,8 @@ export default function Home() {
             <h3 className={css.h3}>Internet</h3>
             <div className="text-4xl text-blue-800 dark:text-yellow-400">
               <a
-                className="icon-linkedin mr-3"
-                href="https://www.linkedin.com/in/teeparham"
+                className="icon-LinkToedin mr-3"
+                href="https://www.LinkToedin.com/in/teeparham"
               ></a>
               <a
                 className="icon-github mr-3"
@@ -129,7 +135,9 @@ export default function Home() {
             <h3 className={css.h3}>Open source projects</h3>
             <ul>
               <li className="mb-3">
-                <Link href="https://github.com/teeparham/gemdiff">gemdiff</Link>{" "}
+                <LinkTo href="https://github.com/teeparham/gemdiff">
+                  gemdiff
+                </LinkTo>{" "}
                 is a command-line tool to find source code for ruby gems. You
                 can compare source code differences between the current version
                 of a gem in your bundle and the latest version of the gem.
@@ -137,21 +145,21 @@ export default function Home() {
                 with source code (GitHub).
               </li>
               <li className="mb-3">
-                <Link href="https://github.com/rgeo/rgeo">rgeo</Link> is a
+                <LinkTo href="https://github.com/rgeo/rgeo">rgeo</LinkTo> is a
                 geospatial data library for ruby. It wraps the GEOS and Proj C
                 libraries and provides spatial types such as point, linestring,
                 and polygon.
               </li>
               <li className="mb-3">
-                <Link href="https://github.com/rgeo/activerecord-postgis-adapter">
+                <LinkTo href="https://github.com/rgeo/activerecord-postgis-adapter">
                   activerecord-postgis-adapter
-                </Link>{" "}
+                </LinkTo>{" "}
                 is the PostGIS ActiveRecord adapter. Use it to connect
                 ActiveRecord models to your PostgreSQL + PostGIS database, with
                 all the geometry type methods from rgeo.
               </li>
               <li className="mb-3">
-                <Link href="https://github.com/haml/haml">Haml</Link> is a
+                <LinkTo href="https://github.com/haml/haml">Haml</LinkTo> is a
                 templating engine for HTML. It&apos;s designed to make it both
                 easier and more pleasant to write HTML documents, by eliminating
                 redundancy, reflecting the underlying structure that the
@@ -159,54 +167,58 @@ export default function Home() {
                 both powerful and easy to understand.
               </li>
               <li className="mb-3">
-                <Link href="https://github.com/neighborland/cache_rocket">
+                <LinkTo href="https://github.com/neighborland/cache_rocket">
                   cache_rocket
-                </Link>{" "}
+                </LinkTo>{" "}
                 improves fragment caching efficiency in Rails. CacheRocket
                 allows caching more generic html fragments and allowing the
                 contents of the cached fragments to be replaced with dynamic
                 content.
               </li>
               <li className="mb-3">
-                <Link href="https://github.com/neighborland/pres">pres</Link>{" "}
+                <LinkTo href="https://github.com/neighborland/pres">
+                  pres
+                </LinkTo>{" "}
                 provides simple Rails presenter modules and classes.
               </li>
               <li className="mb-3">
-                <Link href="https://github.com/neighborland/sluggi">
+                <LinkTo href="https://github.com/neighborland/sluggi">
                   sluggi
-                </Link>{" "}
+                </LinkTo>{" "}
                 is a friendly_id-inspired slugging library for ActiveRecord
                 models. Use it to build nice-looking URLs. It provides basic
                 slugs, slug history, and the ability to define multiple slug
                 candidates.
               </li>
               <li className="mb-3">
-                <Link href="https://github.com/neighborland/scopy">scopy</Link>{" "}
+                <LinkTo href="https://github.com/neighborland/scopy">
+                  scopy
+                </LinkTo>{" "}
                 provides common ActiveRecord model scopes for common columns
                 including created_at and name.
               </li>
               <li className="mb-3">
-                <Link href="https://github.com/neighborland/resque_solo">
+                <LinkTo href="https://github.com/neighborland/resque_solo">
                   resque_solo
-                </Link>{" "}
+                </LinkTo>{" "}
                 ensures unique jobs in Resque.
               </li>
               <li className="mb-3">
-                <Link href="https://github.com/neighborland/anchored">
+                <LinkTo href="https://github.com/neighborland/anchored">
                   anchored
-                </Link>{" "}
-                auto-links URLs in HTML text using ruby.
+                </LinkTo>{" "}
+                auto-LinkTos URLs in HTML text using ruby.
               </li>
               <li className="mb-3">
-                <Link href="https://github.com/rgeo/rgeo-geojson">
+                <LinkTo href="https://github.com/rgeo/rgeo-geojson">
                   rgeo-geojson
-                </Link>{" "}
+                </LinkTo>{" "}
                 provides GeoJSON serialization support to RGeo objects.
               </li>
               <li className="mb-3">
-                <Link href="https://github.com/rgeo/rgeo-activerecord">
+                <LinkTo href="https://github.com/rgeo/rgeo-activerecord">
                   rgeo-activerecord
-                </Link>{" "}
+                </LinkTo>{" "}
                 provides RGeo ActiveRecord extensions, used by the PostGIS,
                 MySql, and Spatialite database adapters.
               </li>
@@ -217,21 +229,19 @@ export default function Home() {
             <ul>
               <li className="mb-3">
                 I was a guest on Devchat.tv&apos;s{" "}
-                <Link href={urls.rogues}>Ruby Rogues podcast</Link> along with
-                RGeo creator Daniel Azuma. We discussed geospatial programming
-                in ruby.
+                <LinkTo href={urls.rogues}>Ruby Rogues podcast</LinkTo> along
+                with RGeo creator Daniel Azuma. We discussed geospatial
+                programming in ruby.
               </li>
               <li className="mb-3">
                 I presented at Boulder Ruby about{" "}
-                <Link href="https://www.slideshare.net/teeparham/rails-html-fragment-caching-with-cache-rocket">
-                  HTML fragment caching in rails.
-                </Link>
+                <LinkTo href={urls.cacheRocket}>HTML fragment caching in rails.</LinkTo>
               </li>
               <li className="mb-3">
                 I also presented at Boulder Ruby about{" "}
-                <Link href="https://www.slideshare.net/teeparham/gemdiff">
+                <LinkTo href="https://www.slideshare.net/teeparham/gemdiff">
                   gem dependency updates with gemdiff.
-                </Link>
+                </LinkTo>
               </li>
             </ul>
           </section>
