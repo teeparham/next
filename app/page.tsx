@@ -1,6 +1,7 @@
 "use client";
 import { Inter } from "next/font/google";
 import { Game } from "./mastermind/Game";
+import Link from 'next/link'
 
 const interFont = Inter({ subsets: ["latin"] });
 
@@ -114,7 +115,7 @@ export default function Home() {
             <h3 className={css.h3}>Internet</h3>
             <div className="text-4xl text-blue-800 dark:text-yellow-400">
               <a
-                className="icon-LinkToedin mr-3"
+                className="icon-linkedin mr-3"
                 href="https://www.LinkToedin.com/in/teeparham"
               ></a>
               <a
@@ -235,7 +236,9 @@ export default function Home() {
               </li>
               <li className="mb-3">
                 I presented at Boulder Ruby about{" "}
-                <LinkTo href={urls.cacheRocket}>HTML fragment caching in rails.</LinkTo>
+                <LinkTo href={urls.cacheRocket}>
+                  HTML fragment caching in rails.
+                </LinkTo>
               </li>
               <li className="mb-3">
                 I also presented at Boulder Ruby about{" "}
@@ -247,12 +250,11 @@ export default function Home() {
           </section>
           <section className="mb-16">
             <h3 className={`mb-3 ${css.h3}`}>
-              Mastermind&nbsp;
-              <Arrow />
-            </h3>
-            <div className="rounded-2xl border-2 p-8 bg-gray-300 dark:bg-gray-500 min-h-96">
-              <Game />
-            </div>
+                <Link href="/mastermind">
+                Mastermind&nbsp;
+                <Arrow />
+              </Link>
+            </h3>                    
           </section>
         </div>
       </div>
