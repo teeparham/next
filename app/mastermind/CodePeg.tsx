@@ -14,7 +14,7 @@ export const COLOR = [
   "purple-500",
 ];
 
-export const CodePeg = ({ color, enabled, index, onClick }: CodePegProps) => {
+export function CodePeg ({ color, enabled, index, onClick }: CodePegProps) {
   const handleClick = () => {
     onClick(index);
   };

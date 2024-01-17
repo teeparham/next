@@ -8,13 +8,13 @@ import { GameOver } from "./GameOver";
 export const MAX_GUESSES = 10;
 export const INDEXES = [0, 1, 2, 3];
 
-const buildAnswer = () => {
+function buildAnswer() {
   return Array(4)
     .fill(0)
     .map(() => Math.floor(Math.random() * 6));
-};
+}
 
-export const Game = () => {
+export function Game() {
   // Current guess
   const [guess, setGuess] = useState([0, 0, 0, 0]);
 
@@ -24,22 +24,22 @@ export const Game = () => {
   const [answer, setAnswer] = useState(buildAnswer());
   const [won, setWon] = useState(false);
 
-  const onColorChange = (index: number) => {
+  function onColorChange(index: number) {
     const newGuess = [...guess];
     newGuess[index] = (guess[index] + 1) % 6;
     setGuess(newGuess);
     return;
-  };
+  }
 
-  const reset = () => {
+  function reset() {
     setWon(false);
     setGuess([0, 0, 0, 0]);
     setGuesses([]);
     setAnswer(buildAnswer());
     return;
-  };
+  }
 
-  const onGuess = () => {
+  function onGuess() {
     if (guesses.length === MAX_GUESSES) return;
     if (won) return;
     let newGuesses = [...guesses];
@@ -49,7 +49,7 @@ export const Game = () => {
     const response = check(guess, answer);
     setWon(response[0] === 4 && response[1] === 0);
     return;
-  };
+  }
 
   const guessEnabled = !won && guesses.length < MAX_GUESSES;
 
@@ -82,4 +82,4 @@ export const Game = () => {
       </div>
     </div>
   );
-};
+}

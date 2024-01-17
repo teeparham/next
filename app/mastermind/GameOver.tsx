@@ -23,13 +23,14 @@ const CSS = {
   winnerText: "font-bold text-xl md:text-2xl space-x-3 md:space-x-6 text-center",
 }
 
-const Winner = ({ count }: WinnerProps) => {
-  const message = () => {
+function Winner({ count }: WinnerProps) {
+  function message() {
     if (count < 3) return "Amazing!";
     if (count < 5) return "Super!";
     if (count < 9) return "Good Job!";
     return "Whew!";
-  };
+  }
+
   return (
     <>
       <div className={`${CSS.border} ${CSS.winnerText} border-2 border-white`}>
@@ -48,9 +49,9 @@ const Winner = ({ count }: WinnerProps) => {
       </div>
     </>
   );
-};
+}
 
-const Loser = ({ answer }: LoserProps) => {
+function Loser({ answer }: LoserProps) {
   return (
     <>
       <div className={CSS.border}>
@@ -61,14 +62,11 @@ const Loser = ({ answer }: LoserProps) => {
       </div>
     </>
   );
-};
+}
 
-export const GameOver = ({
-  answer,
-  count,
-  onPlayAgain,
-  won,
-}: GameOverProps) => {
+export function GameOver({
+  answer, count, onPlayAgain, won,
+}: GameOverProps) {
   if (won) {
     return (
       <>
@@ -86,4 +84,4 @@ export const GameOver = ({
     );
   }
   return null;
-};
+}
