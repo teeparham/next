@@ -20,7 +20,13 @@ interface GuessProps {
   guess: number[];
 }
 
-const Dot = ({ color }: DotProps) => {
+interface HintsProps {
+  answer: number[];
+  right: number;
+  rightColor: number;
+}
+
+function Dot({ color }: DotProps) {
   return (
     <div
       className={cx(
@@ -32,9 +38,9 @@ const Dot = ({ color }: DotProps) => {
       &nbsp;
     </div>
   );
-};
+}
 
-const Cue = ({ color }: CueProps) => {
+function Cue({ color }: CueProps) {
   return (
     <div
       className={cx(
@@ -46,16 +52,25 @@ const Cue = ({ color }: CueProps) => {
       &nbsp;
     </div>
   );
-};
+}
 
-const CueList = ({ color, count }: CueListProps) => {
+function CueList({ color, count }: CueListProps) {
   return [...Array(count)].map((_, i) => <Cue color={color} key={i} />);
-};
+}
 
-export const Guess = ({ guess, answer }: GuessProps) => {
+function Hints({ answer, right, rightColor }: HintsProps) {
+  if (!answer.length) return null;
+  return (
+    <>
+      {right + rightColor == 0 && <div className="inline-block">None</div>}
+      <CueList count={rightColor} color="white" />
+      <CueList count={right} color="black" />
+    </>
+  );
+}
+
+export function Guess({ guess, answer }: GuessProps) {
   const result = answer.length ? check(guess, answer) : [0, 0];
-  const right = result[0];
-  const rightColor = result[1];
 
   return (
     <div className="mb-3">
@@ -65,13 +80,7 @@ export const Guess = ({ guess, answer }: GuessProps) => {
       <Dot color={guess[2]} />
       <Dot color={guess[3]} />
       <div className="mr-8 inline-block" />
-      {!!answer.length && (
-        <>
-          {right + rightColor == 0 && <div className="inline-block">None</div>}
-          <CueList count={rightColor} color="white" />
-          <CueList count={right} color="black" />
-        </>
-      )}
+      <Hints answer={answer} right={result[0]} rightColor={result[1]} />
     </div>
   );
-};
+}
