@@ -1,6 +1,6 @@
 import {INDEXES} from './Game'
 
-export const check = (guess: number[], answer: number[]) => {
+export function check(guess: number[], answer: number[]) {
   const rightColors: number[] = [];
 
   function exactMatch(i: number): number {

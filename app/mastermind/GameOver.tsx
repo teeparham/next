@@ -20,7 +20,6 @@ interface LoserProps {
 
 const CSS = {
   border: "my-8 rounded-2xl bg-gray-800 p-4 md:p-8",
-  borderColor: "",
   winnerText: "font-bold text-xl md:text-2xl space-x-3 md:space-x-6 text-center",
 }
 
