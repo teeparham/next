@@ -1,9 +1,6 @@
 "use client";
-import { Inter } from "next/font/google";
-import { Game } from "./mastermind/Game";
 import Link from 'next/link'
-
-const interFont = Inter({ subsets: ["latin"] });
+import {Arrow} from './components/Arrow';
 
 const urls = {
   acquired:
@@ -22,16 +19,6 @@ const css = {
   h1: "text-opacity-90 dark:text-yellow-400",
   h2: "text-opacity-80 dark:text-blue-400",
   h3: "text-blue-800 dark:text-yellow-200",
-};
-
-const Arrow = () => {
-  return (
-    <span
-      className={`inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none ${interFont.className}`}
-    >
-      -&gt;
-    </span>
-  );
 };
 
 interface LinkToProps {
