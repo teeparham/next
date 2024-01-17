@@ -3,7 +3,7 @@ import { Inter } from "next/font/google";
 const interFont = Inter({ subsets: ["latin"] });
 
 interface ArrowProps {
-  left: boolean;
+  left?: boolean;
 }
 
 const CSS = `inline-block transition-transform 

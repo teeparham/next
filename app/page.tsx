@@ -1,6 +1,6 @@
 "use client";
-import Link from 'next/link'
-import {Arrow} from './components/Arrow';
+import Link from "next/link";
+import { Arrow } from "./components/Arrow";
 
 const urls = {
   acquired:
@@ -237,11 +237,11 @@ export default function Home() {
           </section>
           <section className="mb-16">
             <h3 className={`mb-3 ${css.h3}`}>
-                <Link href="/mastermind">
+              <Link href="/mastermind">
                 Mastermind&nbsp;
                 <Arrow />
               </Link>
-            </h3>                    
+            </h3>
           </section>
         </div>
       </div>
