@@ -3,6 +3,11 @@ import { Game } from "./Game";
 import { Arrow } from "../components/Arrow";
 import Link from "next/link";
 
+const GAME_BORDER = `
+  rounded-2xl border-2 p-4 md:p-6
+  border-gray-700 dark:border-gray-200
+  bg-gray-300 dark:bg-gray-500`;
+
 export default function Page() {
   return (
     <main className="container min-h-screen">
@@ -14,7 +19,7 @@ export default function Page() {
           <Arrow left />
           &nbsp;Tee Parham
         </Link>
-        <h1 className="mb-4 text-3xl">Mastermind</h1>
+        <h1 className="mb-4 text-3xl text-blue-800">Mastermind</h1>
         <div className="mb-6 text-sm">
           Guess the pattern of four colored dots. Click the circles to change
           colors, then click Guess. For each dot in the correct color and in the
@@ -27,7 +32,7 @@ export default function Page() {
             Read more
           </a>
         </div>
-        <div className="rounded-2xl border-2 p-4 md:p-6 bg-gray-300 dark:bg-gray-500 min-h-96">
+        <div className={GAME_BORDER}>
           <Game />
         </div>
       </div>

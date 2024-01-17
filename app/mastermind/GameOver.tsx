@@ -1,6 +1,7 @@
 import { SyntheticEvent } from "react";
 import { Guess } from "./Guess";
 import { MAX_GUESSES } from "./Game";
+import { GameButton } from "../components/GameButton";
 
 interface GameOverProps {
   answer: number[];
@@ -9,16 +10,18 @@ interface GameOverProps {
   won: boolean;
 }
 
-interface PlayAgainProps {
-  onClick: (event: SyntheticEvent) => void;
-}
-
 interface WinnerProps {
   count: number;
 }
 
 interface LoserProps {
   answer: number[];
+}
+
+const CSS = {
+  border: "my-8 rounded-2xl bg-gray-800 p-4 md:p-8",
+  borderColor: "",
+  winnerText: "font-bold text-xl md:text-2xl space-x-3 md:space-x-6 text-center",
 }
 
 const Winner = ({ count }: WinnerProps) => {
@@ -30,7 +33,7 @@ const Winner = ({ count }: WinnerProps) => {
   };
   return (
     <>
-      <div className="my-8 rounded-2xl border-2 border-white p-8 bg-gray-900 font-bold text-xl md:text-2xl space-x-3 md:space-x-6 text-center">
+      <div className={`${CSS.border} ${CSS.winnerText} border-2 border-white`}>
         <span className="text-red-500">W</span>
         <span className="text-orange-500">I</span>
         <span className="text-yellow-400">N</span>
@@ -41,7 +44,7 @@ const Winner = ({ count }: WinnerProps) => {
         <span className="text-white">!</span>
         <span className="text-white">!</span>
       </div>
-      <div className="mb-6">
+      <div className="text-gray-900 mb-6">
         {message()}&nbsp; You got it in {count} guesses!
       </div>
     </>
@@ -51,24 +54,13 @@ const Winner = ({ count }: WinnerProps) => {
 const Loser = ({ answer }: LoserProps) => {
   return (
     <>
-      <div className="my-8 rounded-2xl border-2 p-8 bg-gray-800">
-        <div className="text-white fontsemi-bold mb-4">
+      <div className={CSS.border}>
+        <div className="text-gray-200 mb-4">
           Too bad! You did not guess the code. The correct answer was:
         </div>
         <Guess answer={[]} guess={answer} />
       </div>
     </>
-  );
-};
-
-const PlayAgain = ({ onClick }: PlayAgainProps) => {
-  return (
-    <button
-      className="rounded-3xl border-4 border-black px-3 py-2 text-lg font-semibold text-green-900 bg-gray-200"
-      onClick={onClick}
-    >
-      Play Again
-    </button>
   );
 };
 
@@ -82,7 +74,7 @@ export const GameOver = ({
     return (
       <>
         <Winner count={count} />
-        <PlayAgain onClick={onPlayAgain} />
+        <GameButton onClick={onPlayAgain} text="Play Again" />
       </>
     );
   }
@@ -90,7 +82,7 @@ export const GameOver = ({
     return (
       <>
         <Loser answer={answer} />
-        <PlayAgain onClick={onPlayAgain} />
+        <GameButton onClick={onPlayAgain} text="Play Again" />
       </>
     );
   }

@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { check } from "./CodeMaker";
 import { CodePeg } from "./CodePeg";
+import { GameButton } from "../components/GameButton";
 import { Guess } from "./Guess";
 import { GameOver } from "./GameOver";
 
@@ -64,13 +65,7 @@ export const Game = () => {
             enabled={guessEnabled}
           />
         ))}
-        <button
-          className="rounded-3xl border-4 border-black px-3 py-2 ml-3 text-lg font-semibold text-green-900 bg-gray-200"
-          disabled={!guessEnabled}
-          onClick={onGuess}
-        >
-          Guess
-        </button>
+        <GameButton disabled={!guessEnabled} onClick={onGuess} text="Guess" />
       </div>
       <div className="my-6">
         <div className="mb-2">

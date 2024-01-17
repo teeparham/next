@@ -1,6 +1,7 @@
 "use client";
 import Link from "next/link";
 import { Arrow } from "./components/Arrow";
+import { LinkTo } from "./components/LinkTo";
 
 const urls = {
   acquired:
@@ -19,23 +20,6 @@ const css = {
   h1: "text-opacity-90 dark:text-yellow-400",
   h2: "text-opacity-80 dark:text-blue-400",
   h3: "text-blue-800 dark:text-yellow-200",
-};
-
-interface LinkToProps {
-  href: string;
-  children: React.ReactNode;
-}
-
-const LinkTo = ({ href, children }: LinkToProps) => {
-  return (
-    <a
-      className="underline text-blue-900 dark:text-blue-300 underline-offset-2 hover:decoration-2"
-      href={href}
-      target="_blank"
-    >
-      {children}
-    </a>
-  );
 };
 
 export default function Home() {
