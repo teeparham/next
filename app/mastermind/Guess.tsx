@@ -1,5 +1,6 @@
 import { COLOR } from "./CodePeg";
 import { check } from "./CodeMaker";
+import { cx } from "../utils";
 
 interface DotProps {
   color: number;
@@ -22,10 +23,11 @@ interface GuessProps {
 const Dot = ({ color }: DotProps) => {
   return (
     <div
-      className={
-        "border-black border-2 mx-3 rounded-full px-3 inline-block bg-" +
-        COLOR[color]
-      }
+      className={cx(
+        "border-black border-2 rounded-full",
+        "mx-3 px-3 inline-block",
+        "bg-" + COLOR[color]
+      )}
     >
       &nbsp;
     </div>
@@ -35,9 +37,11 @@ const Dot = ({ color }: DotProps) => {
 const Cue = ({ color }: CueProps) => {
   return (
     <div
-      className={
-        "border-black border-2 mx-1 md:mx-2 rounded-full px-1 md:px-2 inline-block bg-" + color
-      }
+      className={cx(
+        "border-black border-2 rounded-full",
+        "mx-1 md:mx-2 px-1 md:px-2 inline-block",
+        "bg-" + color
+      )}
     >
       &nbsp;
     </div>
@@ -63,9 +67,7 @@ export const Guess = ({ guess, answer }: GuessProps) => {
       <div className="mr-8 inline-block" />
       {!!answer.length && (
         <>
-          {right + rightColor == 0 && (
-            <div className="inline-block">None</div>
-          )}
+          {right + rightColor == 0 && <div className="inline-block">None</div>}
           <CueList count={rightColor} color="white" />
           <CueList count={right} color="black" />
         </>
