@@ -20,8 +20,9 @@ interface LoserProps {
 
 const CSS = {
   border: "my-8 rounded-2xl bg-gray-800 p-4 md:p-8",
-  winnerText: "font-bold text-xl md:text-2xl space-x-3 md:space-x-6 text-center",
-}
+  winnerText:
+    "font-bold text-xl md:text-2xl space-x-3 md:space-x-6 text-center",
+};
 
 function Winner({ count }: WinnerProps) {
   function message() {
@@ -64,9 +65,7 @@ function Loser({ answer }: LoserProps) {
   );
 }
 
-export function GameOver({
-  answer, count, onPlayAgain, won,
-}: GameOverProps) {
+export function GameOver({ answer, count, onPlayAgain, won }: GameOverProps) {
   if (won) {
     return (
       <>

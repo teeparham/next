@@ -14,10 +14,10 @@ export const COLOR = [
   "purple-500",
 ];
 
-export function CodePeg ({ color, enabled, index, onClick }: CodePegProps) {
-  const handleClick = () => {
+export function CodePeg({ color, enabled, index, onClick }: CodePegProps) {
+  function handleClick() {
     onClick(index);
-  };
+  }
 
   return (
     <button
@@ -26,4 +26,4 @@ export function CodePeg ({ color, enabled, index, onClick }: CodePegProps) {
       onClick={handleClick}
     ></button>
   );
-};
+}
