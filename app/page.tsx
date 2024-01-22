@@ -157,7 +157,7 @@ export default function Home() {
                   can compare source code differences between the current
                   version of a gem in your bundle and the latest version of the
                   gem. gemdiff connects gem version management (rubygems +
-                  bundler) with source code (GitHub).
+                  bundler) with source code on GitHub.
                 </li>
                 <li className="mb-3">
                   <LinkTo href="https://github.com/rgeo/rgeo">rgeo</LinkTo> is a
@@ -179,7 +179,13 @@ export default function Home() {
                   easier and more pleasant to write HTML documents, by
                   eliminating redundancy, reflecting the underlying structure
                   that the document represents, and providing an elegant syntax
-                  that is both powerful and easy to understand.
+                  that is both powerful and easy to understand. One of my
+                  significant{" "}
+                  <LinkTo href="https://github.com/haml/haml/pull/894">
+                    contributions
+                  </LinkTo>{" "}
+                  was removing the "pretty" code formatting option, which
+                  simplified the code base and sped up the engine.
                 </li>
                 <li className="mb-3">
                   <LinkTo href="https://github.com/neighborland/cache_rocket">
@@ -222,7 +228,7 @@ export default function Home() {
                   <LinkTo href="https://github.com/neighborland/anchored">
                     anchored
                   </LinkTo>{" "}
-                  auto-LinkTos URLs in HTML text using ruby.
+                  auto-links URLs in HTML text using ruby.
                 </li>
                 <li className="mb-3">
                   <LinkTo href="https://github.com/rgeo/rgeo-geojson">
