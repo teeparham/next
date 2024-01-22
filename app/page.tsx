@@ -82,8 +82,8 @@ export default function Home() {
             </div>
           </div>
           <div className="leading-relaxed lg:basis-3/4">
-            <section className="mt-2 mb-8">
-              <h3 className={css.h3} id="work">
+            <section className="mb-12">
+              <h3 className={cx("pt-2", css.h3)} id="work">
                 Experience
               </h3>
               <ul>
@@ -144,8 +144,8 @@ export default function Home() {
                 </li>
               </ul>
             </section>
-            <section className="mb-8">
-              <h3 className={css.h3} id="oss">
+            <section className="mb-12">
+              <h3 className={cx("pt-2", css.h3)} id="oss">
                 Open Source Projects
               </h3>
               <ul>
@@ -239,8 +239,8 @@ export default function Home() {
                 </li>
               </ul>
             </section>
-            <section className="mb-8">
-              <h3 className={css.h3} id="presentations">
+            <section className="mb-12">
+              <h3 className={cx("pt-2", css.h3)} id="presentations">
                 Presentations
               </h3>
               <ul>
@@ -264,8 +264,8 @@ export default function Home() {
                 </li>
               </ul>
             </section>
-            <section className="mb-8">
-              <h3 className={`mb-3 ${css.h3}`} id="games">
+            <section className="mb-12">
+              <h3 className={cx("pt-2 mb-3", css.h3)} id="games">
                 Games
               </h3>
               <Link href="/mastermind" className="group">
