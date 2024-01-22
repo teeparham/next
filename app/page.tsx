@@ -23,6 +23,23 @@ const css = {
   h3: "text-blue-800 dark:text-yellow-200",
 };
 
+function Profiles() {
+  return (
+    <div className="text-3xl text-blue-800 dark:text-yellow-400">
+      <a
+        className="icon-linkedin mr-3"
+        href="https://www.linkedin.com/in/teeparham"
+      ></a>
+      <a className="icon-github mr-3" href="https://github.com/teeparham/"></a>
+      <a className="icon-twitter mr-3" href="https://twitter.com/teeparham"></a>
+      <a
+        className="icon-stackoverflow"
+        href="https://stackoverflow.com/users/162934/tee"
+      ></a>
+    </div>
+  );
+}
+
 export default function Home() {
   return (
     <main className="container min-h-screen">
@@ -59,25 +76,8 @@ export default function Home() {
                   </li>
                 </ul>
               </nav>
-              <section className="my-4">
-                <div className="text-3xl text-blue-800 dark:text-yellow-400">
-                  <a
-                    className="icon-linkedin mr-3"
-                    href="https://www.LinkToedin.com/in/teeparham"
-                  ></a>
-                  <a
-                    className="icon-github mr-3"
-                    href="https://github.com/teeparham/"
-                  ></a>
-                  <a
-                    className="icon-twitter mr-3"
-                    href="https://twitter.com/teeparham"
-                  ></a>
-                  <a
-                    className="icon-stackoverflow"
-                    href="https://stackoverflow.com/users/162934/tee"
-                  ></a>
-                </div>
+              <section className="my-12 hidden lg:block">
+                <Profiles />
               </section>
             </div>
           </div>
@@ -88,11 +88,17 @@ export default function Home() {
               </h3>
               <ul>
                 <li className="mb-3">
-                  I was the technical lead for the Public Agencies Pillar and
-                  the Organizations Admin team at{" "}
-                  <LinkTo href="https://nextdoor.com/">Nextdoor</LinkTo> where I
-                  led projects like{" "}
-                  <LinkTo href={urls.faves}>Neighborhood Faves</LinkTo>.
+                  I served as the technical lead for the Public Agencies Pillar
+                  and the Organizations Admin team at{" "}
+                  <LinkTo href="https://nextdoor.com/">Nextdoor</LinkTo>. The
+                  Public Agencies team supported thousands of government
+                  agencies, including the State of California, the Fire
+                  Department of the City of New York (FDNY), and the US Census
+                  Bureau. The Organizations team supported tens of millions of
+                  local business pages. I led projects like{" "}
+                  <LinkTo href={urls.faves}>Neighborhood Faves</LinkTo>, which
+                  created meaningful connections between neighbors and local
+                  businesses.
                 </li>
                 <li className="mb-3">
                   <LinkTo href="https://neighborland.com/">Neighborland</LinkTo>{" "}
@@ -114,8 +120,8 @@ export default function Home() {
                     Designer Fund
                   </LinkTo>{" "}
                   attract and connect the world&apos;s best designers with top
-                  technology companies by upgrading the back end and rebuilding
-                  the front end of their events app.
+                  technology companies by modernizing their in-house events
+                  application.
                 </li>
                 <li className="mb-3">
                   I helped{" "}
@@ -128,13 +134,13 @@ export default function Home() {
                     Nester Hosiery
                   </LinkTo>{" "}
                   so they could make the world&apos;s best wool socks more
-                  efficiently. My team helped the company manage manufacturing
+                  efficiently. Our team helped the company manage manufacturing
                   of over 5000 items and grow 20% annually for over 8 years. You
-                  can{" "}
+                  can buy some socks from their{" "}
                   <LinkTo href="https://www.farmtofeet.com/">
-                    buy some socks
+                    Farm to Feet
                   </LinkTo>{" "}
-                  from their Farm to Feet brand.
+                  brand.
                 </li>
               </ul>
             </section>
@@ -258,7 +264,7 @@ export default function Home() {
                 </li>
               </ul>
             </section>
-            <section className="mb-16">
+            <section className="mb-8">
               <h3 className={`mb-3 ${css.h3}`} id="games">
                 Games
               </h3>
@@ -266,6 +272,10 @@ export default function Home() {
                 Mastermind&nbsp;
                 <Arrow />
               </Link>
+            </section>
+            <section className="my-12 lg:hidden">
+              <hr className="mb-4" />
+              <Profiles />
             </section>
           </div>
         </div>
