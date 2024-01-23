@@ -184,8 +184,8 @@ export default function Home() {
                   <LinkTo href="https://github.com/haml/haml/pull/894">
                     contributions
                   </LinkTo>{" "}
-                  was removing the "pretty" code formatting option, which
-                  simplified the code base and sped up the engine.
+                  was removing the &quot;pretty&quot; code formatting option,
+                  which simplified the code base and sped up the engine.
                 </li>
                 <li className="mb-3">
                   <LinkTo href="https://github.com/neighborland/cache_rocket">
