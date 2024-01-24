@@ -18,9 +18,9 @@ const urls = {
 };
 
 const css = {
-  h1: "text-opacity-90 dark:text-yellow-400",
-  h2: "text-opacity-80 dark:text-blue-400",
-  h3: "text-blue-800 dark:text-yellow-200",
+  h1: "text-black dark:text-yellow-400",
+  h2: "text-blue-900 dark:text-blue-400",
+  h3: "text-blue-900 dark:text-yellow-200",
 };
 
 function Profiles() {
@@ -48,7 +48,7 @@ export default function Home() {
           <div className="mb-8 lg:mr-8 lg:basis-1/4 lg:relative">
             <div className="lg:fixed lg:top-8">
               <h1 className={css.h1}>Tee Parham</h1>
-              <nav className={cx("hidden lg:block my-8", css.h2)}>
+              <nav className={cx("hidden lg:block my-8 font-semibold", css.h2)}>
                 <ul>
                   <li className="mb-2">
                     <a href="#work" className="group">

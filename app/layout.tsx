@@ -20,7 +20,7 @@ export default function RootLayout({
       <body
         className={cx(
           openSans.className,
-          "bg-neutral-200 text-neutral-700",
+          "bg-neutral-100 text-neutral-900",
           "dark:bg-neutral-800 dark:text-neutral-300"
         )}
       >
