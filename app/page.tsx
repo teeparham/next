@@ -274,8 +274,15 @@ export default function Home() {
               <h3 className={cx("pt-2 mb-3", css.h3)} id="games">
                 Games
               </h3>
-              <Link href="/mastermind" className="group">
+              <Link
+                href="/mastermind"
+                className={cx("group block mb-2", css.h2)}
+              >
                 Mastermind&nbsp;
+                <Arrow />
+              </Link>
+              <Link href="/queens" className={cx("group block mb-2", css.h2)}>
+                N Queens&nbsp;
                 <Arrow />
               </Link>
             </section>
