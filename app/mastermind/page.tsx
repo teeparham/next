@@ -1,21 +1,16 @@
 "use client";
 import { Game } from "./Game";
-import { Arrow } from "../components/Arrow";
-import Link from "next/link";
 import { cx } from "../utils";
+import { BackHeader } from "../components/BackHeader";
 
 export default function Page() {
   return (
     <main className="container min-h-screen">
       <div className="my-8 mx-4 md:mx-8 lg:mx-auto max-w-3xl">
-        <Link
-          className="block text-xl mb-4 text-opacity-90 dark:text-yellow-400"
-          href="/"
-        >
-          <Arrow left />
-          &nbsp;Tee Parham
-        </Link>
-        <h1 className="mb-4 text-3xl text-blue-800 dark:text-blue-400">Mastermind</h1>
+        <BackHeader />
+        <h1 className="mb-4 text-3xl text-blue-800 dark:text-blue-400">
+          Mastermind
+        </h1>
         <div className="mb-6 text-sm">
           Guess the pattern of four colored dots. Click the circles to change
           colors, then click Guess. For each dot in the correct color and in the
@@ -32,7 +27,7 @@ export default function Page() {
           className={cx(
             "rounded-2xl border-2",
             "border-gray-700 dark:border-gray-200",
-            "p-4 md:p-6",            
+            "p-4 md:p-6",
             "bg-gray-300 dark:bg-gray-500"
           )}
         >
