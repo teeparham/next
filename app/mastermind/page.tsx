@@ -5,13 +5,13 @@ import { BackHeader } from "../components/BackHeader";
 
 export default function Page() {
   return (
-    <main className="container min-h-screen">
-      <div className="my-8 mx-4 md:mx-8 lg:mx-auto max-w-3xl">
+    <main className="container min-h-screen overflow-x-hidden">
+      <div className="my-8 mx-4 sm:mx-8 lg:mx-auto max-w-3xl">
         <BackHeader />
         <h1 className="mb-4 text-3xl text-blue-800 dark:text-blue-400">
           Mastermind
         </h1>
-        <div className="mb-6 text-sm">
+        <p className="mb-6 text-sm">
           Guess the pattern of four colored dots. Click the circles to change
           colors, then click Guess. For each dot in the correct color and in the
           correct position, a black dot is shown. For each dot of the right
@@ -22,17 +22,21 @@ export default function Page() {
           >
             Read more
           </a>
-        </div>
+        </p>
         <div
           className={cx(
-            "rounded-2xl border-2",
+            "sm:rounded-2xl border-2",
             "border-gray-700 dark:border-gray-200",
-            "p-4 md:p-6",
+            "p-4 sm:p-6 -mx-6 sm:m-0",
             "bg-gray-300 dark:bg-gray-500"
           )}
         >
           <Game />
         </div>
+        <p className="mt-8 text-yellow-200 min-[347px]:hidden">
+          Sorry - the game does not fit well on narrow screens. Try rotating
+          your device to get a wider screen.
+        </p>
       </div>
     </main>
   );

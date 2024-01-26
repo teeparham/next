@@ -22,6 +22,11 @@ const config: Config = {
     container: {
       center: true,
     },
+    extend: {
+      screens: {
+        sm: "500px",
+      },
+    },
   },
   plugins: [],
 };

@@ -31,7 +31,7 @@ function Dot({ color }: DotProps) {
     <div
       className={cx(
         "border-black border-2 rounded-full",
-        "mx-3 px-3 inline-block",
+        "mx-2 sm:mx-3 px-3 inline-block",
         "bg-" + COLOR[color]
       )}
     >
