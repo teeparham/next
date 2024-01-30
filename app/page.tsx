@@ -2,6 +2,7 @@
 import Link from "next/link";
 import { Arrow } from "./components/Arrow";
 import { LinkTo } from "./components/LinkTo";
+import { ThemeSwitch } from "./components/ThemeSwitch";
 import { cx } from "./utils";
 
 const urls = {
@@ -78,6 +79,9 @@ export default function Home() {
               </nav>
               <section className="my-12 hidden lg:block">
                 <Profiles />
+              </section>
+              <section className="my-12 hidden lg:block">
+                <ThemeSwitch />
               </section>
             </div>
           </div>

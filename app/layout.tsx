@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Open_Sans } from "next/font/google";
 import "./globals.css";
 import { cx } from "./utils";
+import { Providers } from "./components/Providers";
 
 const openSans = Open_Sans({ subsets: ["latin"] });
 
@@ -10,13 +11,14 @@ export const metadata: Metadata = {
   description: "Tee Parham portfolio site",
 };
 
-export default function RootLayout({
-  children,
-}: {
+interface LayoutProps {
   children: React.ReactNode;
-}) {
+}
+
+export default function Layout({ children }: LayoutProps) {
   return (
-    <html lang="en" className="scroll-smooth">
+    <html lang="en" className="scroll-smooth" suppressHydrationWarning>
+      <head />
       <body
         className={cx(
           openSans.className,
@@ -24,7 +26,7 @@ export default function RootLayout({
           "dark:bg-neutral-800 dark:text-neutral-300"
         )}
       >
-        {children}
+        <Providers>{children}</Providers>
       </body>
     </html>
   );

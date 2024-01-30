@@ -8,6 +8,7 @@ const config: Config = {
     "./components/**/*.{js,ts,jsx,tsx,mdx}",
     "./app/**/*.{js,ts,jsx,tsx,mdx}",
   ],
+  darkMode: "class",
   // Ensure dynamic colors are bundled
   safelist: [
     "bg-blue-500",
