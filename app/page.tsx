@@ -291,8 +291,12 @@ export default function Home() {
               </Link>
             </section>
             <section className="my-12 lg:hidden">
-              <hr className="mb-4" />
-              <Profiles />
+              <hr className="mb-6 border-gray-800 dark:border-gray-200" />
+              <div className="sm:flex">
+                <Profiles />
+                <div className="sm:grow mt-6 sm:mt-0"></div>
+                <ThemeSwitch />
+              </div>
             </section>
           </div>
         </div>

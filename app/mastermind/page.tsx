@@ -2,6 +2,7 @@
 import { Game } from "./Game";
 import { cx } from "../utils";
 import { BackHeader } from "../components/BackHeader";
+import { PageFooter } from "../components/PageFooter";
 
 export default function Page() {
   return (
@@ -37,6 +38,7 @@ export default function Page() {
           Sorry - the game does not fit well on narrow screens. Try rotating
           your device to get a wider screen.
         </p>
+        <PageFooter />
       </div>
     </main>
   );

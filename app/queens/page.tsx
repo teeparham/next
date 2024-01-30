@@ -3,6 +3,7 @@ import { useState } from "react";
 import { cx } from "../utils";
 import { BackHeader } from "../components/BackHeader";
 import { Board } from "./Board";
+import { PageFooter } from "../components/PageFooter";
 
 const css = {
   button: cx(
@@ -75,6 +76,7 @@ export default function Page() {
           </div>
           <Board count={count} />
         </div>
+        <PageFooter />
       </div>
     </main>
   );
