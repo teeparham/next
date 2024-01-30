@@ -45,7 +45,7 @@ function Winner({ count }: WinnerProps) {
         <span className="text-white">!</span>
         <span className="text-white">!</span>
       </div>
-      <div className="text-gray-900 mb-6">
+      <div className="text-gray-900 dark:text-white mb-6">
         {message()}&nbsp; You got it in {count} guesses!
       </div>
     </>
