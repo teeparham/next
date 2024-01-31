@@ -3,6 +3,7 @@ import Link from "next/link";
 import { Arrow } from "./components/Arrow";
 import { LinkTo } from "./components/LinkTo";
 import { ThemeSwitch } from "./components/ThemeSwitch";
+import { Skills } from "./components/Skills";
 import { cx } from "./utils";
 
 const urls = {
@@ -41,6 +42,45 @@ function Profiles() {
   );
 }
 
+function Nav() {
+  return (
+    <nav className={cx("hidden lg:block my-8 font-semibold", css.h2)}>
+      <ul>
+        <li className="mb-2">
+          <a href="#work" className="group">
+            EXPERIENCE&nbsp;
+            <Arrow />
+          </a>
+        </li>
+        <li className="mb-2">
+          <a href="#skills" className="group">
+            SKILLS&nbsp;
+            <Arrow />
+          </a>
+        </li>
+        <li className="mb-2">
+          <a href="#oss" className="group">
+            OPEN SOURCE&nbsp;
+            <Arrow />
+          </a>
+        </li>
+        <li className="mb-2">
+          <a href="#presentations" className="group">
+            PRESENTATIONS&nbsp;
+            <Arrow />
+          </a>
+        </li>
+        <li>
+          <a href="#games" className="group">
+            GAMES&nbsp;
+            <Arrow />
+          </a>
+        </li>
+      </ul>
+    </nav>
+  );
+}
+
 export default function Home() {
   return (
     <main className="container min-h-screen">
@@ -49,34 +89,7 @@ export default function Home() {
           <div className="mb-8 lg:mr-8 lg:basis-1/4 lg:relative">
             <div className="lg:fixed lg:top-8">
               <h1 className={css.h1}>Tee Parham</h1>
-              <nav className={cx("hidden lg:block my-8 font-semibold", css.h2)}>
-                <ul>
-                  <li className="mb-2">
-                    <a href="#work" className="group">
-                      EXPERIENCE&nbsp;
-                      <Arrow />
-                    </a>
-                  </li>
-                  <li className="mb-2">
-                    <a href="#oss" className="group">
-                      OPEN SOURCE&nbsp;
-                      <Arrow />
-                    </a>
-                  </li>
-                  <li className="mb-2">
-                    <a href="#presentations" className="group">
-                      PRESENTATIONS&nbsp;
-                      <Arrow />
-                    </a>
-                  </li>
-                  <li>
-                    <a href="#games" className="group">
-                      GAMES&nbsp;
-                      <Arrow />
-                    </a>
-                  </li>
-                </ul>
-              </nav>
+              <Nav />
               <section className="my-12 hidden lg:block">
                 <Profiles />
               </section>
@@ -147,6 +160,20 @@ export default function Home() {
                   brand.
                 </li>
               </ul>
+            </section>
+            <section className="mb-12 min-h-60">
+              <h3 className={cx("pt-2", css.h3)} id="skills">
+                Skills
+              </h3>
+              <p className="mb-8">
+                Below is an interactive grid of skills I have acquired and
+                technologies I have expertise in. Tap on the bar to filter the
+                list of skills. The larger the label, the more expertise. Some
+                of the technologies listed are not tools that I would choose to
+                use again (such as Bootstrap or LESS), but I have learned from
+                using them.
+              </p>
+              <Skills />
             </section>
             <section className="mb-12">
               <h3 className={cx("pt-2", css.h3)} id="oss">
