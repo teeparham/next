@@ -21,9 +21,9 @@ export function ThemeSwitch() {
       <button
         className={cx(
           "rounded-l-lg border border-r-0",
-          "px-2 py-1 border-gray-400",
-          "text-gray-800 bg-gray-100",
-          theme === "dark" && "hover:bg-gray-200 hover:text-blue-700"
+          "px-2 py-1 border-neutral-400",
+          "text-neutral-800 bg-neutral-100",
+          theme === "dark" && "hover:bg-neutral-200 hover:text-blue-700"
         )}
         onClick={() => {
           setTheme("light");
@@ -35,9 +35,9 @@ export function ThemeSwitch() {
       <button
         className={cx(
           "rounded-r-lg border",
-          "px-2 py-1 border-gray-400",
-          "text-gray-200 bg-gray-700",
-          theme === "light" && "hover:bg-gray-600 hover:text-blue-400"
+          "px-2 py-1 border-neutral-400",
+          "text-neutral-200 bg-neutral-700",
+          theme === "light" && "hover:bg-neutral-600 hover:text-blue-400"
         )}
         onClick={() => {
           setTheme("dark");
