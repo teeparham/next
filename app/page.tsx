@@ -243,13 +243,6 @@ export default function Home() {
                   candidates.
                 </li>
                 <li className="mb-3">
-                  <LinkTo href="https://github.com/neighborland/scopy">
-                    scopy
-                  </LinkTo>{" "}
-                  provides common ActiveRecord model scopes for common columns
-                  including created_at and name.
-                </li>
-                <li className="mb-3">
                   <LinkTo href="https://github.com/neighborland/resque_solo">
                     resque_solo
                   </LinkTo>{" "}
@@ -266,13 +259,6 @@ export default function Home() {
                     rgeo-geojson
                   </LinkTo>{" "}
                   provides GeoJSON serialization support to RGeo objects.
-                </li>
-                <li className="mb-3">
-                  <LinkTo href="https://github.com/rgeo/rgeo-activerecord">
-                    rgeo-activerecord
-                  </LinkTo>{" "}
-                  provides RGeo ActiveRecord extensions, used by the PostGIS,
-                  MySql, and Spatialite database adapters.
                 </li>
               </ul>
             </section>
