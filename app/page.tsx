@@ -105,6 +105,13 @@ export default function Home() {
               </h3>
               <ul>
                 <li className="mb-3">
+                  I am an experienced software engineer and entrepreneur. I have
+                  founded companies, worked with startups and Fortune 500
+                  businesses, and met many amazing people. I am passionate about
+                  building effective, performant software systems with simple
+                  and delightful user experiences.
+                </li>
+                <li className="mb-3">
                   I served as the technical lead for the Public Agencies Pillar
                   and the Organizations Admin team at{" "}
                   <LinkTo href="https://nextdoor.com/">Nextdoor</LinkTo>. The
@@ -132,7 +139,7 @@ export default function Home() {
                   2019.
                 </li>
                 <li className="mb-3">
-                  I helped{" "}
+                  I helped the venture capital firm{" "}
                   <LinkTo href="https://designerfund.com/">
                     Designer Fund
                   </LinkTo>{" "}
@@ -143,17 +150,20 @@ export default function Home() {
                 <li className="mb-3">
                   I helped{" "}
                   <LinkTo href="https://brightfunds.org/">Bright Funds</LinkTo>{" "}
-                  build a platform for charitable giving and volunteering.
+                  build a platform for charitable giving and volunteering. I
+                  advised the CTO on foundational architecture, code quality,
+                  and testing. I built partner integration systems for clients
+                  such as Cisco and VMWare.
                 </li>
                 <li className="mb-3">
-                  I led development of an ERP system for{" "}
+                  I created and led development of SockInfo, an ERP system for{" "}
                   <LinkTo href="https://www.nesterhosiery.com/">
                     Nester Hosiery
                   </LinkTo>{" "}
-                  so they could make the world&apos;s best wool socks more
-                  efficiently. Our team helped the company manage manufacturing
-                  of over 5000 items and grow 20% annually for over 8 years. You
-                  can buy some socks from their{" "}
+                  so they could make the world&apos;s best merino wool socks
+                  more efficiently. Our team helped the company manage
+                  manufacturing of over 5000 items and grow 20% annually for
+                  over 8 years. You can buy some socks from their{" "}
                   <LinkTo href="https://www.farmtofeet.com/">
                     Farm to Feet
                   </LinkTo>{" "}
@@ -181,11 +191,18 @@ export default function Home() {
               </h3>
               <ul>
                 <li className="mb-3">
+                  <LinkTo href="https://github.com/teeparham/next">
+                    This portfolio website
+                  </LinkTo>{" "}
+                  is a Next.js React application hosted on Vercel. It is built
+                  with TypeScript and Tailwind CSS.
+                </li>
+                <li className="mb-3">
                   <LinkTo href="https://github.com/teeparham/gemdiff">
                     gemdiff
                   </LinkTo>{" "}
-                  is a command-line tool to find source code for ruby gems. You
-                  can compare source code differences between the current
+                  is a command-line application to find source code for ruby
+                  gems. Compare source code differences between the current
                   version of a gem in your bundle and the latest version of the
                   gem. gemdiff connects gem version management (rubygems +
                   bundler) with source code on GitHub.
@@ -194,71 +211,71 @@ export default function Home() {
                   <LinkTo href="https://github.com/rgeo/rgeo">rgeo</LinkTo> is a
                   geospatial data library for ruby. It wraps the GEOS and Proj C
                   libraries and provides spatial types such as point,
-                  linestring, and polygon.
-                </li>
-                <li className="mb-3">
-                  <LinkTo href="https://github.com/rgeo/activerecord-postgis-adapter">
-                    activerecord-postgis-adapter
-                  </LinkTo>{" "}
-                  is the PostGIS ActiveRecord adapter. Use it to connect
-                  ActiveRecord models to your PostgreSQL + PostGIS database,
-                  with all the geometry type methods from rgeo.
-                </li>
-                <li className="mb-3">
-                  <LinkTo href="https://github.com/haml/haml">Haml</LinkTo> is a
-                  templating engine for HTML. It&apos;s designed to make it both
-                  easier and more pleasant to write HTML documents, by
-                  eliminating redundancy, reflecting the underlying structure
-                  that the document represents, and providing an elegant syntax
-                  that is both powerful and easy to understand. One of my
-                  significant{" "}
-                  <LinkTo href="https://github.com/haml/haml/pull/894">
-                    contributions
-                  </LinkTo>{" "}
-                  was removing the &quot;pretty&quot; code formatting option,
-                  which simplified the code base and sped up the engine.
-                </li>
-                <li className="mb-3">
-                  <LinkTo href="https://github.com/neighborland/cache_rocket">
-                    cache_rocket
-                  </LinkTo>{" "}
-                  improves fragment caching efficiency in Rails. CacheRocket
-                  allows caching more generic html fragments and allowing the
-                  contents of the cached fragments to be replaced with dynamic
-                  content.
-                </li>
-                <li className="mb-3">
-                  <LinkTo href="https://github.com/neighborland/pres">
-                    pres
-                  </LinkTo>{" "}
-                  provides simple Rails presenter modules and classes.
-                </li>
-                <li className="mb-3">
-                  <LinkTo href="https://github.com/neighborland/sluggi">
-                    sluggi
-                  </LinkTo>{" "}
-                  is a friendly_id-inspired slugging library for ActiveRecord
-                  models. Use it to build nice-looking URLs. It provides basic
-                  slugs, slug history, and the ability to define multiple slug
-                  candidates.
-                </li>
-                <li className="mb-3">
-                  <LinkTo href="https://github.com/neighborland/resque_solo">
-                    resque_solo
-                  </LinkTo>{" "}
-                  ensures unique jobs in Resque.
-                </li>
-                <li className="mb-3">
-                  <LinkTo href="https://github.com/neighborland/anchored">
-                    anchored
-                  </LinkTo>{" "}
-                  auto-links URLs in HTML text using ruby.
+                  linestring, and polygon. The gem has over 19,000,000
+                  downloads. I was the maintainer for the RGeo organization for
+                  over six years.
                 </li>
                 <li className="mb-3">
                   <LinkTo href="https://github.com/rgeo/rgeo-geojson">
                     rgeo-geojson
                   </LinkTo>{" "}
                   provides GeoJSON serialization support to RGeo objects.
+                </li>
+                <li className="mb-3">
+                  <LinkTo href="https://github.com/rgeo/activerecord-postgis-adapter">
+                    activerecord-postgis-adapter
+                  </LinkTo>{" "}
+                  is the PostGIS ActiveRecord adapter. Use it to connect Rails
+                  ActiveRecord models to a PostgreSQL + PostGIS database, with
+                  all the geometry type methods from RGeo.
+                </li>
+                <li className="mb-3">
+                  <LinkTo href="https://github.com/haml/haml">Haml</LinkTo> is a
+                  templating engine for HTML. It is designed to make it easier
+                  and more pleasant to write HTML documents. I was a maintainer
+                  for five years. One of my significant{" "}
+                  <LinkTo href="https://github.com/haml/haml/pull/894">
+                    contributions
+                  </LinkTo>{" "}
+                  was removing the &quot;pretty&quot; code formatting option,
+                  which simplified the code base and sped up the engine. The gem
+                  has over 135,000,000 downloads.
+                </li>
+                <li className="mb-3">
+                  <LinkTo href="https://github.com/neighborland/cache_rocket">
+                    cache_rocket
+                  </LinkTo>{" "}
+                  improves fragment caching efficiency in Rails. CacheRocket
+                  caches more generic HTML fragments and allows the contents of
+                  the cached fragments to be replaced with dynamic content.
+                </li>
+                <li className="mb-3">
+                  <LinkTo href="https://github.com/neighborland/pres">
+                    pres
+                  </LinkTo>{" "}
+                  provides Rails presenter modules and classes for server-side
+                  frontend components.
+                </li>
+                <li className="mb-3">
+                  <LinkTo href="https://github.com/neighborland/sluggi">
+                    sluggi
+                  </LinkTo>{" "}
+                  is a friendly_id-inspired slugging library for Rails
+                  ActiveRecord models. It provides basic slugs, slug history,
+                  and the ability to define multiple slug candidates.
+                </li>
+                <li className="mb-3">
+                  <LinkTo href="https://github.com/neighborland/resque_solo">
+                    resque_solo
+                  </LinkTo>{" "}
+                  ensures unique jobs in Resque, the Redis-backed library for
+                  background jobs.
+                </li>
+                <li className="mb-3">
+                  <LinkTo href="https://github.com/neighborland/anchored">
+                    anchored
+                  </LinkTo>{" "}
+                  auto-links URLs in HTML text.
                 </li>
               </ul>
             </section>
@@ -280,9 +297,9 @@ export default function Home() {
                   </LinkTo>
                 </li>
                 <li className="mb-3">
-                  I also presented at Boulder Ruby about{" "}
+                  I presented at Boulder Ruby about{" "}
                   <LinkTo href="https://www.slideshare.net/teeparham/gemdiff">
-                    gem dependency updates with gemdiff.
+                    gem dependency management.
                   </LinkTo>
                 </li>
               </ul>
