@@ -1,3 +1,4 @@
+"use client";
 import { useState } from "react";
 import { cx } from "../utils";
 import { FilterButton } from "./FilterButton";

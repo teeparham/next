@@ -1,4 +1,3 @@
-"use client";
 import Link from "next/link";
 import { Arrow } from "./components/Arrow";
 import { LinkTo } from "./components/LinkTo";
