@@ -1,8 +1,10 @@
 "use client";
-// import { Game } from "./Game";
-import { cx } from "../utils";
 import { BackHeader } from "../components/BackHeader";
 import { PageFooter } from "../components/PageFooter";
+import { Board } from "./Board";
+import { GameProvider } from "./GameContext";
+import { Score } from "./Score";
+import "./styles/globals.css";
 
 export default function Page() {
   return (
@@ -24,16 +26,10 @@ export default function Page() {
             Read more
           </a>
         </p>
-        <div
-          className={cx(
-            "sm:rounded-2xl border-2",
-            "border-gray-700 dark:border-gray-200",
-            "p-4 sm:p-6 -mx-6 sm:m-0",
-            "bg-gray-300 dark:bg-gray-500"
-          )}
-        >
-          todo
-        </div>
+        <GameProvider>
+          <Score />
+          <Board />
+        </GameProvider>
         <PageFooter />
       </div>
     </main>
