@@ -1,5 +1,7 @@
 "use client";
+import { useState } from "react";
 import { BackHeader } from "../components/BackHeader";
+import { GameButton } from "../components/GameButton";
 import { PageFooter } from "../components/PageFooter";
 import { Board } from "./Board";
 import { GameProvider } from "./GameContext";
@@ -7,6 +9,15 @@ import { Score } from "./Score";
 import "./styles/globals.css";
 
 export default function Page() {
+  const [simulate, setSimulate] = useState(false);
+
+  function toggleSimulate() {
+    setSimulate(true);
+    setTimeout(() => {
+      setSimulate(false);
+    }, 3000);
+  }
+
   return (
     <main className="container min-h-screen overflow-x-hidden">
       <div className="my-8 mx-4 sm:mx-8 lg:mx-auto max-w-3xl">
@@ -28,7 +39,14 @@ export default function Page() {
         </p>
         <GameProvider>
           <Score />
-          <Board />
+          <Board simulate={simulate} />
+          <div className="mt-6">
+            <GameButton
+              onClick={toggleSimulate}
+              text="Make random moves"
+              disabled={simulate}
+            />
+          </div>
         </GameProvider>
         <PageFooter />
       </div>

@@ -14,7 +14,11 @@ import {
 import { TileType } from "./Tile";
 import { gameReducer, initialState } from "./GameReducer";
 
-type MoveDirection = "move_up" | "move_down" | "move_left" | "move_right";
+export type MoveDirection =
+  | "move_up"
+  | "move_down"
+  | "move_left"
+  | "move_right";
 
 export const GameContext = createContext({
   score: 0,

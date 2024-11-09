@@ -1,10 +1,11 @@
 import { useCallback, useContext, useEffect, useRef } from "react";
-import { GameContext } from "./GameContext";
+import { GameContext, MoveDirection } from "./GameContext";
 import { Splash } from "./Splash";
 import { Swiper, SwipeInput } from "./Swiper";
 import { Tile, TileType } from "./Tile";
 import styles from "./styles/board.module.css";
 import { cx } from "../utils";
+import { mergeAnimationDuration } from "./constants";
 
 const cellIndexes = Array.from({ length: 16 }, (_, i) => i);
 
@@ -18,7 +19,18 @@ function Grid() {
   );
 }
 
-export function Board() {
+type BoardProps = {
+  simulate: boolean;
+};
+
+const directions: Array<MoveDirection> = [
+  "move_up",
+  "move_down",
+  "move_left",
+  "move_right",
+];
+
+export function Board({ simulate }: BoardProps) {
   const { getTiles, moveTiles, startGame, status } = useContext(GameContext);
   const initialized = useRef(false);
 
@@ -78,6 +90,18 @@ export function Board() {
       window.removeEventListener("keydown", handleKeyDown);
     };
   }, [handleKeyDown]);
+
+  useEffect(() => {
+    function simulateMove() {
+      const direction = directions[Math.floor(Math.random() * 4)];
+      moveTiles(direction);
+    }
+
+    if (simulate) {
+      const interval = setInterval(simulateMove, mergeAnimationDuration + 25);
+      return () => clearInterval(interval);
+    }
+  }, [simulate, moveTiles]);
 
   return (
     <Swiper onSwipe={handleSwipe}>
