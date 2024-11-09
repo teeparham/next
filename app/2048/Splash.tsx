@@ -4,7 +4,12 @@ import styles from "./styles/splash.module.css";
 import { GameButton } from "../components/GameButton";
 import { cx } from "../utils";
 
-export function Splash({ heading = "You won!", type = "" }) {
+interface SplashProps {
+  type?: "won" | "lost";
+  children: React.ReactNode;
+}
+
+export function Splash({ type = "lost", children }: SplashProps) {
   const { startGame } = useContext(GameContext);
 
   return (
@@ -17,7 +22,7 @@ export function Splash({ heading = "You won!", type = "" }) {
       )}
     >
       <div>
-        <h1 className="mb-8 text-gray-100 drop-shadow-2xl">{heading}</h1>
+        <h1 className="mb-8 text-gray-100 drop-shadow-2xl">{children}</h1>
         <GameButton onClick={startGame} text="Play again" />
       </div>
     </div>

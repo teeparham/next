@@ -106,8 +106,8 @@ export function Board({ simulate }: BoardProps) {
   return (
     <Swiper onSwipe={handleSwipe}>
       <div className={styles.board}>
-        {status === "won" && <Splash heading="Winner!" type="won" />}
-        {status === "lost" && <Splash heading="Game over" />}
+        {status === "won" && <Splash type="won">Winner!</Splash>}
+        {status === "lost" && <Splash>Game over</Splash>}
         <div className={styles.tiles}>
           {getTiles().map((tile: TileType) => (
             <Tile key={tile.id} {...tile} />
