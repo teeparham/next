@@ -65,7 +65,11 @@ export function Game() {
             enabled={guessEnabled}
           />
         ))}
-        <GameButton disabled={!guessEnabled} onClick={onGuess} text="Guess" />
+        <div className="ml-2 md:ml-3">
+          <GameButton disabled={!guessEnabled} onClick={onGuess}>
+            Guess
+          </GameButton>
+        </div>
       </div>
       <div className="my-6">
         <div className="mb-2">

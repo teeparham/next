@@ -70,7 +70,7 @@ export function GameOver({ answer, count, onPlayAgain, won }: GameOverProps) {
     return (
       <>
         <Winner count={count} />
-        <GameButton onClick={onPlayAgain} text="Play Again" />
+        <GameButton onClick={onPlayAgain}>Play Again</GameButton>
       </>
     );
   }
@@ -78,7 +78,7 @@ export function GameOver({ answer, count, onPlayAgain, won }: GameOverProps) {
     return (
       <>
         <Loser answer={answer} />
-        <GameButton onClick={onPlayAgain} text="Play Again" />
+        <GameButton onClick={onPlayAgain}>Play Again</GameButton>
       </>
     );
   }

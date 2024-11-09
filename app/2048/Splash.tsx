@@ -23,7 +23,7 @@ export function Splash({ type = "lost", children }: SplashProps) {
     >
       <div>
         <h1 className="mb-8 text-gray-100 drop-shadow-2xl">{children}</h1>
-        <GameButton onClick={startGame} text="Play again" />
+        <GameButton onClick={startGame}>Play again</GameButton>
       </div>
     </div>
   );

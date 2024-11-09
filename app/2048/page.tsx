@@ -41,11 +41,9 @@ export default function Page() {
           <Score />
           <Board simulate={simulate} />
           <div className="mt-6">
-            <GameButton
-              onClick={toggleSimulate}
-              text="Make random moves"
-              disabled={simulate}
-            />
+            <GameButton onClick={toggleSimulate} disabled={simulate}>
+              Make random moves
+            </GameButton>
           </div>
         </GameProvider>
         <PageFooter />
