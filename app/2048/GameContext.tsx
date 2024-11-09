@@ -87,41 +87,32 @@ export function GameProvider({ children }: PropsWithChildren) {
     const { tiles, board } = gameState;
 
     const maxIndex = tileCountPerDimension - 1;
-    for (let x = 0; x < maxIndex; x += 1) {
-      for (let y = 0; y < maxIndex; y += 1) {
-        if (
-          isNil(gameState.board[x][y]) ||
-          isNil(gameState.board[x + 1][y]) ||
-          isNil(gameState.board[x][y + 1])
-        ) {
+    for (let x = 0; x <= maxIndex; x += 1) {
+      for (let y = 0; y <= maxIndex; y += 1) {
+        if (isNil(gameState.board[x][y])) {
           return;
         }
 
-        if (tiles[board[x][y]].value === tiles[board[x + 1][y]].value) {
-          return;
+        // do not check below the last row
+        if (x < maxIndex) {
+          if (isNil(gameState.board[x + 1][y])) {
+            return;
+          }
+          if (tiles[board[x][y]].value === tiles[board[x + 1][y]].value) {
+            return;
+          }
         }
 
-        if (tiles[board[x][y]].value === tiles[board[x][y + 1]].value) {
-          return;
+        // do not check right of the last column
+        if (y < maxIndex) {
+          if (isNil(gameState.board[x][y + 1])) {
+            return;
+          }
+          if (tiles[board[x][y]].value === tiles[board[x][y + 1]].value) {
+            return;
+          }
         }
       }
-    }
-
-    // check bottom right corner
-    if (isNil(board[maxIndex][maxIndex])) {
-      return;
-    }
-    if (
-      tiles[board[maxIndex][maxIndex]].value ===
-      tiles[board[maxIndex][maxIndex - 1]].value
-    ) {
-      return;
-    }
-    if (
-      tiles[board[maxIndex][maxIndex]].value ===
-      tiles[board[maxIndex - 1][maxIndex]].value
-    ) {
-      return;
     }
 
     dispatch({ type: "update_status", status: "lost" });
