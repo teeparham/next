@@ -4,12 +4,13 @@ import { Splash } from "./Splash";
 import { Swiper, SwipeInput } from "./Swiper";
 import { Tile, TileType } from "./Tile";
 import styles from "./styles/board.module.css";
+import { cx } from "../utils";
 
 const cellIndexes = Array.from({ length: 16 }, (_, i) => i);
 
 function Grid() {
   return (
-    <div className={styles.grid}>
+    <div className={cx(styles.grid, "rounded-b-lg")}>
       {cellIndexes.map((index) => (
         <div key={index} className={styles.cell} />
       ))}

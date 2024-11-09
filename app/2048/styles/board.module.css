@@ -7,8 +7,6 @@
   display: flex;
   flex-wrap: wrap;
   background: var(--secondary-background);
-  border: calc(var(--pixel-size) * 0.5) solid var(--secondary-background);
-  border-radius: calc(var(--pixel-size) * 0.75);
 }
 
 .cell {
@@ -31,7 +29,7 @@
 
 @media (min-width: 512px) {
   .board {
-    width: calc(var(--pixel-size) * 12.5 * 4 + var(--pixel-size) * 10);
+    width: 480px;
   }
 
   .grid {
