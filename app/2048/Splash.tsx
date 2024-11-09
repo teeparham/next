@@ -11,7 +11,9 @@ export function Splash({ heading = "You won!", type = "" }) {
     <div
       className={cx(
         styles.splash,
-        "bg-gray-400 m-32 rounded-xl border-white border-4"
+        "m-32 rounded-xl border-white border-4",
+        type === "won" && "bg-green-500",
+        type !== "won" && "bg-gray-400"
       )}
     >
       <div>
