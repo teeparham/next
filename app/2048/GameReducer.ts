@@ -14,6 +14,7 @@ type State = {
   score: number;
   status: GameStatus;
 };
+
 type Action =
   | { type: "create_tile"; tile: TileType }
   | { type: "clean_up" }
