@@ -5,6 +5,18 @@ import { Swiper, SwipeInput } from "./Swiper";
 import { Tile, TileType } from "./Tile";
 import styles from "./styles/board.module.css";
 
+const cellIndexes = Array.from({ length: 16 }, (_, i) => i);
+
+function Grid() {
+  return (
+    <div className={styles.grid}>
+      {cellIndexes.map((index) => (
+        <div key={index} className={styles.cell} />
+      ))}
+    </div>
+  );
+}
+
 export function Board() {
   const { getTiles, moveTiles, startGame, status } = useContext(GameContext);
   const initialized = useRef(false);
@@ -51,23 +63,6 @@ export function Board() {
     [moveTiles]
   );
 
-  const renderGrid = () => {
-    const cells: JSX.Element[] = [];
-    const totalCellsCount = 16;
-
-    for (let index = 0; index < totalCellsCount; index += 1) {
-      cells.push(<div className={styles.cell} key={index} />);
-    }
-
-    return cells;
-  };
-
-  const renderTiles = () => {
-    return getTiles().map((tile: TileType) => (
-      <Tile key={`${tile.id}`} {...tile} />
-    ));
-  };
-
   useEffect(() => {
     if (initialized.current === false) {
       startGame();
@@ -88,8 +83,12 @@ export function Board() {
       <div className={styles.board}>
         {status === "won" && <Splash heading="You won!" type="won" />}
         {status === "lost" && <Splash heading="You lost!" />}
-        <div className={styles.tiles}>{renderTiles()}</div>
-        <div className={styles.grid}>{renderGrid()}</div>
+        <div className={styles.tiles}>
+          {getTiles().map((tile: TileType) => (
+            <Tile key={tile.id} {...tile} />
+          ))}
+        </div>
+        <Grid />
       </div>
     </Swiper>
   );
