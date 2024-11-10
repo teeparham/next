@@ -1,4 +1,5 @@
 import { useEffect, useRef, useState } from "react";
+import { useMediaQuery } from "react-responsive";
 import {
   containerWidthMobile,
   containerWidthDesktop,
@@ -26,7 +27,7 @@ export type TileType = {
 export type TileMap = { [id: string]: TileType };
 
 export function Tile({ position, value }: TileType) {
-  const isWideScreen = true; // useMediaQuery({ minWidth: 512 });
+  const isWideScreen = useMediaQuery({ minWidth: 512 });
   const containerWidth = isWideScreen
     ? containerWidthDesktop
     : containerWidthMobile;
