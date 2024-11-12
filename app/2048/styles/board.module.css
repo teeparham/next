@@ -7,6 +7,7 @@
   display: flex;
   flex-wrap: wrap;
   background: var(--secondary-background);
+  padding: 4px;
 }
 
 .cell {
@@ -34,6 +35,7 @@
 
   .grid {
     border: calc(var(--pixel-size) * 1) solid var(--secondary-background);
+    padding: 0;
   }
 
   .cell {
