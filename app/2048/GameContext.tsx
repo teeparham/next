@@ -31,7 +31,7 @@ export const GameContext = createContext({
 export function GameProvider({ children }: PropsWithChildren) {
   const [gameState, dispatch] = useReducer(gameReducer, initialState);
 
-  const getEmptyCells = () => {
+  function getEmptyCells() {
     const results: [number, number][] = [];
 
     for (let x = 0; x < tileCountPerDimension; x++) {
@@ -42,9 +42,9 @@ export function GameProvider({ children }: PropsWithChildren) {
       }
     }
     return results;
-  };
+  }
 
-  const appendRandomTile = () => {
+  function appendRandomTile() {
     const emptyCells = getEmptyCells();
     if (emptyCells.length > 0) {
       const cellIndex = Math.floor(Math.random() * emptyCells.length);
@@ -54,11 +54,11 @@ export function GameProvider({ children }: PropsWithChildren) {
       };
       dispatch({ type: "create_tile", tile: newTile });
     }
-  };
+  }
 
-  const getTiles = () => {
+  function getTiles() {
     return gameState.tilesByIds.map((tileId) => gameState.tiles[tileId]);
-  };
+  }
 
   const moveTiles = useCallback(
     throttle(
@@ -68,13 +68,13 @@ export function GameProvider({ children }: PropsWithChildren) {
     [dispatch]
   );
 
-  const startGame = () => {
+  function startGame() {
     dispatch({ type: "reset_game" });
     dispatch({ type: "create_tile", tile: { position: [0, 1], value: 2 } });
     dispatch({ type: "create_tile", tile: { position: [0, 2], value: 2 } });
-  };
+  }
 
-  const checkGameState = () => {
+  function checkGameState() {
     const isWon =
       Object.values(gameState.tiles).filter((t) => t.value === gameWinTileValue)
         .length > 0;
@@ -116,7 +116,7 @@ export function GameProvider({ children }: PropsWithChildren) {
     }
 
     dispatch({ type: "update_status", status: "lost" });
-  };
+  }
 
   useEffect(() => {
     if (gameState.hasChanged) {
