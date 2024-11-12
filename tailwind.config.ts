@@ -25,7 +25,7 @@ const config: Config = {
     },
     extend: {
       screens: {
-        sm: "500px",
+        sm: "520px",
       },
     },
   },
