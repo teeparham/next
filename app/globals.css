@@ -14,6 +14,12 @@
   }
 }
 
+/* 2048 */
+.tile-transition {
+  transition-property: left, top, transform;
+  transition-duration: 200ms, 200ms, 100ms;
+}
+
 /*******************************************************************************
 Font Icons from fontello.com
 *******************************************************************************/
