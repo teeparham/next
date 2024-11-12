@@ -51,7 +51,6 @@ export function Tile({ position, value }: TileType) {
     left: positionToPixels(position[0]),
     top: positionToPixels(position[1]),
     transform: `scale(${scale})`,
-    zIndex: value,
   };
 
   return (
@@ -60,6 +59,7 @@ export function Tile({ position, value }: TileType) {
         "bg-brown-200 text-brown-700",
         "font-bold text-center",
         "absolute rounded-md",
+        value > 4 && "text-brown-100",
         styles.tile,
         styles[`tile${value}`]
       )}

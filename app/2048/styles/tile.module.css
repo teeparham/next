@@ -18,22 +18,6 @@
   }
 }
 
-/* -=-=-=- START OF TEXT COLOR -=-=-=- */
-.tile8,
-.tile16,
-.tile32,
-.tile64,
-.tile128,
-.tile256,
-.tile512,
-.tile1024,
-.tile2048,
-.tile4096,
-.tile8192 {
-  color: var(--secondary-text-color);
-}
-/* -=-=-=-= END OF TEXT COLOR =-=-=-=- */
-
 /* -=-=-=- START OF TEXT SIZE -=-=-=- */
 .tile128,
 .tile256,
