@@ -1,15 +1,5 @@
 :root {
   --pixel-size: 8px;
-
-  /* Backgrounds */
-  --secondary-background: #b59d87;
-  --cell-background: #cebda6;
-  --tile-background: #eee4da;
-  --button-background: #8f7a66;
-
-  /* Colors */
-  --primary-text-color: #776e65;
-  --secondary-text-color: #f9f6f2;
 }
 
 .w-2048 {
