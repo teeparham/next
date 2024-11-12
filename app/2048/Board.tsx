@@ -3,7 +3,6 @@ import { GameContext, MoveDirection } from "./GameContext";
 import { Splash } from "./Splash";
 import { Swiper, SwipeInput } from "./Swiper";
 import { Tile, TileType } from "./Tile";
-import styles from "./styles/board.module.css";
 import { cx } from "../utils";
 import { mergeAnimationDuration } from "./constants";
 
@@ -13,7 +12,13 @@ function Grid() {
   return (
     <div className={"flex flex-wrap rounded-b-lg bg-brown-400 p-1 sm:p-2"}>
       {cellIndexes.map((index) => (
-        <div key={index} className={cx(styles.cell, "bg-brown-300")} />
+        <div
+          key={index}
+          className={cx(
+            "w-16 sm:w-[6.25rem] h-16 sm:h-[6.25rem] m-1 sm:m-2 rounded-md",
+            "bg-brown-300"
+          )}
+        />
       ))}
     </div>
   );
@@ -105,10 +110,10 @@ export function Board({ simulate }: BoardProps) {
 
   return (
     <Swiper onSwipe={handleSwipe}>
-      <div className={cx(styles.board, "w-2048 relative")}>
+      <div className={"w-[296px] sm:w-[480px] relative"}>
         {status === "won" && <Splash type="won">Winner!</Splash>}
         {status === "lost" && <Splash>Game over</Splash>}
-        <div className={cx(styles.tiles, "absolute inset-0 z-10")}>
+        <div className={cx("m-1 sm:m-2", "absolute inset-0 z-10")}>
           {getTiles().map((tile: TileType) => (
             <Tile key={tile.id} {...tile} />
           ))}

@@ -1,9 +1,4 @@
-.w-2048 {
-  width: 296px;
-}
-
-@media (min-width: 512px) {
-  .w-2048 {
-    width: 480px;
-  }
+.tile-transition {
+  transition-property: left, top, transform;
+  transition-duration: 200ms, 200ms, 100ms;
 }

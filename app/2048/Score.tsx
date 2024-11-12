@@ -8,7 +8,8 @@ export function Score() {
   return (
     <div
       className={cx(
-        "w-2048 text-brown-200 bg-brown-400 text-center",
+        "w-[296px] sm:w-[480px]",
+        "text-brown-200 bg-brown-400 text-center",
         "pt-2 sm:pt-4 rounded-t-lg font-bold text-lg sm:text-xl"
       )}
     >

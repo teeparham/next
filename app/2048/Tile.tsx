@@ -6,7 +6,6 @@ import {
   mergeAnimationDuration,
   tileCountPerDimension,
 } from "./constants";
-import styles from "./styles/tile.module.css";
 import { cx } from "../utils";
 
 function usePreviousProps<K = any>(value: K) {
@@ -68,7 +67,12 @@ export function Tile({ position, value }: TileType) {
     transform: `scale(${scale})`,
   };
 
-  const fontSize = value > 512 ? "tile-lg" : value > 64 ? "tile-md" : null;
+  const fontSize =
+    value > 512
+      ? "text-[22px] sm:text-[2rem]"
+      : value > 64
+        ? "text-[26px] sm:text-[44px]"
+        : null;
   // @ts-ignore any type
   const bgColor = bgColorMap[value];
   const textColor = value > 4 ? "text-brown-100" : null;
@@ -77,11 +81,13 @@ export function Tile({ position, value }: TileType) {
     <div
       className={cx(
         "bg-brown-200 text-brown-700 m-1 sm:m-2",
-        "font-bold text-center absolute rounded-md",
+        "font-bold text-center text-[2rem] sm:text-[3rem] leading-[4rem] sm:leading-[6.25rem]",
+        "absolute rounded-md",
+        "w-16 sm:w-[6.25rem] h-16 sm:h-[6.25rem]",
+        "tile-transition",
         bgColor,
         textColor,
-        fontSize,
-        styles.tile
+        fontSize
       )}
       style={style}
     >
