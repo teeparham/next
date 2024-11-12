@@ -1,7 +1,3 @@
-.grid {
-  background: var(--secondary-background);
-}
-
 .cell {
   width: calc(var(--pixel-size) * 8);
   height: calc(var(--pixel-size) * 8);
@@ -14,10 +10,6 @@
 }
 
 @media (min-width: 512px) {
-  .grid {
-    border: calc(var(--pixel-size) * 1) solid var(--secondary-background);
-  }
-
   .cell {
     width: calc(var(--pixel-size) * 12.5);
     height: calc(var(--pixel-size) * 12.5);

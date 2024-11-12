@@ -11,7 +11,7 @@ const cellIndexes = Array.from({ length: 16 }, (_, i) => i);
 
 function Grid() {
   return (
-    <div className={cx(styles.grid, "rounded-b-lg flex flex-wrap p-1 sm:p-0")}>
+    <div className={"flex flex-wrap rounded-b-lg bg-brown-400 p-1 sm:p-2"}>
       {cellIndexes.map((index) => (
         <div key={index} className={cx(styles.cell, "bg-brown-300")} />
       ))}
