@@ -16,7 +16,7 @@ export function Splash({ type = "lost", children }: SplashProps) {
     <div
       className={cx(
         styles.splash,
-        "m-4 sm:m-32 rounded-xl border-white border-4",
+        "m-4 sm:m-32 rounded-xl border-white border-4 bg-opacity-80",
         type === "won" && "bg-green-500",
         type !== "won" && "bg-gray-400"
       )}

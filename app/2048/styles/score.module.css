@@ -1,27 +1,12 @@
 .score {
   background: var(--secondary-background);
   color: var(--tile-background);
-  font-size: calc(var(--pixel-size) * 1.5);
-  line-height: calc(var(--pixel-size) * 3);
-  font-weight: bold;
   text-align: center;
-  text-transform: uppercase;
   width: 296px;
-}
-
-.score > div {
-  font-size: calc(var(--pixel-size) * 2.5);
-  color: var(--secondary-text-color);
 }
 
 @media (min-width: 512px) {
   .score {
     width: 480px;
-    font-size: calc(var(--pixel-size) * 2);
-    line-height: calc(var(--pixel-size) * 3.5);
-  }
-
-  .score > div {
-    font-size: calc(var(--pixel-size) * 3.5);
   }
 }

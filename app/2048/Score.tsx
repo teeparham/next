@@ -7,8 +7,13 @@ export function Score() {
   const { score } = useContext(GameContext);
 
   return (
-    <div className={cx(styles.score, "rounded-t-lg")}>
-      Score
+    <div
+      className={cx(
+        styles.score,
+        "pt-2 sm:pt-4 rounded-t-lg font-bold text-lg sm:text-xl"
+      )}
+    >
+      <div>SCORE</div>
       <div>{score}</div>
     </div>
   );
