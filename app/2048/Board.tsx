@@ -13,7 +13,7 @@ function Grid() {
   return (
     <div className={cx(styles.grid, "rounded-b-lg flex flex-wrap p-1 sm:p-0")}>
       {cellIndexes.map((index) => (
-        <div key={index} className={styles.cell} />
+        <div key={index} className={cx(styles.cell, "bg-brown-300")} />
       ))}
     </div>
   );

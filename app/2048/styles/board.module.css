@@ -7,7 +7,6 @@
   height: calc(var(--pixel-size) * 8);
   margin: calc(var(--pixel-size) * 0.5);
   border-radius: calc(var(--pixel-size) * 0.5);
-  background: var(--cell-background);
 }
 
 .tiles {

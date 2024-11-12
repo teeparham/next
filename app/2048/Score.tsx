@@ -1,6 +1,5 @@
 import { useContext } from "react";
 import { GameContext } from "./GameContext";
-import styles from "./styles/score.module.css";
 import { cx } from "../utils";
 
 export function Score() {
@@ -9,8 +8,7 @@ export function Score() {
   return (
     <div
       className={cx(
-        styles.score,
-        "w-2048",
+        "w-2048 text-brown-200 bg-brown-400 text-center",
         "pt-2 sm:pt-4 rounded-t-lg font-bold text-lg sm:text-xl"
       )}
     >
