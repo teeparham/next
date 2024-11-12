@@ -14,7 +14,7 @@ export function Splash({ type = "lost", children }: SplashProps) {
   return (
     <div
       className={cx(
-        "flex justify-center items-center text-center absolute inset-0 z-10",
+        "flex justify-center items-center text-center absolute inset-0 z-20",
         "m-4 sm:m-32 rounded-xl border-white border-4 bg-opacity-80",
         type === "won" && "bg-green-500",
         type !== "won" && "bg-gray-400"

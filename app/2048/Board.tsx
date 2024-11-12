@@ -11,7 +11,7 @@ const cellIndexes = Array.from({ length: 16 }, (_, i) => i);
 
 function Grid() {
   return (
-    <div className={cx(styles.grid, "rounded-b-lg")}>
+    <div className={cx(styles.grid, "rounded-b-lg flex flex-wrap p-1 sm:p-0")}>
       {cellIndexes.map((index) => (
         <div key={index} className={styles.cell} />
       ))}
@@ -105,10 +105,10 @@ export function Board({ simulate }: BoardProps) {
 
   return (
     <Swiper onSwipe={handleSwipe}>
-      <div className={cx(styles.board, "w-2048")}>
+      <div className={cx(styles.board, "w-2048 relative")}>
         {status === "won" && <Splash type="won">Winner!</Splash>}
         {status === "lost" && <Splash>Game over</Splash>}
-        <div className={styles.tiles}>
+        <div className={cx(styles.tiles, "absolute inset-0 z-10")}>
           {getTiles().map((tile: TileType) => (
             <Tile key={tile.id} {...tile} />
           ))}

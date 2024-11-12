@@ -1,12 +1,5 @@
-.board {
-  position: relative;
-}
-
 .grid {
-  display: flex;
-  flex-wrap: wrap;
   background: var(--secondary-background);
-  padding: 4px;
 }
 
 .cell {
@@ -18,19 +11,12 @@
 }
 
 .tiles {
-  position: absolute;
-  z-index: 2;
   margin: calc(var(--pixel-size) * 0.5);
-  left: 0;
-  top: 0;
-  right: 0;
-  bottom: 0;
 }
 
 @media (min-width: 512px) {
   .grid {
     border: calc(var(--pixel-size) * 1) solid var(--secondary-background);
-    padding: 0;
   }
 
   .cell {
