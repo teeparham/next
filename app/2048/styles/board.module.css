@@ -1,6 +1,5 @@
 .board {
   position: relative;
-  width: 296px;
 }
 
 .grid {
@@ -29,10 +28,6 @@
 }
 
 @media (min-width: 512px) {
-  .board {
-    width: 480px;
-  }
-
   .grid {
     border: calc(var(--pixel-size) * 1) solid var(--secondary-background);
     padding: 0;

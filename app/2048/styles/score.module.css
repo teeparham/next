@@ -2,11 +2,4 @@
   background: var(--secondary-background);
   color: var(--tile-background);
   text-align: center;
-  width: 296px;
-}
-
-@media (min-width: 512px) {
-  .score {
-    width: 480px;
-  }
 }

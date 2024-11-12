@@ -10,6 +10,7 @@ export function Score() {
     <div
       className={cx(
         styles.score,
+        "w-2048",
         "pt-2 sm:pt-4 rounded-t-lg font-bold text-lg sm:text-xl"
       )}
     >

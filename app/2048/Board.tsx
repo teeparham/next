@@ -105,7 +105,7 @@ export function Board({ simulate }: BoardProps) {
 
   return (
     <Swiper onSwipe={handleSwipe}>
-      <div className={styles.board}>
+      <div className={cx(styles.board, "w-2048")}>
         {status === "won" && <Splash type="won">Winner!</Splash>}
         {status === "lost" && <Splash>Game over</Splash>}
         <div className={styles.tiles}>
