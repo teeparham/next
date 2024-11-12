@@ -7,6 +7,7 @@ import {
   tileCountPerDimension,
 } from "./constants";
 import styles from "./styles/tile.module.css";
+import { cx } from "../utils";
 
 function usePreviousProps<K = any>(value: K) {
   const ref = useRef<K>();
@@ -54,7 +55,16 @@ export function Tile({ position, value }: TileType) {
   };
 
   return (
-    <div className={`${styles.tile} ${styles[`tile${value}`]}`} style={style}>
+    <div
+      className={cx(
+        "bg-brown-200 text-brown-700",
+        "font-bold text-center",
+        "absolute rounded-md",
+        styles.tile,
+        styles[`tile${value}`]
+      )}
+      style={style}
+    >
       {value}
     </div>
   );
