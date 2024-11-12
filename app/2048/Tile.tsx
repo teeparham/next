@@ -72,16 +72,17 @@ export function Tile({ position, value }: TileType) {
       ? "text-[22px] sm:text-[2rem]"
       : value > 64
         ? "text-[26px] sm:text-[44px]"
-        : null;
+        : "text-[2rem] sm:text-[3rem]";
+
   // @ts-ignore any type
-  const bgColor = bgColorMap[value];
-  const textColor = value > 4 ? "text-brown-100" : null;
+  const bgColor = bgColorMap[value] || "bg-brown-200";
+  const textColor = value > 4 ? "text-brown-100" : "text-brown-700";
 
   return (
     <div
       className={cx(
-        "bg-brown-200 text-brown-700 m-1 sm:m-2",
-        "font-bold text-center text-[2rem] sm:text-[3rem] leading-[4rem] sm:leading-[6.25rem]",
+        "m-1 sm:m-2",
+        "font-bold text-center leading-[4rem] sm:leading-[6.25rem]",
         "absolute rounded-md",
         "w-16 sm:w-[6.25rem] h-16 sm:h-[6.25rem]",
         "tile-transition",
