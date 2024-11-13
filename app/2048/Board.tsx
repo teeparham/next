@@ -98,6 +98,7 @@ export function Board({ simulate }: BoardProps) {
 
   useEffect(() => {
     function simulateMove() {
+      if (status !== "ongoing") return;
       const direction = directions[Math.floor(Math.random() * 4)];
       moveTiles(direction);
     }
@@ -106,7 +107,7 @@ export function Board({ simulate }: BoardProps) {
       const interval = setInterval(simulateMove, mergeAnimationDuration + 25);
       return () => clearInterval(interval);
     }
-  }, [simulate, moveTiles]);
+  }, [simulate, moveTiles, status]);
 
   return (
     <Swiper onSwipe={handleSwipe}>
