@@ -11,7 +11,7 @@ export function Score() {
     if (bestScore) {
       setBest(parseInt(bestScore, 10));
     }
-  });
+  }, []);
 
   useEffect(() => {
     if (score > best) {
