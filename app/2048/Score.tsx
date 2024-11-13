@@ -1,9 +1,24 @@
-import { useContext } from "react";
+import { useContext, useEffect, useState } from "react";
 import { GameContext } from "./GameContext";
 import { cx } from "../utils";
 
 export function Score() {
+  const [best, setBest] = useState(0);
   const { score } = useContext(GameContext);
+
+  useEffect(() => {
+    const bestScore = localStorage.getItem("2048.best");
+    if (bestScore) {
+      setBest(parseInt(bestScore, 10));
+    }
+  });
+
+  useEffect(() => {
+    if (score > best) {
+      setBest(score);
+      localStorage.setItem("2048.best", score.toString());
+    }
+  }, [score, best]);
 
   return (
     <div
@@ -13,8 +28,17 @@ export function Score() {
         "pt-2 sm:pt-4 rounded-t-lg font-bold text-lg sm:text-xl"
       )}
     >
-      <div>SCORE</div>
-      <div>{score}</div>
+      <div className="flex w-full">
+        <div className="flex-1">
+          <div>SCORE</div>
+          <div>{score}</div>
+        </div>
+        <div className="flex-1 mx-8"></div>
+        <div className="flex-1">
+          <div>BEST</div>
+          <div>{best}</div>
+        </div>
+      </div>
     </div>
   );
 }
