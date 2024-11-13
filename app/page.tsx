@@ -314,6 +314,10 @@ export default function Home() {
                 Mastermind&nbsp;
                 <Arrow />
               </Link>
+              <Link href="/2048" className={cx("group block mb-2", css.h2)}>
+                2048&nbsp;
+                <Arrow />
+              </Link>
               <Link href="/queens" className={cx("group block mb-2", css.h2)}>
                 N Queens&nbsp;
                 <Arrow />
