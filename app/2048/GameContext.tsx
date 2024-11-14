@@ -124,11 +124,7 @@ export function GameProvider({ children }: PropsWithChildren) {
         dispatch({ type: "clean_up" });
         appendRandomTile();
       }, mergeAnimationDuration);
-    }
-  }, [gameState.hasChanged]);
-
-  useEffect(() => {
-    if (!gameState.hasChanged) {
+    } else {
       checkGameState();
     }
   }, [gameState.hasChanged]);
