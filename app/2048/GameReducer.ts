@@ -1,6 +1,5 @@
 import { flattenDeep, isEqual } from "lodash";
 import { isNil } from "../utils";
-import { uid } from "uid";
 import { tileCountPerDimension } from "./constants";
 import { TileType, TileMap } from "./Tile";
 
@@ -70,7 +69,7 @@ export function gameReducer(state: State = initialState, action: Action) {
       };
     }
     case "create_tile": {
-      const tileId = uid();
+      const tileId = crypto.randomUUID();
       const [x, y] = action.tile.position;
       const newBoard = JSON.parse(JSON.stringify(state.board));
       newBoard[y][x] = tileId;
