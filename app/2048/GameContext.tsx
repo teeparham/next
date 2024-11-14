@@ -44,13 +44,14 @@ export function GameProvider({ children }: PropsWithChildren) {
     return results;
   }
 
-  function appendRandomTile() {
+  function addRandomTile() {
     const emptyCells = getEmptyCells();
     if (emptyCells.length > 0) {
       const cellIndex = Math.floor(Math.random() * emptyCells.length);
+      const value = Math.random() < 0.9 ? 2 : 4;
       const newTile = {
         position: emptyCells[cellIndex],
-        value: 2,
+        value,
       };
       dispatch({ type: "create_tile", tile: newTile });
     }
@@ -122,7 +123,7 @@ export function GameProvider({ children }: PropsWithChildren) {
     if (gameState.hasChanged) {
       setTimeout(() => {
         dispatch({ type: "clean_up" });
-        appendRandomTile();
+        addRandomTile();
       }, mergeAnimationDuration);
     } else {
       checkGameState();
