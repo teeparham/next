@@ -1,11 +1,5 @@
 import { useEffect, useRef, useState } from "react";
-import { useMediaQuery } from "react-responsive";
-import {
-  containerWidthMobile,
-  containerWidthDesktop,
-  mergeAnimationDuration,
-  tileCountPerDimension,
-} from "./constants";
+import { mergeAnimationDuration } from "./constants";
 import { cx } from "../utils";
 
 function usePreviousProps<K = any>(value: K) {
@@ -42,17 +36,9 @@ const bgColorMap = {
 };
 
 export function Tile({ position, value }: TileType) {
-  const isWideScreen = useMediaQuery({ minWidth: 512 });
-  const containerWidth = isWideScreen
-    ? containerWidthDesktop
-    : containerWidthMobile;
-
   const [scale, setScale] = useState(1);
   const previousValue = usePreviousProps<number>(value);
   const hasChanged = previousValue !== value;
-
-  const positionToPixels = (position: number) =>
-    (position / tileCountPerDimension) * containerWidth;
 
   useEffect(() => {
     if (hasChanged) {
@@ -62,10 +48,10 @@ export function Tile({ position, value }: TileType) {
   }, [hasChanged]);
 
   const style = {
-    left: positionToPixels(position[0]),
-    top: positionToPixels(position[1]),
     transform: `scale(${scale})`,
   };
+
+  const tilePosition = `tile-x-${position[0]} tile-y-${position[1]}`;
 
   const fontSize =
     value > 512
@@ -88,7 +74,8 @@ export function Tile({ position, value }: TileType) {
         "tile-transition",
         bgColor,
         textColor,
-        fontSize
+        fontSize,
+        tilePosition
       )}
       style={style}
     >
