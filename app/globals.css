@@ -52,7 +52,7 @@
   top: 216px;
 }
 
-@media (min-width: 512px) {
+@media (min-width: 520px) {
   .tile-x-1 {
     left: 116px;
   }
