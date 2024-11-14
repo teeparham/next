@@ -210,7 +210,7 @@ export default function Home() {
                   <LinkTo href="https://github.com/rgeo/rgeo">rgeo</LinkTo> is a
                   geospatial data library for ruby. It wraps the GEOS and Proj C
                   libraries and provides spatial types such as point,
-                  linestring, and polygon. The gem has over 19,000,000
+                  linestring, and polygon. The gem has over 23 million
                   downloads. I was the maintainer for the RGeo organization for
                   over six years.
                 </li>
@@ -238,7 +238,7 @@ export default function Home() {
                   </LinkTo>{" "}
                   was removing the &quot;pretty&quot; code formatting option,
                   which simplified the code base and sped up the engine. The gem
-                  has over 135,000,000 downloads.
+                  has over 150 million downloads.
                 </li>
                 <li className="mb-3">
                   <LinkTo href="https://github.com/neighborland/cache_rocket">
