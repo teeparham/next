@@ -44,14 +44,17 @@ export function GameProvider({ children }: PropsWithChildren) {
     return results;
   }
 
+  function randomCellValue() {
+    return Math.random() < 0.9 ? 2 : 4;
+  }
+
   function addRandomTile() {
     const emptyCells = getEmptyCells();
     if (emptyCells.length > 0) {
       const cellIndex = Math.floor(Math.random() * emptyCells.length);
-      const value = Math.random() < 0.9 ? 2 : 4;
       const newTile = {
         position: emptyCells[cellIndex],
-        value,
+        value: randomCellValue(),
       };
       dispatch({ type: "create_tile", tile: newTile });
     }
@@ -71,8 +74,14 @@ export function GameProvider({ children }: PropsWithChildren) {
 
   function startGame() {
     dispatch({ type: "reset_game" });
-    dispatch({ type: "create_tile", tile: { position: [0, 1], value: 2 } });
-    dispatch({ type: "create_tile", tile: { position: [0, 2], value: 2 } });
+    dispatch({
+      type: "create_tile",
+      tile: { position: [0, 1], value: randomCellValue() },
+    });
+    dispatch({
+      type: "create_tile",
+      tile: { position: [0, 2], value: randomCellValue() },
+    });
   }
 
   function checkGameState() {
