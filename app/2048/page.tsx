@@ -6,7 +6,6 @@ import { PageFooter } from "../components/PageFooter";
 import { Board } from "./Board";
 import { GameProvider } from "./GameContext";
 import { Score } from "./Score";
-import "./styles/globals.css";
 
 export default function Page() {
   const [simulate, setSimulate] = useState(false);

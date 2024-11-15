@@ -1,4 +1,0 @@
-.tile-transition {
-  transition-property: left, top, transform;
-  transition-duration: 200ms, 200ms, 100ms;
-}
