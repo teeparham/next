@@ -2,12 +2,14 @@ import { useContext, useEffect, useState } from "react";
 import { GameContext } from "./GameContext";
 import { cx } from "../utils";
 
+const bestScoreKey = "2048.best";
+
 export function Score() {
   const [best, setBest] = useState(0);
   const { score } = useContext(GameContext);
 
   useEffect(() => {
-    const bestScore = localStorage.getItem("2048.best");
+    const bestScore = localStorage.getItem(bestScoreKey);
     if (bestScore) {
       setBest(parseInt(bestScore, 10));
     }
@@ -16,7 +18,7 @@ export function Score() {
   useEffect(() => {
     if (score > best) {
       setBest(score);
-      localStorage.setItem("2048.best", score.toString());
+      localStorage.setItem(bestScoreKey, score.toString());
     }
   }, [score, best]);
 
