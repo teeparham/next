@@ -4,6 +4,7 @@ import {
   useCallback,
   useEffect,
   useReducer,
+  useRef,
 } from "react";
 import { isNil, throttle } from "../utils";
 import {
@@ -63,13 +64,15 @@ export function GameProvider({ children }: PropsWithChildren) {
     return gameState.tilesByIds.map((tileId) => gameState.tiles[tileId]);
   }
 
-  const moveTiles = useCallback(
+  const throttled = useRef(
     throttle(
       (type: MoveDirection) => dispatch({ type }),
       mergeAnimationDuration * 1.05
-    ),
-    [dispatch]
+    )
   );
+
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  const moveTiles = useCallback(throttled.current, []);
 
   function startGame() {
     dispatch({ type: "reset_game" });
@@ -83,7 +86,7 @@ export function GameProvider({ children }: PropsWithChildren) {
     });
   }
 
-  function checkGameState() {
+  const checkGameState = useCallback(() => {
     const isWon =
       Object.values(gameState.tiles).filter((t) => t.value === gameWinTileValue)
         .length > 0;
@@ -93,7 +96,9 @@ export function GameProvider({ children }: PropsWithChildren) {
       return;
     }
 
-    const { tiles, board } = gameState;
+    // linter does not like dereferencing gameState
+    const tiles = gameState.tiles;
+    const board = gameState.board;
 
     const maxIndex = tileCountPerDimension - 1;
     for (let x = 0; x <= maxIndex; x += 1) {
@@ -125,7 +130,7 @@ export function GameProvider({ children }: PropsWithChildren) {
     }
 
     dispatch({ type: "update_status", status: "lost" });
-  }
+  }, [gameState.tiles, gameState.board, dispatch]);
 
   useEffect(() => {
     if (gameState.hasChanged) {
