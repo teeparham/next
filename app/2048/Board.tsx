@@ -1,7 +1,7 @@
 import { useCallback, useContext, useEffect, useRef } from "react";
+import { useSwipeable } from "react-swipeable";
 import { GameContext, MoveDirection } from "./GameContext";
 import { Splash } from "./Splash";
-import { Swiper, SwipeInput } from "./Swiper";
 import { Tile, TileType } from "./Tile";
 import { cx } from "../utils";
 import { mergeAnimationDuration } from "./constants";
@@ -38,6 +38,14 @@ const directions: Array<MoveDirection> = [
 export function Board({ simulate }: BoardProps) {
   const { getTiles, moveTiles, startGame, status } = useContext(GameContext);
   const initialized = useRef(false);
+  const swipeHandlers = useSwipeable({
+    onSwipedLeft: () => moveTiles("move_left"),
+    onSwipedRight: () => moveTiles("move_right"),
+    onSwipedUp: () => moveTiles("move_up"),
+    onSwipedDown: () => moveTiles("move_down"),
+    preventScrollOnSwipe: true,
+    trackMouse: true,
+  });
 
   const handleKeyDown = useCallback(
     (e: KeyboardEvent) => {
@@ -57,25 +65,6 @@ export function Board({ simulate }: BoardProps) {
         case "ArrowRight":
           moveTiles("move_right");
           break;
-      }
-    },
-    [moveTiles]
-  );
-
-  const handleSwipe = useCallback(
-    ({ deltaX, deltaY }: SwipeInput) => {
-      if (Math.abs(deltaX) > Math.abs(deltaY)) {
-        if (deltaX > 0) {
-          moveTiles("move_right");
-        } else {
-          moveTiles("move_left");
-        }
-      } else {
-        if (deltaY > 0) {
-          moveTiles("move_down");
-        } else {
-          moveTiles("move_up");
-        }
       }
     },
     [moveTiles]
@@ -110,17 +99,15 @@ export function Board({ simulate }: BoardProps) {
   }, [simulate, moveTiles, status]);
 
   return (
-    <Swiper onSwipe={handleSwipe}>
-      <div className={"w-[296px] sm:w-[480px] relative"}>
-        {status === "won" && <Splash type="won">Winner!</Splash>}
-        {status === "lost" && <Splash>Game over</Splash>}
-        <div className={cx("m-1 sm:m-2", "absolute inset-0 z-10")}>
-          {getTiles().map((tile: TileType) => (
-            <Tile key={tile.id} {...tile} />
-          ))}
-        </div>
-        <Grid />
+    <div {...swipeHandlers} className={"w-[296px] sm:w-[480px] relative"}>
+      {status === "won" && <Splash type="won">Winner!</Splash>}
+      {status === "lost" && <Splash>Game over</Splash>}
+      <div className={cx("m-1 sm:m-2", "absolute inset-0 z-10")}>
+        {getTiles().map((tile: TileType) => (
+          <Tile key={tile.id} {...tile} />
+        ))}
       </div>
-    </Swiper>
+      <Grid />
+    </div>
   );
 }
