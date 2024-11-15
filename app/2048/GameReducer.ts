@@ -1,4 +1,3 @@
-import { flattenDeep, isEqual } from "lodash";
 import { isNil } from "../utils";
 import { tileCountPerDimension } from "./constants";
 import { TileType, TileMap } from "./Tile";
@@ -46,7 +45,7 @@ export const initialState: State = {
 export function gameReducer(state: State = initialState, action: Action) {
   switch (action.type) {
     case "clean_up": {
-      const flattenBoard = flattenDeep(state.board);
+      const flattenBoard = state.board.flat(1);
       const newTiles: TileMap = flattenBoard.reduce(
         (result, tileId: string) => {
           if (isNil(tileId)) {
@@ -123,7 +122,10 @@ export function gameReducer(state: State = initialState, action: Action) {
               position: [x, newY],
             };
             previousTile = newTiles[tileId];
-            if (!isEqual(currentTile.position, [x, newY])) {
+            if (
+              currentTile.position[0] !== x ||
+              currentTile.position[1] !== newY
+            ) {
               hasChanged = true;
             }
             newY++;
@@ -174,7 +176,10 @@ export function gameReducer(state: State = initialState, action: Action) {
               position: [x, newY],
             };
             previousTile = newTiles[tileId];
-            if (!isEqual(currentTile.position, [x, newY])) {
+            if (
+              currentTile.position[0] !== x ||
+              currentTile.position[1] !== newY
+            ) {
               hasChanged = true;
             }
             newY--;
@@ -225,7 +230,10 @@ export function gameReducer(state: State = initialState, action: Action) {
               position: [newX, y],
             };
             previousTile = newTiles[tileId];
-            if (!isEqual(currentTile.position, [newX, y])) {
+            if (
+              currentTile.position[0] !== newX ||
+              currentTile.position[1] !== y
+            ) {
               hasChanged = true;
             }
             newX++;
@@ -276,7 +284,10 @@ export function gameReducer(state: State = initialState, action: Action) {
               position: [newX, y],
             };
             previousTile = newTiles[tileId];
-            if (!isEqual(currentTile.position, [newX, y])) {
+            if (
+              currentTile.position[0] !== newX ||
+              currentTile.position[1] !== y
+            ) {
               hasChanged = true;
             }
             newX--;
