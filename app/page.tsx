@@ -318,10 +318,6 @@ export default function Home() {
                 2048&nbsp;
                 <Arrow />
               </Link>
-              <Link href="/queens" className={cx("group block mb-2", css.h2)}>
-                N Queens&nbsp;
-                <Arrow />
-              </Link>
             </section>
             <section className="my-12 lg:hidden">
               <hr className="mb-6 border-gray-800 dark:border-gray-200" />
