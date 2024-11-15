@@ -7,11 +7,7 @@ import {
   useRef,
 } from "react";
 import { isNil, throttle } from "../utils";
-import {
-  gameWinTileValue,
-  mergeAnimationDuration,
-  tileCountPerDimension,
-} from "./constants";
+import { gameWinTileValue, mergeAnimationDuration } from "./constants";
 import { TileType } from "./Tile";
 import { gameReducer, initialState } from "./GameReducer";
 
@@ -34,8 +30,8 @@ export function GameProvider({ children }: PropsWithChildren) {
 
   const getEmptyCells = useCallback(() => {
     const results: [number, number][] = [];
-    for (let x = 0; x < tileCountPerDimension; x++) {
-      for (let y = 0; y < tileCountPerDimension; y++) {
+    for (let x = 0; x < 4; x++) {
+      for (let y = 0; y < 4; y++) {
         if (isNil(gameState.board[y][x])) {
           results.push([x, y]);
         }
@@ -100,15 +96,14 @@ export function GameProvider({ children }: PropsWithChildren) {
     const tiles = gameState.tiles;
     const board = gameState.board;
 
-    const maxIndex = tileCountPerDimension - 1;
-    for (let x = 0; x <= maxIndex; x += 1) {
-      for (let y = 0; y <= maxIndex; y += 1) {
+    for (let x = 0; x < 4; x += 1) {
+      for (let y = 0; y < 4; y += 1) {
         if (isNil(gameState.board[x][y])) {
           return;
         }
 
         // do not check below the last row
-        if (x < maxIndex) {
+        if (x < 3) {
           if (isNil(gameState.board[x + 1][y])) {
             return;
           }
@@ -118,7 +113,7 @@ export function GameProvider({ children }: PropsWithChildren) {
         }
 
         // do not check right of the last column
-        if (y < maxIndex) {
+        if (y < 3) {
           if (isNil(gameState.board[x][y + 1])) {
             return;
           }

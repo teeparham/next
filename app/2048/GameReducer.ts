@@ -1,5 +1,4 @@
 import { isNil } from "../utils";
-import { tileCountPerDimension } from "./constants";
 import { TileType, TileMap } from "./Tile";
 
 type GameStatus = "ongoing" | "won" | "lost";
@@ -26,8 +25,8 @@ type Action =
 function createBoard() {
   const board: string[][] = [];
 
-  for (let i = 0; i < tileCountPerDimension; i += 1) {
-    board[i] = new Array(tileCountPerDimension).fill(undefined);
+  for (let i = 0; i < 4; i += 1) {
+    board[i] = new Array(4).fill(undefined);
   }
 
   return board;
@@ -92,11 +91,11 @@ export function gameReducer(state: State = initialState, action: Action) {
       let hasChanged = false;
       let { score } = state;
 
-      for (let x = 0; x < tileCountPerDimension; x++) {
+      for (let x = 0; x < 4; x++) {
         let newY = 0;
         let previousTile: TileType | undefined;
 
-        for (let y = 0; y < tileCountPerDimension; y++) {
+        for (let y = 0; y < 4; y++) {
           const tileId = state.board[y][x];
           const tile = state.tiles[tileId];
 
@@ -143,11 +142,11 @@ export function gameReducer(state: State = initialState, action: Action) {
       let hasChanged = false;
       let { score } = state;
 
-      for (let x = 0; x < tileCountPerDimension; x++) {
-        let newY = tileCountPerDimension - 1;
+      for (let x = 0; x < 4; x++) {
+        let newY = 3;
         let previousTile: TileType | undefined;
 
-        for (let y = tileCountPerDimension - 1; y >= 0; y--) {
+        for (let y = 3; y >= 0; y--) {
           const tileId = state.board[y][x];
           const tile = state.tiles[tileId];
 
@@ -194,11 +193,11 @@ export function gameReducer(state: State = initialState, action: Action) {
       let hasChanged = false;
       let { score } = state;
 
-      for (let y = 0; y < tileCountPerDimension; y++) {
+      for (let y = 0; y < 4; y++) {
         let newX = 0;
         let previousTile: TileType | undefined;
 
-        for (let x = 0; x < tileCountPerDimension; x++) {
+        for (let x = 0; x < 4; x++) {
           const tileId = state.board[y][x];
           const tile = state.tiles[tileId];
 
@@ -245,11 +244,11 @@ export function gameReducer(state: State = initialState, action: Action) {
       let hasChanged = false;
       let { score } = state;
 
-      for (let y = 0; y < tileCountPerDimension; y++) {
-        let newX = tileCountPerDimension - 1;
+      for (let y = 0; y < 4; y++) {
+        let newX = 3;
         let previousTile: TileType | undefined;
 
-        for (let x = tileCountPerDimension - 1; x >= 0; x--) {
+        for (let x = 3; x >= 0; x--) {
           const tileId = state.board[y][x];
           const tile = state.tiles[tileId];
 
