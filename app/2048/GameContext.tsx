@@ -31,9 +31,8 @@ export const GameContext = createContext({
 export function GameProvider({ children }: PropsWithChildren) {
   const [gameState, dispatch] = useReducer(gameReducer, initialState);
 
-  function getEmptyCells() {
+  const getEmptyCells = useCallback(() => {
     const results: [number, number][] = [];
-
     for (let x = 0; x < tileCountPerDimension; x++) {
       for (let y = 0; y < tileCountPerDimension; y++) {
         if (isNil(gameState.board[y][x])) {
@@ -42,13 +41,13 @@ export function GameProvider({ children }: PropsWithChildren) {
       }
     }
     return results;
-  }
+  }, [gameState.board]);
 
-  function randomCellValue() {
+  const randomCellValue = useCallback(() => {
     return Math.random() < 0.9 ? 2 : 4;
-  }
+  }, []);
 
-  function addRandomTile() {
+  const addRandomTile = useCallback(() => {
     const emptyCells = getEmptyCells();
     if (emptyCells.length > 0) {
       const cellIndex = Math.floor(Math.random() * emptyCells.length);
@@ -58,7 +57,7 @@ export function GameProvider({ children }: PropsWithChildren) {
       };
       dispatch({ type: "create_tile", tile: newTile });
     }
-  }
+  }, [randomCellValue, getEmptyCells, dispatch]);
 
   function getTiles() {
     return gameState.tilesByIds.map((tileId) => gameState.tiles[tileId]);
@@ -137,7 +136,7 @@ export function GameProvider({ children }: PropsWithChildren) {
     } else {
       checkGameState();
     }
-  }, [gameState.hasChanged]);
+  }, [gameState.hasChanged, dispatch, checkGameState, addRandomTile]);
 
   return (
     <GameContext.Provider
