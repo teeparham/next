@@ -83,9 +83,9 @@ export function GameProvider({ children }: PropsWithChildren) {
   }
 
   const checkGameState = useCallback(() => {
-    const isWon =
-      Object.values(gameState.tiles).filter((t) => t.value === gameWinTileValue)
-        .length > 0;
+    const isWon = Object.values(gameState.tiles).some(
+      (t) => t.value === gameWinTileValue
+    );
 
     if (isWon) {
       dispatch({ type: "update_status", status: "won" });
