@@ -36,20 +36,16 @@ const bgColorMap = {
 };
 
 export function Tile({ position, value }: TileType) {
-  const [scale, setScale] = useState(1);
+  const [scale, setScale] = useState("scale-100");
   const previousValue = usePreviousProps<number>(value);
   const hasChanged = previousValue !== value;
 
   useEffect(() => {
     if (hasChanged) {
-      setScale(1.1);
-      setTimeout(() => setScale(1), mergeAnimationDuration);
+      setScale("scale-110");
+      setTimeout(() => setScale("scale-100"), mergeAnimationDuration);
     }
   }, [hasChanged]);
-
-  const style = {
-    transform: `scale(${scale})`,
-  };
 
   const tilePosition = `tile-x-${position[0]} tile-y-${position[1]}`;
 
@@ -75,9 +71,9 @@ export function Tile({ position, value }: TileType) {
         bgColor,
         textColor,
         fontSize,
-        tilePosition
+        tilePosition,
+        scale
       )}
-      style={style}
     >
       {value}
     </div>
