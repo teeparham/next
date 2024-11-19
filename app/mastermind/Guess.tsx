@@ -34,6 +34,7 @@ function Dot({ color }: DotProps) {
         "mx-2 sm:mx-3 px-3 inline-block",
         "bg-" + COLOR[color]
       )}
+      data-testid="dot"
     >
       &nbsp;
     </div>
