@@ -3,17 +3,17 @@ import { useState } from "react";
 import { BackHeader } from "../components/BackHeader";
 import { GameButton } from "../components/GameButton";
 import { PageFooter } from "../components/PageFooter";
-import { Board } from "./Board";
+import { Board, SimulationType } from "./Board";
 import { GameProvider } from "./GameContext";
 import { Score } from "./Score";
 
 export default function Page() {
-  const [simulate, setSimulate] = useState(false);
+  const [simulate, setSimulate] = useState<SimulationType>(null);
 
-  function toggleSimulate() {
-    setSimulate(true);
+  function toggleSimulate(type: SimulationType) {
+    setSimulate(type);
     setTimeout(() => {
-      setSimulate(false);
+      setSimulate(null);
     }, 3000);
   }
 
@@ -40,9 +40,30 @@ export default function Page() {
           <Score />
           <Board simulate={simulate} />
           <div className="mt-6">
-            <GameButton onClick={toggleSimulate} disabled={simulate}>
-              Make random moves
-            </GameButton>
+            <div className="mr-2 inline">
+              <GameButton
+                onClick={() => toggleSimulate("random")}
+                disabled={simulate !== null}
+              >
+                Random moves
+              </GameButton>
+            </div>
+            <div className="mr-2 inline">
+              <GameButton
+                onClick={() => toggleSimulate("downs")}
+                disabled={simulate !== null}
+              >
+                Downs
+              </GameButton>
+            </div>
+            <div className="mr-2 inline">
+              <GameButton
+                onClick={() => toggleSimulate("rights")}
+                disabled={simulate !== null}
+              >
+                Rights
+              </GameButton>
+            </div>
           </div>
         </GameProvider>
         <PageFooter />

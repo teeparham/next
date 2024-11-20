@@ -24,14 +24,32 @@ function Grid() {
   );
 }
 
+export type SimulationType = null | "random" | "downs" | "rights";
+
 type BoardProps = {
-  simulate: boolean;
+  simulate: SimulationType;
 };
 
-const directions: Array<MoveDirection> = [
+const randomDirections: Array<MoveDirection> = [
   "move_up",
   "move_down",
   "move_left",
+  "move_right",
+];
+
+const downDirections: Array<MoveDirection> = [
+  "move_down",
+  "move_down",
+  "move_down",
+  "move_left",
+  "move_right",
+];
+
+const rightDirections: Array<MoveDirection> = [
+  "move_up",
+  "move_down",
+  "move_right",
+  "move_right",
   "move_right",
 ];
 
@@ -88,7 +106,15 @@ export function Board({ simulate }: BoardProps) {
   useEffect(() => {
     function simulateMove() {
       if (status !== "ongoing") return;
-      const direction = directions[Math.floor(Math.random() * 4)];
+      const directions =
+        simulate === "random"
+          ? randomDirections
+          : simulate === "downs"
+            ? downDirections
+            : rightDirections;
+
+      const direction =
+        directions[Math.floor(Math.random() * directions.length)];
       moveTiles(direction);
     }
 
