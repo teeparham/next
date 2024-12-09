@@ -139,7 +139,7 @@ export function GameProvider({ children }: PropsWithChildren) {
   }, [gameState.hasChanged, dispatch, checkGameState, addRandomTile]);
 
   return (
-    <GameContext.Provider
+    (<GameContext
       value={{
         score: gameState.score,
         status: gameState.status,
@@ -149,6 +149,6 @@ export function GameProvider({ children }: PropsWithChildren) {
       }}
     >
       {children}
-    </GameContext.Provider>
+    </GameContext>)
   );
 }
