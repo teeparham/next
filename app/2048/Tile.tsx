@@ -3,7 +3,7 @@ import { mergeAnimationDuration } from "./constants";
 import { cx } from "../utils";
 
 function usePreviousProps<K = any>(value: K) {
-  const ref = useRef<K>();
+  const ref = useRef<K>(null);
 
   useEffect(() => {
     ref.current = value;
