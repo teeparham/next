@@ -41,23 +41,23 @@ export const initialState: State = {
   status: "ongoing",
 };
 
-export function gameReducer(state: State = initialState, action: Action) {
+export function gameReducer(
+  state: State = initialState,
+  action: Action
+): State {
   switch (action.type) {
     case "clean_up": {
-      const flattenBoard = state.board.flat(1);
-      const newTiles: TileMap = flattenBoard.reduce(
-        (result, tileId: string) => {
-          if (isNil(tileId)) {
-            return result;
-          }
+      const flatBoard = state.board.flat(1);
+      const newTiles: TileMap = flatBoard.reduce((result, tileId: string) => {
+        if (isNil(tileId)) {
+          return result;
+        }
 
-          return {
-            ...result,
-            [tileId]: state.tiles[tileId],
-          };
-        },
-        {}
-      );
+        return {
+          ...result,
+          [tileId]: state.tiles[tileId],
+        };
+      }, {});
 
       return {
         ...state,
