@@ -29,7 +29,7 @@ export function FilterButton({
         "px-2 py-1",
         "border border-neutral-400 bg-neutral-200 dark:bg-neutral-700",
         "hover:bg-neutral-200 hover:text-blue-700",
-        "hover:dark:bg-neutral-600 hover:dark:text-blue-400",
+        "dark:hover:bg-neutral-600 dark:hover:text-blue-400",
         round,
         highlight
       )}
