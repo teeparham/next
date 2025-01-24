@@ -1,17 +1,22 @@
-import { COLOR } from "./CodePeg";
+import { PEG_COLOR } from "./CodePeg";
 import { check } from "./CodeMaker";
 import { cx } from "../utils";
 
 interface DotProps {
-  color: number;
+  colorIndex: number;
 }
 
+const CueColorMap = {
+  black: "bg-black",
+  white: "bg-white",
+};
+
 interface CueProps {
-  color: string;
+  color: keyof typeof CueColorMap;
 }
 
 interface CueListProps {
-  color: string;
+  color: keyof typeof CueColorMap;
   count: number;
 }
 
@@ -26,13 +31,13 @@ interface HintsProps {
   rightColor: number;
 }
 
-function Dot({ color }: DotProps) {
+function Dot({ colorIndex: color }: DotProps) {
   return (
     <div
       className={cx(
         "border-black border-2 rounded-full",
         "mx-2 sm:mx-3 px-3 inline-block",
-        "bg-" + COLOR[color]
+        PEG_COLOR[color]
       )}
       data-testid="dot"
     >
@@ -47,7 +52,7 @@ function Cue({ color }: CueProps) {
       className={cx(
         "border-black border-2 rounded-full",
         "mx-1 md:mx-2 px-1 md:px-2 inline-block",
-        "bg-" + color
+        CueColorMap[color]
       )}
     >
       &nbsp;
@@ -76,10 +81,10 @@ export function Guess({ guess, answer }: GuessProps) {
   return (
     <div className="mb-3">
       <div className="mh-3 ml-1 md:ml-4 inline-block" />
-      <Dot color={guess[0]} />
-      <Dot color={guess[1]} />
-      <Dot color={guess[2]} />
-      <Dot color={guess[3]} />
+      <Dot colorIndex={guess[0]} />
+      <Dot colorIndex={guess[1]} />
+      <Dot colorIndex={guess[2]} />
+      <Dot colorIndex={guess[3]} />
       <div className="mr-8 inline-block" />
       <Hints answer={answer} right={result[0]} rightColor={result[1]} />
     </div>

@@ -9,16 +9,6 @@ const config: Config = {
     "./app/**/*.{js,ts,jsx,tsx,mdx}",
   ],
   darkMode: "class",
-  // Ensure dynamic colors are bundled
-  safelist: [
-    "bg-blue-500",
-    "bg-red-500",
-    "bg-green-500",
-    "bg-white",
-    "bg-black",
-    "bg-yellow-400",
-    "bg-purple-500",
-  ],
   theme: {
     container: {
       center: true,

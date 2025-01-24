@@ -60,7 +60,7 @@ export function Game() {
           <CodePeg
             key={i}
             index={i}
-            color={guess[i]}
+            colorIndex={guess[i]}
             onClick={onColorChange}
             enabled={guessEnabled}
           />

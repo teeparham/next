@@ -1,27 +1,32 @@
+import { cx } from "../utils";
+
 interface CodePegProps {
-  color: number;
+  colorIndex: number;
   enabled: boolean;
   index: number;
   onClick: (index: number) => void;
 }
 
-export const COLOR = [
-  "red-500",
-  "blue-500",
-  "green-500",
-  "white",
-  "yellow-400",
-  "purple-500",
+export const PEG_COLOR = [
+  "bg-red-500",
+  "bg-blue-500",
+  "bg-green-500",
+  "bg-white",
+  "bg-yellow-400",
+  "bg-purple-500",
 ];
 
-export function CodePeg({ color, enabled, index, onClick }: CodePegProps) {
+export function CodePeg({ colorIndex, enabled, index, onClick }: CodePegProps) {
   function handleClick() {
     onClick(index);
   }
 
   return (
     <button
-      className={`cursor-pointer border-4 border-black rounded-full p-6 mr-2 bg-${COLOR[color]}`}
+      className={cx(
+        "cursor-pointer border-4 border-black rounded-full p-6 mr-2",
+        PEG_COLOR[colorIndex]
+      )}
       disabled={!enabled}
       onClick={handleClick}
     ></button>
