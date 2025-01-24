@@ -4,7 +4,7 @@ import { Arrow } from "./Arrow";
 export function BackHeader() {
   return (
     <Link
-      className="block text-xl mb-4 text-opacity-90 dark:text-yellow-400"
+      className="block text-xl mb-4 text-neutral-900 dark:text-yellow-400"
       href="/"
     >
       <Arrow left />
