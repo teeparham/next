@@ -31,13 +31,13 @@ interface HintsProps {
   rightColor: number;
 }
 
-function Dot({ colorIndex: color }: DotProps) {
+function Dot({ colorIndex }: DotProps) {
   return (
     <div
       className={cx(
         "border-black border-2 rounded-full",
         "mx-2 sm:mx-3 px-3 inline-block",
-        PEG_COLOR[color]
+        PEG_COLOR[colorIndex]
       )}
       data-testid="dot"
     >
