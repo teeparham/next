@@ -15,10 +15,9 @@ export function isNil(value: any) {
 // simpler version of lodash throttle
 export function throttle(callback: Function, limit: number) {
   var waiting = false;
-  return function () {
+  return function (this: any, ...args: any[]) {
     if (!waiting) {
-      // @ts-ignore this
-      callback.apply(this, arguments);
+      callback.apply(this, args);
       waiting = true;
       setTimeout(function () {
         waiting = false;
