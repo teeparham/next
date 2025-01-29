@@ -20,7 +20,23 @@ export type TileType = {
 
 export type TileMap = { [id: string]: TileType };
 
-const bgColorMap = {
+type TileValue =
+  | 2
+  | 4
+  | 8
+  | 16
+  | 32
+  | 64
+  | 128
+  | 256
+  | 512
+  | 1024
+  | 2048
+  | 4096
+  | 8192;
+
+const bgColorMap: Record<TileValue, string> = {
+  2: "bg-brown-200",
   4: "bg-[#ede0c8]",
   8: "bg-[#f2b179]",
   16: "bg-[#f59563]",
@@ -56,8 +72,7 @@ export function Tile({ position, value }: TileType) {
         ? "text-[26px] sm:text-[44px]"
         : "text-[2rem] sm:text-[3rem]";
 
-  // @ts-ignore any type
-  const bgColor = bgColorMap[value] || "bg-brown-200";
+  const bgColor = bgColorMap[value as TileValue];
   const textColor = value > 4 ? "text-brown-100" : "text-brown-700";
 
   return (
