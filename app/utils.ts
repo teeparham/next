@@ -13,14 +13,12 @@ export function isNil(value: any) {
 }
 
 // simpler version of lodash throttle
-export function throttle<F extends (...args: any[]) => void>(
-  callback: F,
-  limit: number
-) {
+export function throttle(callback: (...args: any[]) => void, limit: number) {
   let waiting = false;
-  return function (this: ThisParameterType<F>, ...args: Parameters<F>) {
+  return function () {
     if (!waiting) {
-      callback.apply(this, args);
+      // @ts-ignore this
+      callback.apply(this, arguments);
       waiting = true;
       setTimeout(function () {
         waiting = false;
