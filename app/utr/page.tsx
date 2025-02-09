@@ -1,7 +1,8 @@
 import { PageFooter } from "../components/PageFooter";
 import { SearchForm } from "./SearchForm";
+import { SearchResult } from "./SearchResult";
 
-interface Source {
+export interface Source {
   id: number;
   displayName: string;
   nationality: string;
@@ -33,16 +34,6 @@ function NoPlayersFound() {
   return <div className="text-center py-4">No players found</div>;
 }
 
-function SearchResult({ id, displayName, nationality, birthPlace }: Source) {
-  return (
-    <div key={id} className="my-2 hover:bg-gray-50">
-      <span className="text-lg mr-2">{displayName}</span>
-      <span className="text-sm mr-2">{birthPlace}</span>
-      <span className="text-sm">{nationality}</span>
-    </div>
-  );
-}
-
 export default async function SearchResultsPage({
   searchParams,
 }: SearchResultsPageProps) {
@@ -58,7 +49,7 @@ export default async function SearchResultsPage({
         {players.length ? (
           <div>
             {players.map((player) => (
-              <SearchResult {...player} />
+              <SearchResult key={player.id} {...player} />
             ))}
           </div>
         ) : (
