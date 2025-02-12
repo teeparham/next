@@ -4,20 +4,8 @@ import { useState } from "react";
 import { Source } from "./page";
 import { getPlayerDetail, PlayerDetailType } from "./getPlayerDetail";
 
-function PlayerDetail({
-  threeMonthRating,
-  singlesUTR,
-  doublesUTR,
-}: PlayerDetailType) {
-  return (
-    <span className="text-lg">
-      {threeMonthRating || "-"}
-      {singlesUTR && " | "}
-      {singlesUTR}
-      {doublesUTR && " | "}
-      {doublesUTR}
-    </span>
-  );
+function PlayerDetail({ threeMonthRating }: PlayerDetailType) {
+  return <span className="text-lg">{threeMonthRating || "-"}</span>;
 }
 
 export function SearchResult({
