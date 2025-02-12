@@ -55,6 +55,9 @@ export default async function SearchResultsPage({
         ) : (
           query !== "" && <NoPlayersFound />
         )}
+        <h5 className="mt-8 text-neutral-500 dark:text-neutral-400">
+          Powered by UTR Sports
+        </h5>
         <PageFooter />
       </div>
     </main>

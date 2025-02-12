@@ -10,9 +10,13 @@ function PlayerDetail({
   doublesUTR,
 }: PlayerDetailType) {
   return (
-    <h3>
-      {threeMonthRating} | {singlesUTR} | {doublesUTR}
-    </h3>
+    <span className="text-lg">
+      {threeMonthRating || "-"}
+      {singlesUTR && " | "}
+      {singlesUTR}
+      {doublesUTR && " | "}
+      {doublesUTR}
+    </span>
   );
 }
 
@@ -37,21 +41,24 @@ export function SearchResult({
       <span className="text-sm mr-2">{birthPlace}</span>
       <span className="text-sm">{nationality}</span>
       {showDetails ? (
-        <div className="mt-2">
-          {playerDetail ? (
-            <PlayerDetail {...playerDetail} />
-          ) : (
-            <div>Loading...</div>
-          )}
-        </div>
+        <span className="ml-4">
+          {playerDetail ? <PlayerDetail {...playerDetail} /> : <>Loading...</>}
+        </span>
       ) : (
         <button
           onClick={handleShowDetails}
-          className="ml-2 px-2 py-1 text-sm text-blue-800 dark:text-blue-300 rounded-lg border-2 border-gray-700 dark:border-gray-200"
+          className="ml-4 px-2 py-1 text-sm text-blue-800 dark:text-blue-300 rounded-lg border-2 border-gray-700 dark:border-gray-200"
         >
           Show
         </button>
       )}
+      <a
+        href={`https://app.utrsports.net/profiles/${id}`}
+        className="ml-4 underline underline-offset-2"
+        target="_blank"
+      >
+        Profile
+      </a>
     </div>
   );
 }

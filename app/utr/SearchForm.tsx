@@ -2,12 +2,12 @@ import Form from "next/form";
 
 export function SearchForm() {
   return (
-    <Form action="/utr" className="flex gap-2 mb-8">
+    <Form action="/utr" className="flex gap-4 mb-8">
       <input
         type="text"
         name="q"
         placeholder="Search players..."
-        className="flex-1 px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+        className="flex-1 px-3 py-2 border-2 border-gray-400 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
       />
       <button
         type="submit"
