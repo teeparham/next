@@ -24,8 +24,9 @@ export function CodePeg({ colorIndex, enabled, index, onClick }: CodePegProps) {
   return (
     <button
       className={cx(
-        "cursor-pointer border-4 border-black rounded-full p-6 mr-2",
-        PEG_COLOR[colorIndex]
+        "border-4 border-black rounded-full p-6 mr-2",
+        PEG_COLOR[colorIndex],
+        enabled && "cursor-pointer"
       )}
       disabled={!enabled}
       onClick={handleClick}

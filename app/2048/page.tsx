@@ -43,7 +43,7 @@ export default function Page() {
             <div className="mr-2 inline">
               <GameButton
                 onClick={() => toggleSimulate("random")}
-                disabled={simulate !== null}
+                running={simulate !== null}
               >
                 Random moves
               </GameButton>
@@ -51,7 +51,7 @@ export default function Page() {
             <div className="mr-2 inline">
               <GameButton
                 onClick={() => toggleSimulate("downs")}
-                disabled={simulate !== null}
+                running={simulate !== null}
               >
                 Downs
               </GameButton>
@@ -59,7 +59,7 @@ export default function Page() {
             <div className="mr-2 inline">
               <GameButton
                 onClick={() => toggleSimulate("rights")}
-                disabled={simulate !== null}
+                running={simulate !== null}
               >
                 Rights
               </GameButton>
