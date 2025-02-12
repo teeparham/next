@@ -64,14 +64,14 @@ function Nav() {
           </a>
         </li>
         <li className="mb-2">
-          <a href="#presentations" className="group">
-            PRESENTATIONS&nbsp;
+          <a href="#games" className="group">
+            GAMES & DEMOS&nbsp;
             <Arrow />
           </a>
         </li>
         <li>
-          <a href="#games" className="group">
-            GAMES&nbsp;
+          <a href="#presentations" className="group">
+            PRESENTATIONS&nbsp;
             <Arrow />
           </a>
         </li>
@@ -279,6 +279,40 @@ export default function Home() {
               </ul>
             </section>
             <section className="mb-12">
+              <h3 className={cx("pt-2 mb-3", css.h3)} id="games">
+                Games & Demos
+              </h3>
+              <Link href="/mastermind" className={cx("group block", css.h2)}>
+                Mastermind&nbsp;
+                <Arrow />
+              </Link>
+              <div className="mb-3">
+                This is a React & Tailwind implementation of the classic
+                Mastermind game. I originally wrote this in 2019, and modernized
+                it with Typescript in 2024.
+              </div>
+              <Link href="/2048" className={cx("group block", css.h2)}>
+                2048&nbsp;
+                <Arrow />
+              </Link>
+              <div className="mb-3">
+                This is a React & Tailwind implemention of the online hit game
+                2048. I added simulator buttons to play the game for you, and a
+                high score tracker.
+              </div>
+              <Link href="/utr" className={cx("group block", css.h2)}>
+                UTR&nbsp;
+                <Arrow />
+              </Link>
+              <div>
+                Search for Universal Tennis Ratings via the UTR Sports API. This
+                demo app has some interesting properties. The API queries are
+                done server-side to avoid CORS restrictions in browser API
+                calls. The are two flavors of Next.js React Server Components:
+                the page itself and the player detail component.
+              </div>
+            </section>
+            <section className="mb-12">
               <h3 className={cx("pt-2", css.h3)} id="presentations">
                 Presentations
               </h3>
@@ -302,22 +336,6 @@ export default function Home() {
                   </LinkTo>
                 </li>
               </ul>
-            </section>
-            <section className="mb-12">
-              <h3 className={cx("pt-2 mb-3", css.h3)} id="games">
-                Games
-              </h3>
-              <Link
-                href="/mastermind"
-                className={cx("group block mb-2", css.h2)}
-              >
-                Mastermind&nbsp;
-                <Arrow />
-              </Link>
-              <Link href="/2048" className={cx("group block mb-2", css.h2)}>
-                2048&nbsp;
-                <Arrow />
-              </Link>
             </section>
             <section className="my-12 lg:hidden">
               <hr className="mb-6 border-gray-800 dark:border-gray-200" />
