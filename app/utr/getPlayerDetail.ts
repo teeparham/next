@@ -4,9 +4,7 @@ export interface PlayerDetailType {
   threeMonthRating: string;
 }
 
-export async function getPlayerDetail(
-  id: number
-): Promise<PlayerDetailType | null> {
+export async function getPlayerDetail(id: number): Promise<PlayerDetailType> {
   const data = await fetch(`https://api.utrsports.net/v1/player/${id}/profile`);
   const detail: PlayerDetailType | null = await data.json();
   return { threeMonthRating: detail?.threeMonthRating?.toString() || "" };
