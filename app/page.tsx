@@ -169,7 +169,7 @@ function OpenSource() {
           <LinkTo href="https://github.com/rgeo/rgeo">rgeo</LinkTo> is a
           geospatial data library for ruby. It wraps the GEOS and Proj C
           libraries and provides spatial types such as point, linestring, and
-          polygon. The gem has over 23 million downloads. I was the maintainer
+          polygon. The gem has over 25 million downloads. I was the maintainer
           for the RGeo organization for over six years.
         </li>
         <li className="mb-3">
@@ -195,7 +195,7 @@ function OpenSource() {
             contributions
           </LinkTo>{" "}
           was removing the &quot;pretty&quot; code formatting option, which
-          simplified the code base and sped up the engine. The gem has over 150
+          simplified the code base and sped up the engine. The gem has over 160
           million downloads.
         </li>
         <li className="mb-3">
