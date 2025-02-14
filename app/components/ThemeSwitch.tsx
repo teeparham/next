@@ -21,7 +21,7 @@ export function ThemeSwitch() {
     <div className="inline-flex text-sm font-medium">
       <button
         className={cx(
-          "rounded-l-lg border border-r-0",
+          "rounded-l-lg border border-r-0 cursor-pointer",
           "px-2 py-1 border-neutral-400",
           "text-neutral-800 bg-neutral-100",
           theme === "dark" && "hover:bg-neutral-200 hover:text-blue-700"
@@ -35,7 +35,7 @@ export function ThemeSwitch() {
 
       <button
         className={cx(
-          "rounded-r-lg border",
+          "rounded-r-lg border cursor-pointer",
           "px-2 py-1 border-neutral-400",
           "text-neutral-200 bg-neutral-700",
           theme === "light" && "hover:bg-neutral-600 hover:text-blue-400"
