@@ -15,13 +15,15 @@ export function SearchResult({
   birthPlace,
 }: Source) {
   const [showDetails, setShowDetails] = useState(false);
-  const [playerDetail, setPlayerDetail] = useState<any>(null);
+  const [playerDetail, setPlayerDetail] = useState<PlayerDetailType | null>(
+    null
+  );
 
-  const handleShowDetails = async () => {
+  async function handleShowDetails() {
     setShowDetails(true);
     const detail = await getPlayerDetail(id);
     setPlayerDetail(detail);
-  };
+  }
 
   return (
     <div key={id} className="my-2">

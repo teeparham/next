@@ -267,8 +267,8 @@ function Games() {
         Search for Universal Tennis Ratings via the UTR Sports API. This demo
         app has some interesting properties. The API queries are done
         server-side to avoid CORS restrictions in browser API calls. The are two
-        flavors of Next.js React Server Components: the page itself and the
-        player detail component.
+        flavors of Next.js server-side data fetching in the player search and
+        showing the player detail.
       </div>
     </>
   );
