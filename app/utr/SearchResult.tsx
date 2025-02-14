@@ -35,7 +35,9 @@ export function SearchResult({
       ) : (
         <button
           onClick={handleShowDetails}
-          className="ml-4 px-2 py-1 text-sm text-blue-800 dark:text-blue-300 rounded-lg border-2 border-gray-700 dark:border-gray-200"
+          className="ml-4 px-2 py-1 text-sm 
+            text-blue-800 dark:text-blue-300 rounded-lg border-2 
+            border-gray-700 dark:border-gray-200"
         >
           Show
         </button>
