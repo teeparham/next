@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import { Source } from "./page";
-import { getPlayerDetail, PlayerDetailType } from "./getPlayerDetail";
+import { getPlayerDetail, PlayerDetailType } from "../api/getPlayerDetail";
 
 function PlayerDetail({ threeMonthRating }: PlayerDetailType) {
   return <span className="text-lg">{threeMonthRating || "-"}</span>;
