@@ -2,10 +2,22 @@
 
 export interface PlayerDetailType {
   threeMonthRating: string;
+  singlesUtr: string;
+  doublesUtr: string;
+}
+
+function formatUtr(utr: string): string {
+  if (!utr) return "";
+  const nUtr = Number(utr);
+  return nUtr % 1 === 0 ? `${nUtr}.x` : nUtr.toFixed(2);
 }
 
 export async function getPlayerDetail(id: number): Promise<PlayerDetailType> {
   const data = await fetch(`https://api.utrsports.net/v1/player/${id}/profile`);
   const detail: PlayerDetailType | null = await data.json();
-  return { threeMonthRating: detail?.threeMonthRating?.toString() || "" };
+  return {
+    threeMonthRating: detail?.threeMonthRating?.toString() || "",
+    singlesUtr: formatUtr(detail?.singlesUtr || ""),
+    doublesUtr: formatUtr(detail?.doublesUtr || ""),
+  };
 }

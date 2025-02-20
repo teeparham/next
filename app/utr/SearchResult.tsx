@@ -4,8 +4,18 @@ import { useState } from "react";
 import { Source } from "./page";
 import { getPlayerDetail, PlayerDetailType } from "../api/getPlayerDetail";
 
-function PlayerDetail({ threeMonthRating }: PlayerDetailType) {
-  return <span className="text-lg">{threeMonthRating || "-"}</span>;
+function PlayerDetail({
+  threeMonthRating,
+  singlesUtr,
+  doublesUtr,
+}: PlayerDetailType) {
+  return (
+    <span className="text-lg">
+      {threeMonthRating || singlesUtr || "-"}
+      {doublesUtr && " | "}
+      {doublesUtr}
+    </span>
+  );
 }
 
 export function SearchResult({
