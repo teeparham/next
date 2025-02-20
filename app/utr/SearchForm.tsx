@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import Form from "next/form";
+import { cx } from "../utils";
 
 export function SearchForm() {
   const [searchValue, setSearchValue] = useState("");
@@ -35,9 +36,12 @@ export function SearchForm() {
       </div>
       <button
         type="submit"
-        className="cursor-pointer px-3 py-2 
-          bg-blue-500 text-white rounded-lg hover:bg-blue-600 
-          focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2"
+        disabled={!searchValue}
+        className={cx(
+          searchValue && "cursor-pointer hover:bg-blue-600",
+          "px-3 py-2 bg-blue-500 text-white rounded-lg",
+          "focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2"
+        )}
       >
         Search
       </button>
