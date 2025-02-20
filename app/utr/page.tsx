@@ -2,33 +2,10 @@ import { BackHeader } from "../components/BackHeader";
 import { PageFooter } from "../components/PageFooter";
 import { SearchForm } from "./SearchForm";
 import { SearchResult } from "./SearchResult";
-
-export interface Source {
-  id: number;
-  displayName: string;
-  nationality: string;
-  birthPlace: string;
-}
-
-interface Hit {
-  source: Source;
-}
+import { getPlayers } from "../api/getPlayers";
 
 interface SearchResultsPageProps {
   searchParams: Promise<{ [key: string]: string | string[] | undefined }>;
-}
-
-async function getPlayers(query: string): Promise<Array<Source>> {
-  if (query === "") {
-    return [];
-  }
-  const data = await fetch(
-    `https://api.utrsports.net/v2/search?query=${encodeURIComponent(query)}&top=10&skip=0`
-  );
-  const json = await data.json();
-  const hits: Array<Hit> = json.players.hits;
-  const players: Array<Source> = hits.map((hit) => hit.source);
-  return players;
 }
 
 function NoPlayersFound() {
@@ -40,7 +17,7 @@ export default async function SearchResultsPage({
 }: SearchResultsPageProps) {
   const queryParam = (await searchParams).q;
   const query = Array.isArray(queryParam) ? queryParam[0] : queryParam || "";
-  const players = await getPlayers(query);
+  const players = query ? await getPlayers(query) : [];
 
   return (
     <main className="container min-h-screen overflow-x-hidden">

@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { Source } from "./page";
+import { Source } from "../api/getPlayers";
 import { getPlayerDetail, PlayerDetailType } from "../api/getPlayerDetail";
 
 function PlayerDetail({
