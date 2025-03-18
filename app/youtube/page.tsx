@@ -75,41 +75,40 @@ export default function YouTubePage() {
 
   return (
     <main className="container min-h-screen overflow-x-hidden">
-      <div className="my-8 mx-4 sm:mx-8 lg:mx-auto max-w-3xl">
+      <div className="my-8 mx-4 sm:mx-8 lg:mx-auto max-w-4xl">
         <BackHeader />
         <h1 className="mb-4 text-3xl text-blue-800 dark:text-blue-400">
           Transcribe Video
         </h1>
 
-        <div className="max-w-2xl">
-          <div className="flex gap-4 mb-6">
-            <div className="flex-1 relative">
-              <input
-                type="text"
-                value={url}
-                onChange={(e) => setUrl(e.target.value)}
-                placeholder="Enter YouTube URL"
-                className="w-full p-2 border rounded bg-white dark:bg-neutral-800 
+        <div className="flex gap-4 mb-6">
+          <div className="flex-1 relative">
+            <input
+              type="text"
+              value={url}
+              onChange={(e) => setUrl(e.target.value)}
+              placeholder="Enter YouTube URL"
+              className="w-full p-2 border rounded bg-white dark:bg-neutral-800 
                          border-neutral-300 dark:border-neutral-600 text-neutral-900 dark:text-neutral-100"
-              />
-              {url && <ClearButton onClick={() => setUrl("")} />}
-            </div>
-            <button
-              onClick={fetchTranscription}
-              disabled={loading || !url}
-              className="px-4 py-2 rounded font-semibold bg-blue-500 hover:bg-blue-600 
-                       text-white disabled:opacity-50 disabled:cursor-not-allowed"
-            >
-              {loading ? "Transcribing..." : "Transcribe"}
-            </button>
+            />
+            {url && <ClearButton onClick={() => setUrl("")} />}
           </div>
-
-          {error && (
-            <div className="text-red-500 dark:text-red-400 mb-4">{error}</div>
-          )}
-
-          <Transcript text={transcript} />
+          <button
+            onClick={fetchTranscription}
+            disabled={loading || !url}
+            className="px-4 py-2 rounded font-semibold bg-blue-500 hover:bg-blue-600 
+                       text-white disabled:opacity-50 disabled:cursor-not-allowed"
+          >
+            {loading ? "Transcribing..." : "Transcribe"}
+          </button>
         </div>
+
+        {error && (
+          <div className="text-red-500 dark:text-red-400 mb-4">{error}</div>
+        )}
+
+        <Transcript text={transcript} />
+
         <PageFooter />
       </div>
     </main>
