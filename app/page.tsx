@@ -32,7 +32,6 @@ function Profiles() {
         href="https://www.linkedin.com/in/teeparham"
       ></a>
       <a className="icon-github mr-3" href="https://github.com/teeparham/"></a>
-      <a className="icon-twitter mr-3" href="https://twitter.com/teeparham"></a>
       <a
         className="icon-stackoverflow"
         href="https://stackoverflow.com/users/162934/tee"
