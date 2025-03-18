@@ -3,6 +3,7 @@
 import { useState } from "react";
 import Form from "next/form";
 import { cx } from "../utils";
+import { ClearButton } from "../components/ClearButton";
 
 export function SearchForm() {
   const [searchValue, setSearchValue] = useState("");
@@ -19,20 +20,7 @@ export function SearchForm() {
           className="w-full px-3 py-2 border-2 border-neutral-400 rounded-lg 
             focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
         />
-        {searchValue && (
-          <button
-            type="button"
-            onClick={() => setSearchValue("")}
-            className="absolute cursor-pointer rounded-full bg-neutral-300
-              right-3 top-1/2 -translate-y-1/2 w-5 h-5  
-              flex items-center justify-center"
-            aria-label="Clear"
-          >
-            <span className="text-neutral-800 font-medium text-sm leading-none relative top-[-1px]">
-              ×
-            </span>
-          </button>
-        )}
+        {searchValue && <ClearButton onClick={() => setSearchValue("")} />}
       </div>
       <button
         type="submit"
