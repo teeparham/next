@@ -3,6 +3,7 @@
 import { useState } from "react";
 import { BackHeader } from "../components/BackHeader";
 import { PageFooter } from "../components/PageFooter";
+import { ClearButton } from "../components/ClearButton";
 
 function CopyButton({ text }: { text: string }) {
   const [copied, setCopied] = useState(false);
@@ -119,14 +120,17 @@ export default function YouTubePage() {
 
         <div className="max-w-2xl">
           <div className="flex gap-4 mb-6">
-            <input
-              type="text"
-              value={url}
-              onChange={(e) => setUrl(e.target.value)}
-              placeholder="Enter YouTube URL"
-              className="flex-1 p-2 border rounded bg-white dark:bg-neutral-800 
-                       border-neutral-300 dark:border-neutral-600 text-neutral-900 dark:text-neutral-100"
-            />
+            <div className="flex-1 relative">
+              <input
+                type="text"
+                value={url}
+                onChange={(e) => setUrl(e.target.value)}
+                placeholder="Enter YouTube URL"
+                className="w-full p-2 border rounded bg-white dark:bg-neutral-800 
+                         border-neutral-300 dark:border-neutral-600 text-neutral-900 dark:text-neutral-100"
+              />
+              {url && <ClearButton onClick={() => setUrl("")} />}
+            </div>
             <button
               onClick={fetchTranscription}
               disabled={loading || !url}
