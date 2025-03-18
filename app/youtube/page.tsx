@@ -68,7 +68,7 @@ function Transcript({ text }: { text?: string }) {
       <div
         className="p-4 rounded bg-neutral-50 dark:bg-neutral-800 
                    border border-neutral-200 dark:border-neutral-700
-                   whitespace-pre-wrap select-all cursor-text"
+                   whitespace-pre-wrap cursor-text"
       >
         {text}
       </div>
