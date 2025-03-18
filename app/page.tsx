@@ -245,18 +245,16 @@ function Games() {
         <Arrow />
       </Link>
       <div className="mb-3">
-        This is a React & Tailwind implementation of the classic Mastermind
-        game. I originally wrote this in 2019, and modernized it with Typescript
-        in 2024.
+        A React & Tailwind implementation of the classic Mastermind game. I
+        first wrote this in 2019 and modernized it with Typescript in 2024.
       </div>
       <Link href="/2048" className={cx("group block", css.h2)}>
         2048&nbsp;
         <Arrow />
       </Link>
       <div className="mb-3">
-        This is a React & Tailwind implemention of the online hit game 2048. I
-        added simulator buttons to play the game for you, and a high score
-        tracker.
+        A React & Tailwind implemention of the online hit game 2048. I added
+        simulator buttons to play the game for you, and a high score tracker.
       </div>
       <Link href="/utr" className={cx("group block", css.h2)}>
         UTR&nbsp;
