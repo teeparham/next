@@ -4,6 +4,44 @@ import { useState } from "react";
 import { BackHeader } from "../components/BackHeader";
 import { PageFooter } from "../components/PageFooter";
 
+function CopyButton({ text }: { text: string }) {
+  const [copied, setCopied] = useState(false);
+
+  const copyToClipboard = async () => {
+    try {
+      await navigator.clipboard.writeText(text);
+      setCopied(true);
+      setTimeout(() => setCopied(false), 2000);
+    } catch (err) {
+      console.error("Failed to copy text:", err);
+    }
+  };
+
+  return (
+    <button
+      onClick={copyToClipboard}
+      className="px-3 py-1 text-sm rounded-md bg-blue-500 hover:bg-blue-600 
+               text-white transition-colors duration-200 flex items-center gap-2"
+    >
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        className="h-4 w-4"
+        fill="none"
+        viewBox="0 0 24 24"
+        stroke="currentColor"
+      >
+        <path
+          strokeLinecap="round"
+          strokeLinejoin="round"
+          strokeWidth={2}
+          d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"
+        />
+      </svg>
+      {copied ? "Copied!" : "Copy"}
+    </button>
+  );
+}
+
 function Transcript({ text }: { text?: string }) {
   if (!text) {
     return (
@@ -21,12 +59,16 @@ function Transcript({ text }: { text?: string }) {
 
   return (
     <div className="mt-6">
-      <h2 className="text-xl font-semibold mb-4 text-blue-900 dark:text-blue-400">
-        Transcript
-      </h2>
+      <div className="flex justify-between items-center mb-4">
+        <h2 className="text-xl font-semibold text-blue-900 dark:text-blue-400">
+          Transcript
+        </h2>
+        <CopyButton text={text} />
+      </div>
       <div
         className="p-4 rounded bg-neutral-50 dark:bg-neutral-800 
-                   border border-neutral-200 dark:border-neutral-700"
+                   border border-neutral-200 dark:border-neutral-700
+                   whitespace-pre-wrap select-all cursor-text"
       >
         {text}
       </div>
