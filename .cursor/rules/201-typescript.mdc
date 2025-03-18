@@ -1,0 +1,51 @@
+---
+description: Generate clean and type-safe TypeScript code with modern syntax
+globs: **/*.{ts,tsx}
+alwaysApply: false
+---
+
+# Code Generation with TypeScript
+
+## Context
+- Use when generating TypeScript code.
+- Assumes the project uses modern TypeScript.
+
+## Requirements
+- Use modern TypeScript syntax.
+- Provide type definitions and interfaces for props and state.
+- Avoid redundant type annotations; let TypeScript infer types.
+
+## Examples
+<example>
+```tsx
+interface ComponentProps {
+  name: string;
+  age: number;
+}
+
+const ExampleComponent = ({ name, age }: ComponentProps) => (
+  <div>
+    <p>Name: {name}</p>
+    <p>Age: {age}</p>
+  </div>
+);
+```
+</example>
+
+<example type="invalid">
+```tsx
+const ExampleComponent = (props: { name: string; age: number }) => {
+  return (
+    <div>
+      <p>Name: {props.name}</p>
+      <p>Age: {props.age}</p>
+    </div>
+  );
+};
+```
+</example>
+
+## Critical Rules
+- Always use interfaces for props.
+- Never use redundant type annotations.
+- Always write clean, concise code.

@@ -1,0 +1,46 @@
+---
+description: Generate TypeScript code using Tailwind CSS 4 for responsive and utility-first designs
+globs: **/*.{tsx,jsx,html}
+alwaysApply: false
+---
+
+# Code Generation with Tailwind CSS 4
+
+## Context
+- Use when generating TypeScript code styled with Tailwind CSS 4.
+- Assumes the project is already set up with Tailwind CSS.
+
+## Requirements
+- Follow responsive design principles using Tailwind CSS classes.
+- Use utility-first classes directly in markup for styling.
+- Avoid inline styles; rely exclusively on Tailwind CSS.
+
+## Examples
+<example>
+```tsx
+<div class="mx-auto flex max-w-sm items-center gap-x-4 rounded-xl bg-white p-6 shadow-lg outline outline-black/5 
+            dark:bg-slate-800 dark:shadow-none dark:-outline-offset-1 dark:outline-white/10">
+  <img class="size-12 shrink-0" src="/img/logo.svg" alt="Example Logo" />
+  <div>
+    <div class="text-xl font-medium text-black dark:text-white">Example</div>
+    <p class="text-gray-500 dark:text-gray-400">You have a new message</p>
+  </div>
+</div>
+```
+</example>
+
+<example type="invalid">
+```tsx
+<div style="margin: auto; display: flex; max-width: 20rem; padding: 1.5rem; background: white;">
+  <img style="width: 3rem;" src="/img/logo.svg" alt="Example Logo" />
+  <div>
+    <h1 style="font-size: 1.25rem; color: black;">Example</h1>
+    <p style="color: gray;">You have a new message</p>
+  </div>
+</div>
+```
+</example>
+
+## Critical Rules
+- Always use Tailwind CSS classes for styling.
+- Never use inline styles or external CSS for styling.

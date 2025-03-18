@@ -1,0 +1,52 @@
+---
+description: Generate Next.js 15 components with TypeScript and Tailwind CSS for optimized performance
+globs: **/*.{tsx,jsx}
+alwaysApply: false
+---
+
+# Next.js 15 Code Generation with TypeScript
+
+## Context
+- Use when generating Next.js 15 components with TypeScript and Tailwind CSS.
+- Assumes the project uses Next.js 15, React 19, and Tailwind CSS 4.
+
+## Requirements
+- Use the App Router and follow Next.js conventions.
+- Default to Server Components; use Client Components only when necessary.
+- Use Next.js metadata API for SEO.
+- Optimize images with the Next.js Image component.
+- Implement loading states with `loading.tsx`.
+
+## Examples
+<example>
+```tsx
+import Image from 'next/image';
+
+export default function Page() {
+  return (
+    <div className="container mx-auto p-4">
+      <Image src="/example.jpg" alt="Example" width={500} height={300} />
+      <h1 className="text-2xl font-bold">Welcome to Next.js 15</h1>
+    </div>
+  );
+}
+```
+</example>
+
+<example type="invalid">
+```tsx
+export default function Page() {
+  return (
+    <div style={{ margin: 'auto', padding: '1rem' }}>
+      <img src="/example.jpg" alt="Example" />
+      <h1 style={{ fontSize: '2rem', fontWeight: 'bold' }}>Welcome to Next.js 15</h1>
+    </div>
+  );
+}
+```
+</example>
+
+## Critical Rules
+- Always use the App Router and Next.js conventions.
+- Never use inline styles; rely on Tailwind CSS.
+- Always optimize images with the Next.js Image component.
