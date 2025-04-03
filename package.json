@@ -7,7 +7,8 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "test": "jest"
+    "test": "jest",
+    "check": "next build && next lint && jest && next dev --turbopack"
   },
   "dependencies": {
     "next": "^15",
