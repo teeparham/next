@@ -151,11 +151,12 @@ export default function NytPage() {
 
   return (
     <main className="container min-h-screen overflow-x-hidden">
-      <div className="my-8 mx-4 sm:mx-8 lg:mx-auto max-w-3xl">
+      <div className="my-8 mx-4 sm:mx-8 lg:mx-auto max-w-6xl">
         <BackHeader />
         <h1 className="mb-4 text-3xl text-blue-800 dark:text-blue-400">
           New York Times
         </h1>
+        {loading && <p>Loading...</p>}
         {articles.map((a) => (
           <Article
             key={a.id}

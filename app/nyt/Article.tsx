@@ -19,7 +19,9 @@ export function Article({
       href={url}
       target="_blank"
       rel="noopener noreferrer"
-      className="inline-block max-w-80 mr-2 mb-2 rounded overflow-hidden shadow-lg bg-white dark:bg-gray-800 text-gray-900 dark:text-gray-100 hover:shadow-xl transition-shadow"
+      className="inline-block max-w-80 mr-4 mb-4 rounded overflow-hidden 
+        shadow-lg bg-white dark:bg-gray-800 text-gray-900 dark:text-gray-100
+        hover:shadow-xl transition-shadow align-top"
     >
       <img className="w-full" src={image_url} alt={title} />
       <div className="px-6 py-4">
@@ -33,5 +35,4 @@ export function Article({
       </div>
     </a>
   );
-  return <div className="m-2">{title}</div>;
 }
