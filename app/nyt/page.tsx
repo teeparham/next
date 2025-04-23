@@ -69,6 +69,21 @@ import { Article } from "./Article";
 //   ],
 //   "eta_id": 0
 // }
+
+type MediaType = {
+  type: string;
+  subtype: string;
+  caption: string;
+  copyright: string;
+  approved_for_syndication: number;
+  "media-metadata": Array<{
+    url: string;
+    format: string;
+    height: number;
+    width: number;
+  }>;
+};
+
 interface ArticleType {
   uri: string;
   url: string;
@@ -90,20 +105,20 @@ interface ArticleType {
   org_facet: string[];
   per_facet: string[];
   geo_facet: string[];
-  media: Array<{
-    type: string;
-    subtype: string;
-    caption: string;
-    copyright: string;
-    approved_for_syndication: number;
-    "media-metadata": Array<{
-      url: string;
-      format: string;
-      height: number;
-      width: number;
-    }>;
-  }>;
+  media: Array<MediaType>;
   eta_id: number;
+}
+
+// images are height 293px, width 440px. 3x2
+function getImageUrl(media: Array<MediaType>): string {
+  if (!media.length) {
+    return "";
+  }
+  const metadata = media[0]["media-metadata"];
+  if (!metadata.length) {
+    return "";
+  }
+  return metadata[metadata.length - 1].url;
 }
 
 export default function NytPage() {
@@ -142,7 +157,14 @@ export default function NytPage() {
           New York Times
         </h1>
         {articles.map((a) => (
-          <Article key={a.id} title={a.title} />
+          <Article
+            key={a.id}
+            abstract={a.abstract}
+            byline={a.byline}
+            image_url={getImageUrl(a.media)}
+            title={a.title}
+            url={a.url}
+          />
         ))}
 
         <PageFooter />
