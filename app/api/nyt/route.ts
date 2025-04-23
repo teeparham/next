@@ -1,5 +1,11 @@
 import { NextResponse } from "next/server";
 
+function getDaysFromParams(url: string): number {
+  const { searchParams } = new URL(url);
+  const days = parseInt(searchParams.get("days") || "7", 10);
+  return [1, 7, 30].includes(days) ? days : 7;
+}
+
 export async function GET(request: Request) {
   const apiKey = process.env.NYT_API_KEY;
   if (!apiKey) {
@@ -9,8 +15,8 @@ export async function GET(request: Request) {
     );
   }
 
-  const period = 7; // 1, 7, or 30 (days)
-  const url = `https://api.nytimes.com/svc/mostpopular/v2/viewed/${period}.json?api-key=${apiKey}`;
+  const days = getDaysFromParams(request.url);
+  const url = `https://api.nytimes.com/svc/mostpopular/v2/viewed/${days}.json?api-key=${apiKey}`;
 
   try {
     const response = await fetch(url);
