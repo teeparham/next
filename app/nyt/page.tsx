@@ -134,7 +134,7 @@ export default function NytPage() {
     const response = await fetch(`/api/nyt?days=${days}`);
     if (!response.ok) {
       const message =
-        response.status == 429 ? "Too many requests" : "Fetch failed";
+        response.status === 429 ? "Too many requests" : "Fetch failed";
       setArticles([]);
       setError(message);
       return;
