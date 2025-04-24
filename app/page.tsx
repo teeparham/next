@@ -1,8 +1,9 @@
 import Link from "next/link";
 import { Arrow } from "./components/Arrow";
 import { LinkTo } from "./components/LinkTo";
-import { ThemeSwitch } from "./components/ThemeSwitch";
+import { GameSummary } from "./components/GameSummary";
 import { Skills } from "./components/Skills";
+import { ThemeSwitch } from "./components/ThemeSwitch";
 import { cx } from "./utils";
 
 const urls = {
@@ -240,33 +241,24 @@ function Games() {
       <h3 className={cx("pt-2 mb-3", css.h3)} id="games">
         Games & Demos
       </h3>
-      <Link href="/mastermind" className={cx("group block", css.h2)}>
-        Mastermind&nbsp;
-        <Arrow />
-      </Link>
-      <div className="mb-3">
-        A React & Tailwind implementation of the classic Mastermind game. I
-        first wrote this in 2019 and modernized it with Typescript in 2024.
-      </div>
-      <Link href="/2048" className={cx("group block", css.h2)}>
-        2048&nbsp;
-        <Arrow />
-      </Link>
-      <div className="mb-3">
-        A React & Tailwind implemention of the online hit game 2048. I added
-        simulator buttons to play the game for you, and a high score tracker.
-      </div>
-      <Link href="/utr" className={cx("group block", css.h2)}>
-        UTR&nbsp;
-        <Arrow />
-      </Link>
-      <div>
-        Search for Universal Tennis Ratings via the UTR Sports API. This demo
-        app has some interesting properties. The API queries are done
-        server-side to avoid CORS restrictions in browser API calls. The are two
+      <GameSummary href="/mastermind" title="Mastermind">
+        Play the classic Mastermind game. I first wrote this in 2019 and
+        modernized it with Typescript and Tailwind in 2024.
+      </GameSummary>
+      <GameSummary href="/2048" title="2048">
+        Play the online hit game 2048. I added simulator buttons to play the
+        game for you, and a high score tracker.
+      </GameSummary>
+      <GameSummary href="/nyt" title="New York Times">
+        View the most popular articles for the past day, week, or month from the
+        New York Times, because journalism.
+      </GameSummary>
+      <GameSummary href="/utr" title="Universal Tennis Ratings (UTR)">
+        Search for Universal Tennis Ratings via the UTR Sports API. The API
+        queries are done server-side to avoid CORS restrictions. The are two
         flavors of Next.js server-side data fetching in the player search and
-        showing the player detail.
-      </div>
+        player detail view.
+      </GameSummary>
     </>
   );
 }
