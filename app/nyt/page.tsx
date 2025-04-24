@@ -4,6 +4,7 @@ import { useEffect, useState } from "react";
 import { BackHeader } from "../components/BackHeader";
 import { PageFooter } from "../components/PageFooter";
 import { Article } from "./Article";
+import { cx } from "../utils";
 
 // example result:
 // {
@@ -109,6 +110,8 @@ interface ArticleType {
   eta_id: number;
 }
 
+type ValidDays = 1 | 7 | 30;
+
 // images are height 293px, width 440px. 3x2
 function getImageUrl(media: Array<MediaType>): string {
   if (!media.length) {
@@ -125,20 +128,25 @@ export default function NytPage() {
   const [articles, setArticles] = useState<Array<ArticleType>>([]);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
+  const [days, setDays] = useState<ValidDays>(7);
 
-  const fetchPopular = async () => {
+  const fetchPopular = async (days: number) => {
     setLoading(true);
 
-    const response = await fetch("/api/nyt");
+    const response = await fetch(`/api/nyt?days=${days}`);
     if (!response.ok) {
-      const error = await response.text();
-      throw new Error(error || "Fetch failed");
+      const message =
+        response.status == 429 ? "Too many requests" : "Fetch failed";
+      setArticles([]);
+      setError(message);
+      return;
     }
     try {
       const data = await response.json();
       console.log(data);
       setArticles(data.results);
     } catch (err) {
+      setArticles([]);
       setError(err instanceof Error ? err.message : "An error occurred");
     } finally {
       setLoading(false);
@@ -146,8 +154,8 @@ export default function NytPage() {
   };
 
   useEffect(() => {
-    fetchPopular();
-  }, []);
+    fetchPopular(days);
+  }, [days]);
 
   return (
     <main className="container min-h-screen overflow-x-hidden">
@@ -156,7 +164,40 @@ export default function NytPage() {
         <h1 className="mb-4 text-3xl text-blue-800 dark:text-blue-400">
           New York Times
         </h1>
-        {loading && <p>Loading...</p>}
+        <div className="mb-4 flex gap-2">
+          <button
+            className={`px-4 py-2 rounded ${
+              days === 1 ? "bg-blue-600 text-white" : "bg-gray-200"
+            }`}
+            onClick={() => {
+              setDays(1);
+            }}
+          >
+            Today
+          </button>
+          <button
+            className={`px-4 py-2 rounded ${
+              days === 7 ? "bg-blue-600 text-white" : "bg-gray-200"
+            }`}
+            onClick={() => {
+              setDays(7);
+            }}
+          >
+            Week
+          </button>
+          <button
+            className={`px-4 py-2 rounded ${
+              days === 30 ? "bg-blue-600 text-white" : "bg-gray-200"
+            }`}
+            onClick={() => {
+              setDays(30);
+            }}
+          >
+            Month
+          </button>
+        </div>
+        {error && <p className="text-red-600">Error: {error}</p>}
+        {!error && loading && <p className="text-2xl">Loading...</p>}
         {articles.map((a) => (
           <Article
             key={a.id}

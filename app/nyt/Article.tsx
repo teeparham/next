@@ -23,7 +23,7 @@ export function Article({
         shadow-lg bg-white dark:bg-gray-800 text-gray-900 dark:text-gray-100
         hover:shadow-xl transition-shadow align-top"
     >
-      <img className="w-full" src={image_url} alt={title} />
+      {image_url && <img className="w-full" src={image_url} alt={title} />}
       <div className="px-6 py-4">
         <div className="font-bold text-xl mb-2">{title}</div>
         <p className="text-gray-700 dark:text-gray-300 text-base">{abstract}</p>
