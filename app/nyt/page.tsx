@@ -141,7 +141,6 @@ export default function NytPage() {
     }
     try {
       const data = await response.json();
-      console.log(data);
       setArticles(data.results);
     } catch (err) {
       setArticles([]);
