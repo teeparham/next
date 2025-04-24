@@ -4,7 +4,7 @@ import { useEffect, useState } from "react";
 import { BackHeader } from "../components/BackHeader";
 import { PageFooter } from "../components/PageFooter";
 import { Article } from "./Article";
-import { cx } from "../utils";
+import { DayButton, ValidDays } from "./DayButton";
 
 // example result:
 // {
@@ -110,8 +110,6 @@ interface ArticleType {
   eta_id: number;
 }
 
-type ValidDays = 1 | 7 | 30;
-
 // images are height 293px, width 440px. 3x2
 function getImageUrl(media: Array<MediaType>): string {
   if (!media.length) {
@@ -128,7 +126,7 @@ export default function NytPage() {
   const [articles, setArticles] = useState<Array<ArticleType>>([]);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
-  const [days, setDays] = useState<ValidDays>(7);
+  const [days, setDays] = useState<ValidDays>(1);
 
   const fetchPopular = async (days: number) => {
     setLoading(true);
@@ -161,43 +159,31 @@ export default function NytPage() {
     <main className="container min-h-screen overflow-x-hidden">
       <div className="my-8 mx-4 sm:mx-8 lg:mx-auto max-w-6xl">
         <BackHeader />
-        <h1 className="mb-4 text-3xl text-blue-800 dark:text-blue-400">
-          New York Times
+        <h1 className="mb-6 text-3xl text-blue-800 dark:text-blue-400">
+          New York Times Popular Articles
         </h1>
-        <div className="mb-4 flex gap-2">
-          <button
-            className={`px-4 py-2 rounded ${
-              days === 1 ? "bg-blue-600 text-white" : "bg-gray-200"
-            }`}
-            onClick={() => {
-              setDays(1);
-            }}
-          >
-            Today
-          </button>
-          <button
-            className={`px-4 py-2 rounded ${
-              days === 7 ? "bg-blue-600 text-white" : "bg-gray-200"
-            }`}
-            onClick={() => {
-              setDays(7);
-            }}
-          >
-            Week
-          </button>
-          <button
-            className={`px-4 py-2 rounded ${
-              days === 30 ? "bg-blue-600 text-white" : "bg-gray-200"
-            }`}
-            onClick={() => {
-              setDays(30);
-            }}
-          >
-            Month
-          </button>
+        <div className="mb-6 flex gap-4">
+          <DayButton
+            days={1}
+            selectedDays={days}
+            setDays={setDays}
+            text="Today"
+          />
+          <DayButton
+            days={7}
+            selectedDays={days}
+            setDays={setDays}
+            text="Past week"
+          />
+          <DayButton
+            days={30}
+            selectedDays={days}
+            setDays={setDays}
+            text="Past month"
+          />
         </div>
-        {error && <p className="text-red-600">Error: {error}</p>}
-        {!error && loading && <p className="text-2xl">Loading...</p>}
+        {error && <p className="text-red-600 text-2xl my-4">Error: {error}</p>}
+        {!error && loading && <p className="text-2xl my-4">Loading...</p>}
         {articles.map((a) => (
           <Article
             key={a.id}

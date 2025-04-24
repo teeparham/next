@@ -2,8 +2,8 @@ import { NextResponse } from "next/server";
 
 function getDaysFromParams(url: string): number {
   const { searchParams } = new URL(url);
-  const days = parseInt(searchParams.get("days") || "7", 10);
-  return [1, 7, 30].includes(days) ? days : 7;
+  const days = parseInt(searchParams.get("days") || "1", 10);
+  return [1, 7, 30].includes(days) ? days : 1;
 }
 
 export async function GET(request: Request) {
