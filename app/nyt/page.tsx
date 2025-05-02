@@ -130,12 +130,12 @@ export default function NytPage() {
 
   const fetchPopular = async (days: number) => {
     setLoading(true);
+    setArticles([]);
 
     const response = await fetch(`/api/nyt?days=${days}`);
     if (!response.ok) {
       const message =
         response.status === 429 ? "Too many requests" : "Fetch failed";
-      setArticles([]);
       setError(message);
       return;
     }
@@ -143,7 +143,6 @@ export default function NytPage() {
       const data = await response.json();
       setArticles(data.results);
     } catch (err) {
-      setArticles([]);
       setError(err instanceof Error ? err.message : "An error occurred");
     } finally {
       setLoading(false);
@@ -182,7 +181,15 @@ export default function NytPage() {
           />
         </div>
         {error && <p className="text-red-600 text-2xl my-4">Error: {error}</p>}
-        {!error && loading && <p className="text-2xl my-4">Loading...</p>}
+        {!error && loading && (
+          <Article
+            abstract="&nbsp;"
+            byline="&nbsp;"
+            image_url="https://help.nytimes.com/hc/theming_assets/01HZPCK5BKMK9ZRNEE1Y6J1PHW"
+            title="Loading..."
+            url=""
+          />
+        )}
         {articles.map((a) => (
           <Article
             key={a.id}

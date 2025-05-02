@@ -19,7 +19,7 @@ export function Article({
       href={url}
       target="_blank"
       rel="noopener noreferrer"
-      className="inline-block max-w-80 mr-4 mb-4 rounded-xl overflow-hidden 
+      className="inline-block md:max-w-80 mr-4 mb-4 rounded-xl overflow-hidden 
         shadow-lg bg-white dark:bg-neutral-900 text-neutral-900 dark:text-neutral-100
         hover:shadow-xl transition-shadow align-top"
     >
