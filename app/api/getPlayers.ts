@@ -11,7 +11,11 @@ export async function getPlayers(query: string): Promise<Array<Source>> {
   }
 
   const data = await fetch(
-    `https://api.utrsports.net/v2/search?query=${encodeURIComponent(query)}&top=10&skip=0`
+    `https://api.utrsports.net/v2/search?query=${encodeURIComponent(query)}&top=10&skip=0`,
+    {
+      next: { revalidate: 7200 },
+      cache: "force-cache",
+    }
   );
 
   if (!data.ok) {

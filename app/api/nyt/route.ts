@@ -19,7 +19,10 @@ export async function GET(request: Request) {
   const url = `https://api.nytimes.com/svc/mostpopular/v2/viewed/${days}.json?api-key=${apiKey}`;
 
   try {
-    const response = await fetch(url);
+    const response = await fetch(url, {
+      next: { revalidate: 900 },
+      cache: "force-cache",
+    });
     if (!response.ok) {
       return NextResponse.json(
         { error: "Failed to fetch data from NYT API" },
