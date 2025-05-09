@@ -3,6 +3,7 @@ import { Open_Sans } from "next/font/google";
 import "./globals.css";
 import { cx } from "./utils";
 import { Providers } from "./components/Providers";
+import { Analytics } from "@vercel/analytics/next";
 
 const openSans = Open_Sans({ subsets: ["latin"] });
 
@@ -27,6 +28,7 @@ export default function Layout({ children }: LayoutProps) {
         )}
       >
         <Providers>{children}</Providers>
+        <Analytics />
       </body>
     </html>
   );
