@@ -11,8 +11,9 @@
     "check": "next build && next lint && jest && next dev --turbopack"
   },
   "dependencies": {
-    "@vercel/analytics": "^1",
     "@tanstack/react-query": "^5",
+    "@vercel/analytics": "^1",
+    "@vercel/speed-insights": "^1",
     "next": "^15",
     "next-themes": "^0.4",
     "react": "^19",
