@@ -4,6 +4,7 @@ import "./globals.css";
 import { cx } from "./utils";
 import { Providers } from "./components/Providers";
 import { Analytics } from "@vercel/analytics/next";
+import { SpeedInsights } from "@vercel/speed-insights/next";
 
 const openSans = Open_Sans({ subsets: ["latin"] });
 
@@ -29,6 +30,7 @@ export default function Layout({ children }: LayoutProps) {
       >
         <Providers>{children}</Providers>
         <Analytics />
+        <SpeedInsights />
       </body>
     </html>
   );
